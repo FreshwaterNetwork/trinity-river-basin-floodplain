@@ -487,32 +487,37 @@ function cbChecker(t) {
 function layerDefs() {
   app.obj.exp = [
     app.Acres,
+    app.AcresUnp,
+    app.iy_tn,
+    app.iy_tn_del,
+    app.iy_tp,
+    app.iy_tp_del,
+    app.iy_ss,
+    app.iy_ss_del,
+    app.iy_tn_p,
     app.iy_tn_del_p,
+    app.iy_tp_p,
     app.iy_tp_del_p,
-    app.iy_tn_del_farm_p,
-    app.iy_tp_del_farm_p,
-    app.iy_tn_del_waste_p,
-    app.iy_tp_del_waste_p,
-    app.nccpi,
-    app.drain,
-    app.NRCS,
-    app.kfact_mean,
-    app.GIindex,
-    app.cropperc,
-    app.karst_perc,
-    app.nearProt,
-    app.wetspec,
-    app.nearIBA,
-    app.inTNC,
-    app.cumu_hci,
+    app.iy_ss_p,
+    app.iy_ss_del_p,
+    app.bacteria,
+    app.TXTerr,
+    app.TXFresh,
     app.resil,
-    app.SWAPCount,
-    app.swap1,
-    app.swap2,
-    app.swap3,
-    app.pop,
+    app.nearProt,
+    app.abovegrC,
+    app.belowgrC,
+    app.SVI,
+    app.popnow,
+    app.pop2050,
     app.damages,
-    app.SOVI,
+    app.devpres,
+    app.devpr_fp,
+    app.nccpi,
+    app.incroppc,
+    app.inrangpc,
+    app.pdsoilpc,
+    app.kfact,
   ];
   var exp = '';
   var cnt = 0;
@@ -538,6 +543,7 @@ function layerDefs() {
   app.definitionExpression = exp;
   var layer = app.layers.findSublayerById(parseInt(app.obj.hucLayer));
   layer.definitionExpression = exp;
+  console.log(exp)
 }
 function commaSeparateNumber(val) {
   while (/(\d+)(\d{3})/.test(val.toString())) {

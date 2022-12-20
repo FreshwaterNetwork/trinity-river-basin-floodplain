@@ -122,6 +122,13 @@ app.filterObj = {
           'Nutrient loading to Gulf of Mexico (phosphorus) -- from wastewater & urban runoff',
         unit: '',
       },
+      con6: {
+        type: 'slider',
+        field: 'iy_ss_del',
+        label:
+          'Suspended sediment yield to Gulf',
+        unit: '',
+      }
     },
   },
   group2: {
@@ -343,43 +350,56 @@ app.mapImageLayers = [
 ];
 
 // definition expression root field names
-app.Acres = '';
-app.iy_tn_del_p = '';
-app.iy_tp_del_p = '';
-app.iy_tn_del_farm_p = '';
-app.iy_tp_del_farm_p = '';
-app.iy_tn_del_waste_p = '';
-app.iy_tp_del_waste_p = '';
-app.nccpi = '';
-app.drain = '';
-app.NRCS = '';
-app.kfact_mean = '';
-app.GIindex = '';
-app.cropperc = '';
-app.karst_perc = '';
-app.nearProt = '';
-app.nearIBA = '';
-app.inTNC = '';
-app.cumu_hci = '';
-app.resil = '';
-app.SWAPCount = '';
-app.wetspec = '';
-app.swap1 = '';
-app.swap2 = '';
-app.swap3 = '';
-app.pop = '';
-app.damages = '';
-app.SOVI = '';
+app.Acres= '';
+app.AcresUnp= '';
+app.iy_tn= '';
+app.iy_tn_del= '';
+app.iy_tp= '';
+app.iy_tp_del= '';
+app.iy_ss= '';
+app.iy_ss_del= '';
+app.iy_tn_p= '';
+app.iy_tn_del_p= '';
+app.iy_tp_p= '';
+app.iy_tp_del_p= '';
+app.iy_ss_p= '';
+app.iy_ss_del_p= '';
+app.bacteria= '';
+app.TXTerr= '';
+app.TXFresh= '';
+app.resil= '';
+app.nearProt= '';
+app.abovegrC= '';
+app.belowgrC= '';
+app.SVI= '';
+app.popnow= '';
+app.pop2050= '';
+app.damages= '';
+app.devpres= '';
+app.devpr_fp= '';
+app.nccpi= '';
+app.incroppc= '';
+app.inrangpc= '';
+app.pdsoilpc= '';
+app.kfact= '';
 
 // object for range slider
 app.sliderObj = {
   // huc 8 + 1 in 5 year flood
   h81: {
+    iy_ss_del: {
+      values: [],
+      vis: true,
+      min: 0,
+      max: 800,
+      shfld: true,
+      info: '<b>Suspended sediment yield to Gulf</b><br>'
+    },
     Acres: {
       values: [],
       vis: true,
       min: 0,
-      max: 50064,
+      max: 100000,
       gtmax: false,
       info: '<b>Available unprotected floodplain area for the currently specified flood frequency</b><br>Area of floodplain in forest, wetland, or grassland that is not currently in protected status.',
     },
@@ -580,6 +600,14 @@ app.sliderObj = {
   },
   // huc 8 + 1 in 100 year flood
   h82: {
+    iy_ss_del: {
+      values: [],
+      vis: true,
+      min: 0,
+      max: 3000,
+      shfld: true,
+      info: '<b>Suspended sediment yield to Gulf</b><br>'
+    },
     Acres: {
       values: [],
       vis: true,
@@ -785,6 +813,14 @@ app.sliderObj = {
   },
   // huc 8 + 1 in 500 year flood
   h83: {
+    iy_ss_del: {
+      values: [],
+      vis: true,
+      min: 0,
+      max: 9000,
+      shfld: true,
+      info: '<b>Suspended sediment yield to Gulf</b><br>'
+    },
     Acres: {
       values: [],
       vis: true,

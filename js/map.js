@@ -98,7 +98,8 @@ require([
 
   // create map layers - the source can be a map service or an AGO web map - sublayers are defined in variables.js
   app.layers = new MapImageLayer({
-    url: 'https://cirrus.tnc.org/arcgis/rest/services/FN_AGR/KY_Floodplain/MapServer',
+    url: 'https://cirrus.tnc.org/arcgis/rest/services/FN_AGR/Trinity_Basin_TX/MapServer',
+    // url: 'https://cirrus.tnc.org/arcgis/rest/services/FN_AGR/KY_Floodplain/MapServer',
     sublayers: app.mapImageLayers,
   });
   // graphics layer for map click graphics
