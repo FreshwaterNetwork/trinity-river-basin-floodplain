@@ -174,7 +174,7 @@ app.filterObj = {
         label: 'Mean above-ground carbon in the floodplain',
         unit: 'tons C/ha',
       },
-      con2: {
+      con1: {
         type: 'slider',
         field: 'belowgrC',
         label: 'Mean below-ground carbon in the floodplain',
