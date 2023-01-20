@@ -154,18 +154,18 @@ require([
   Promise.race(promises)
     .then((result) => {
       console.log(result.layer.title);
+      document.body.style.cursor = 'auto';
     })
     .catch((err) => {
       console.log(err);
       app.layers.refresh();
     });
-
   // -----------------------------------------
 
   // call event listener for map clicks
   mapClick();
 
-  // trigger button clicks on startup
+  //trigger button clicks on startup
   document
     .querySelectorAll("#top-controls input[name='huc']")
     .forEach((input) => {

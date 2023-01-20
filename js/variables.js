@@ -2273,6 +2273,18 @@ app.sliderObj = {
 app.radioObj = {
   // huc 8 + 1 in 5 year flood
   h81: {
+    bacteria: {
+      vis: true,
+      info: 'test'
+    },
+    TXTerr: {
+      vis: true,
+      info: 'test'
+    },
+    TXFresh: {
+      vis: true,
+      info: 'test'
+    },
     nearIBA: {
       vis: true,
       info: "<b>Important Bird Areas</b><br>Sites identified by Audubon as having significance for the conservation of birds, supporting rare and endangered species as well as globally important concentrations of non-endangered species. Watersheds are classified as 'present' if there is floodplain in or within 0.25 miles of an Important Bird Area. <a href='https://www.audubon.org/important-bird-areas' target='_blank'>More Info</a>",
@@ -2284,6 +2296,18 @@ app.radioObj = {
   },
   // huc 8 + 1 in 100 year flood
   h82: {
+    bacteria: {
+      vis: true,
+      info: 'test'
+    },
+    TXTerr: {
+      vis: true,
+      info: 'test'
+    },
+    TXFresh: {
+      vis: true,
+      info: 'test'
+    },
     nearIBA: {
       vis: true,
       info: "<b>Important Bird Areas</b><br>Sites identified by Audubon as having significance for the conservation of birds, supporting rare and endangered species as well as globally important concentrations of non-endangered species. Watersheds are classified as 'present' if there is floodplain in or within 0.25 miles of an Important Bird Area. <a href='https://www.audubon.org/important-bird-areas' target='_blank'>More Info</a>",
@@ -2295,6 +2319,18 @@ app.radioObj = {
   },
   // huc 8 + 1 in 500 year flood
   h83: {
+    bacteria: {
+      vis: true,
+      info: 'test'
+    },
+    TXTerr: {
+      vis: true,
+      info: 'test'
+    },
+    TXFresh: {
+      vis: true,
+      info: 'test'
+    },
     nearIBA: {
       vis: true,
       info: "<b>Important Bird Areas</b><br>Sites identified by Audubon as having significance for the conservation of birds, supporting rare and endangered species as well as globally important concentrations of non-endangered species. Watersheds are classified as 'present' if there is floodplain in or within 0.25 miles of an Important Bird Area. <a href='https://www.audubon.org/important-bird-areas' target='_blank'>More Info</a>",
@@ -2306,6 +2342,18 @@ app.radioObj = {
   },
   // huc 12 + 1 in 5 year flood
   h121: {
+    bacteria: {
+      vis: true,
+      info: 'test'
+    },
+    TXTerr: {
+      vis: true,
+      info: 'test'
+    },
+    TXFresh: {
+      vis: true,
+      info: 'test'
+    },
     nearIBA: {
       vis: true,
       info: "<b>Important Bird Areas</b><br>Sites identified by Audubon as having significance for the conservation of birds, supporting rare and endangered species as well as globally important concentrations of non-endangered species. Watersheds are classified as 'present' if there is floodplain in or within 0.25 miles of an Important Bird Area. <a href='https://www.audubon.org/important-bird-areas' target='_blank'>More Info</a>",
@@ -2317,6 +2365,18 @@ app.radioObj = {
   },
   // huc 12 + 1 in 100 year flood
   h122: {
+    bacteria: {
+      vis: true,
+      info: 'test'
+    },
+    TXTerr: {
+      vis: true,
+      info: 'test'
+    },
+    TXFresh: {
+      vis: true,
+      info: 'test'
+    },
     nearIBA: {
       vis: true,
       info: "<b>Important Bird Areas</b><br>Sites identified by Audubon as having significance for the conservation of birds, supporting rare and endangered species as well as globally important concentrations of non-endangered species. Watersheds are classified as 'present' if there is floodplain in or within 0.25 miles of an Important Bird Area. <a href='https://www.audubon.org/important-bird-areas' target='_blank'>More Info</a>",
@@ -2328,6 +2388,18 @@ app.radioObj = {
   },
   // huc 12 + 1 in 500 year flood
   h123: {
+    bacteria: {
+      vis: true,
+      info: 'test'
+    },
+    TXTerr: {
+      vis: true,
+      info: 'test'
+    },
+    TXFresh: {
+      vis: true,
+      info: 'test'
+    },
     nearIBA: {
       vis: true,
       info: "<b>Important Bird Areas</b><br>Sites identified by Audubon as having significance for the conservation of birds, supporting rare and endangered species as well as globally important concentrations of non-endangered species. Watersheds are classified as 'present' if there is floodplain in or within 0.25 miles of an Important Bird Area. <a href='https://www.audubon.org/important-bird-areas' target='_blank'>More Info</a>",
@@ -2339,6 +2411,18 @@ app.radioObj = {
   },
   // catchment + 1 in 5 year flood
   catch1: {
+    bacteria: {
+      vis: true,
+      info: 'test'
+    },
+    TXTerr: {
+      vis: true,
+      info: 'test'
+    },
+    TXFresh: {
+      vis: true,
+      info: 'test'
+    },
     nearIBA: {
       vis: true,
       info: "<b>Important Bird Areas</b><br>Sites identified by Audubon as having significance for the conservation of birds, supporting rare and endangered species as well as globally important concentrations of non-endangered species. Watersheds are classified as 'present' if there is floodplain in or within 0.25 miles of an Important Bird Area. <a href='https://www.audubon.org/important-bird-areas' target='_blank'>More Info</a>",
@@ -2350,6 +2434,18 @@ app.radioObj = {
   },
   // catchment + 1 in 100 year flood
   catch2: {
+    bacteria: {
+      vis: true,
+      info: 'test'
+    },
+    TXTerr: {
+      vis: true,
+      info: 'test'
+    },
+    TXFresh: {
+      vis: true,
+      info: 'test'
+    },
     nearIBA: {
       vis: true,
       info: "<b>Important Bird Areas</b><br>Sites identified by Audubon as having significance for the conservation of birds, supporting rare and endangered species as well as globally important concentrations of non-endangered species. Watersheds are classified as 'present' if there is floodplain in or within 0.25 miles of an Important Bird Area. <a href='https://www.audubon.org/important-bird-areas' target='_blank'>More Info</a>",
@@ -2361,6 +2457,18 @@ app.radioObj = {
   },
   // catchment + 1 in 500 year flood
   catch3: {
+    bacteria: {
+      vis: true,
+      info: 'test'
+    },
+    TXTerr: {
+      vis: true,
+      info: 'test'
+    },
+    TXFresh: {
+      vis: true,
+      info: 'test'
+    },
     nearIBA: {
       vis: true,
       info: "<b>Important Bird Areas</b><br>Sites identified by Audubon as having significance for the conservation of birds, supporting rare and endangered species as well as globally important concentrations of non-endangered species. Watersheds are classified as 'present' if there is floodplain in or within 0.25 miles of an Important Bird Area. <a href='https://www.audubon.org/important-bird-areas' target='_blank'>More Info</a>",

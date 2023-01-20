@@ -543,7 +543,6 @@ function layerDefs() {
   app.definitionExpression = exp;
   var layer = app.layers.findSublayerById(parseInt(app.obj.hucLayer));
   layer.definitionExpression = exp;
-  console.log(exp)
 }
 function commaSeparateNumber(val) {
   while (/(\d+)(\d{3})/.test(val.toString())) {
