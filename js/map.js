@@ -30,15 +30,24 @@ require([
   GraphicsLayer,
   watchUtils
 ) {
+
+  // create map layers - the source can be a map service or an AGO web map - sublayers are defined in variables.js
+  app.layers = new MapImageLayer({
+    url: 'https://cirrus.tnc.org/arcgis/rest/services/FN_AGR/Trinity_Basin_TX/MapServer',
+    // url: 'https://cirrus.tnc.org/arcgis/rest/services/FN_AGR/KY_Floodplain/MapServer',
+    sublayers: app.mapImageLayers,
+  });
+  
   // create map
   app.map = new Map({
     basemap: 'topo',
+    layers: [app.layers]
   });
 
   //create map view
   app.view = new MapView({
     container: 'viewDiv',
-    center: [-85.60171841068595, 37.5230849952084],
+    center: [-96, 31.5],
     zoom: 7,
     map: app.map,
     // add popup window to map view for map clicks
@@ -96,25 +105,14 @@ require([
   // move zoom controls to top right
   app.view.ui.move(['zoom'], 'top-right');
 
-  // create map layers - the source can be a map service or an AGO web map - sublayers are defined in variables.js
-  app.layers = new MapImageLayer({
-    url: 'https://cirrus.tnc.org/arcgis/rest/services/FN_AGR/Trinity_Basin_TX/MapServer',
-    // url: 'https://cirrus.tnc.org/arcgis/rest/services/FN_AGR/KY_Floodplain/MapServer',
-    sublayers: app.mapImageLayers,
-  });
   // graphics layer for map click graphics
   app.resultsLayer = new GraphicsLayer();
   // add layers to map
-  app.map.add(app.layers);
   app.map.add(app.resultsLayer);
 
   // create legend
   app.legend = new Legend({
     view: app.view,
-    // layerInfos:[{
-    //    layer: app.layers,
-    //    title: "Legend"
-    // }],
     container: document.createElement('div'),
   });
   app.lgExpand = new Expand({
@@ -141,6 +139,28 @@ require([
       app.resultsLayer.removeAll();
     });
   });
+
+  // ---------------------------------------
+
+  document.body.style.cursor = 'wait';
+  const timer = new Promise((resolve, reject) => {
+    setTimeout(reject, 5000, 'to slow');
+  });
+
+  const layerViewLoad = app.view.whenLayerView(app.layers);
+
+  const promises = [timer, layerViewLoad];
+
+  Promise.race(promises)
+    .then((result) => {
+      console.log(result.layer.title);
+    })
+    .catch((err) => {
+      console.log(err);
+      app.layers.refresh();
+    });
+
+  // -----------------------------------------
 
   // call event listener for map clicks
   mapClick();

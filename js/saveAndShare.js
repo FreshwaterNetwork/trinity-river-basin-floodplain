@@ -155,14 +155,5 @@ function buildFromState(){
 			})
 		});
 		app.obj.stateSet = "no";
-	}else{
-		//zoom to layer
-		app.layers.when(function() {
-			app.view.goTo(app.layers.fullExtent).catch(function(error){
-				if (error.name != "AbortError"){
-					console.error(error);
-				}
-			});
-		});
 	}
 }
