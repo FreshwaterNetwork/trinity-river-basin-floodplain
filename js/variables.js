@@ -18,7 +18,7 @@ if (search) {
 // build top level controls
 app.topObj = {
   introP:
-    'This floodplain prioritization tool is designed to identify critical opportunities for floodplain protection in Kentucky. Use the selector widgets below to specify criteria related to water quality, wildlife habitat, and human exposure to flood risk. The map on the right will change in response to your selections to identify sites meeting these criteria, identifying those geographies where floodplain conservation is likely to have the greatest positive impact on the health of this river system.<br><br>This tool uses the Fathom-US 2.0 floodplain data, the most comprehensive view of flood hazard across the United States. To learn more about this dataset, visit <a href="https://www.fathom.global/fathom-us" target="_blank">here</a> and <a href="https://firststreet.org/research-lab/published-research/flood-model-methodology_overview/" target="_blank">here</a>.',
+    'This floodplain prioritization tool is designed to identify critical opportunities for floodplain protection in the Trinity River basin. Use the selector widgets below to specify criteria related to water quality, wildlife habitat, carbon storage, flood risk, and land use characteristics. The map on the right will change in response to your selections to identify sites meeting these criteria, identifying those geographies where floodplain conservation is likely to have the greatest positive impact on the health of this river system.<br><br>The delineation of the floodplain used in this tool is based on the FEMA base-level engineering (BLE) flood risk data, supplemented with Fathom floodplain data developed for the Texas Water Development Board (TWDB).<br><br>To learn more about the FEMA BLE dataset, visit <a href="https://webapps.usgs.gov/infrm/estBFE/" target="_blank">here</a>.<br>To learn more about the supplementary TWDB Fathom dataset, visit <a href="https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/ac16256918db4e188807b3a2c30b0f72" target="_blank">here</a>.',
   toggleBtns: {
     tb1: {
       header: 'Select Flood Frequency',
@@ -73,189 +73,189 @@ app.filterObj = {
         type: 'slider',
         field: 'Acres',
         label:
-          'Available unprotected floodplain area for the currently specified flood frequency',
+          'Available floodplain area for the currently specified flood frequency',
         unit: 'acres',
-        single: true,
       },
+      con1: {
+        type: 'slider',
+        field: 'AcresUnp',
+        label: 'Available unprotected floodplain area for the currently specified flood frequency',
+        unit: 'acres',
+      }
     },
   },
   group1: {
-    header: 'Nutrients',
+    header: 'Water Quality',
     controls: {
       con0: {
         type: 'slider',
-        field: 'iy_tn_del_p',
-        label: 'Nutrient loading to Gulf of Mexico (nitrogen)',
+        field: 'iy_tn_p',
+        label: 'Local nutrient yield (nitrogen)',
         unit: '',
       },
       con1: {
         type: 'slider',
-        field: 'iy_tp_del_p',
-        label: 'Nutrient loading to Gulf of Mexico (phosphorus)',
+        field: 'iy_tn_del_p',
+        label: 'Nutrient yield to Gulf of Mexico (nitrogen)',
         unit: '',
       },
       con2: {
         type: 'slider',
-        field: 'iy_tn_del_farm_p',
+        field: 'iy_tp_p',
         label:
-          'Nutrient loading to Gulf of Mexico (nitrogen) -- from fertilizer & manure',
+          'Local nutrient yield (phosphorus)',
         unit: '',
       },
       con3: {
         type: 'slider',
-        field: 'iy_tp_del_farm_p',
+        field: 'iy_tp_del_p',
         label:
-          'Nutrient loading to Gulf of Mexico (phosphorus) -- from fertilizer & manure',
+          'Nutrient yield to Gulf of Mexico (phosphorus)',
         unit: '',
       },
       con4: {
         type: 'slider',
-        field: 'iy_tn_del_waste_p',
+        field: 'iy_ss_p',
         label:
-          'Nutrient loading to Gulf of Mexico (nitrogen) -- from wastewater & urban runoff',
+          'Local yield (suspended sediment)',
         unit: '',
       },
       con5: {
         type: 'slider',
-        field: 'iy_tp_del_waste_p',
+        field: 'iy_ss_del_p',
         label:
-          'Nutrient loading to Gulf of Mexico (phosphorus) -- from wastewater & urban runoff',
+          'Yield to Gulf of Mexico (suspended sediment)',
         unit: '',
       },
       con6: {
-        type: 'slider',
-        field: 'iy_ss_del',
+        type: 'radio',
+        field: 'bacteria',
         label:
-          'Suspended sediment yield to Gulf',
+          'Does the watershed contain a stream 303d-listed as impaired for bacteria?',
         unit: '',
       }
     },
   },
   group2: {
-    header: 'Soils/Land Use',
+    header: 'Habitat',
     controls: {
       con0: {
+        type: 'radio',
+        field: 'TXTerr',
+        label: 'Does the floodplain contain a Texas terrestrial conservation priority area?',
+        unit: '',
+      },
+      con1: {
+        type: 'radio',
+        field: 'TXFresh',
+        label: 'Does the floodplain contain a Texas freshwater conservation priority area?',
+        unit: '',
+      },
+      con2: {
+        type: 'slider',
+        field: 'resil',
+        label: 'Terrestrial resilience index',
+        unit: '',
+      },
+      con3: {
+        type: 'slider',
+        field: 'nearProt',
+        label: 'Connectivity -- Acres of floodplain near protected land',
+        unit: 'acres',
+      },
+    },
+  },
+  group3: {
+    header: 'Carbon Storage',
+    controls: {
+      con0: {
+        type: 'slider',
+        field: 'abovegrC',
+        label: 'Mean above-ground carbon in the floodplain',
+        unit: 'tons C/ha',
+      },
+      con2: {
+        type: 'slider',
+        field: 'belowgrC',
+        label: 'Mean below-ground carbon in the floodplain',
+        unit: 'tons C/ha',
+      },
+    },
+  },
+  group4: {
+    header: 'Flood Risk',
+    controls: {
+      con0: {
+        type: 'slider',
+        field: 'popnow',
+        label: 'Population exposure to floods (present-day)',
+        unit: '',
+      },
+      con1: {
+        type: 'slider',
+        field: 'pop2050',
+        label: 'Population exposure to floods (2050)',
+        unit: '',
+      },
+      con2: {
+        type: 'slider',
+        field: 'damages',
+        label: 'Projected future flood damages (2050) ($)',
+        unit: '$',
+      },
+      con3: {
+        type: 'slider',
+        field: 'SVI',
+        label: 'CDC Social Vulnerability Index',
+        unit: '',
+      }
+    },
+  },
+  group5: {
+    header: 'Land Use / Land Cover',
+    controls: {
+      con0: {
+        type: 'slider',
+        field: 'devpr_fp',
+        label: 'Development pressure in the floodplain by 2050 (index)',
+        unit: '',
+      },
+      con1: {
+        type: 'slider',
+        field: 'devpres',
+        label: 'Development pressure in the watershed by 2050 (index)',
+        unit: '',
+      },
+      con2: {
+        type: 'slider',
+        field: 'incroppc',
+        label: 'Percent of floodplain in cropland',
+        unit: '%',
+      },
+      con3: {
+        type: 'slider',
+        field: 'inrangpc',
+        label: 'Percent of floodplain in rangeland',
+        unit: '%',
+      },
+      con4: {
         type: 'slider',
         field: 'nccpi',
         label: 'Agricultural productivity potential of soils in the floodplain',
         unit: '',
       },
-      con1: {
+      con5: {
         type: 'slider',
-        field: 'drain',
-        label:
-          'Percent of floodplain in somewhat poorly, poorly, & very poorly drained soils',
+        field: 'pdsoilpc',
+        label: 'Percent of floodplain in somewhat poorly, poorly, & very poorly drained soils',
         unit: '%',
       },
-      con2: {
-        type: 'slider',
-        field: 'NRCS',
-        label: 'NRCS Watershed Vulnerability Index',
-        unit: '',
-      },
-      con3: {
-        type: 'slider',
-        field: 'kfact_mean',
-        label: 'Soil erodibility index (K factor)',
-        unit: '',
-      },
-      con4: {
-        type: 'slider',
-        field: 'GIindex',
-        label: 'Kentucky green infrastructure priority analysis',
-        unit: '',
-      },
-      con5: {
-        type: 'slider',
-        field: 'cropperc',
-        label: '% of watershed in cropland or pasture',
-        unit: '',
-      },
       con6: {
         type: 'slider',
-        field: 'karst_perc',
-        label: '% of watershed in karst',
+        field: 'kfact',
+        label: 'Soil erodibility index in the floodplain (K factor)',
         unit: '',
-      },
-    },
-  },
-  group3: {
-    header: 'Habitat',
-    controls: {
-      con0: {
-        type: 'slider',
-        field: 'nearProt',
-        label: 'Floodplains near protected lands',
-        unit: 'acres',
-      },
-
-      con2: {
-        type: 'radio',
-        field: 'inTNC',
-        label: 'Nature Conservancy ecoregional assessment units',
-      },
-      con3: {
-        type: 'slider',
-        field: 'cumu_hci',
-        label:
-          'National Fish Habitat Partnership cumulative habitat condition index',
-        unit: '',
-      },
-      con4: {
-        type: 'slider',
-        field: 'resil',
-        label: 'Terrestrial resilience',
-        unit: '',
-      },
-      con5: {
-        type: 'slider',
-        field: 'wetspec',
-        label: 'Number of wetland species of conservation interest',
-        unit: '',
-      },
-      con6: {
-        type: 'slider',
-        field: 'SWAPCount',
-        label: 'State Wildlife Action Plan species',
-        unit: '',
-      },
-    },
-  },
-  group4: {
-    header: 'Population Exposure',
-    controls: {
-      con0: {
-        type: 'slider',
-        field: 'pop',
-        label:
-          'Population living in unprotected floodplain of the currently specified flood frequency',
-        single: true,
-        unit: '',
-      },
-    },
-  },
-  group5: {
-    header: 'Flood Damages',
-    controls: {
-      con0: {
-        type: 'slider',
-        field: 'damages',
-        label: 'Projected future flood damages (2050) ($)',
-        single: true,
-        unit: '$',
-      },
-    },
-  },
-  group6: {
-    header: 'Social Vulnerability',
-    controls: {
-      con0: {
-        type: 'slider',
-        field: 'SOVI',
-        label: 'Index of social vulnerability to environmental hazards',
-        single: true,
-        unit: '',
-      },
+      }
     },
   },
 };
