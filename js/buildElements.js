@@ -1,41 +1,55 @@
-function buildElements(){
-	// create intro paragraph and toggle button controls from object
-	document.getElementById("introP").innerHTML = app.topObj["introP"];
-	let tbnum = 0;
-	Object.entries(app.topObj["toggleBtns"]).forEach(([key, value]) => {
-		tbnum = tbnum + 1;
-		document.querySelector("#top-controls").insertAdjacentHTML("beforeend", `
+function buildElements() {
+  // create intro paragraph and toggle button controls from object
+  document.getElementById('introP').innerHTML = app.topObj['introP'];
+  let tbnum = 0;
+  Object.entries(app.topObj['toggleBtns']).forEach(([key, value]) => {
+    tbnum = tbnum + 1;
+    document.querySelector('#top-controls').insertAdjacentHTML(
+      'beforeend',
+      `
 			<h4>${value.header}</h4>
 			<div id="tb-${tbnum}" class="toggle-btn"></div>
-		`);
-		Object.entries(value.btns).forEach(([key1, value1]) => {
-			document.querySelector(`#tb-${tbnum}`).insertAdjacentHTML("beforeend", `
+		`
+    );
+    Object.entries(value.btns).forEach(([key1, value1]) => {
+      document.querySelector(`#tb-${tbnum}`).insertAdjacentHTML(
+        'beforeend',
+        `
 				<input type="radio" id="${value1.id}" name="${value.name}" value="${value1.value}"/>
 				<label for="${value1.id}">${value1.label}</label>
-			`);
-		})
-	})
-	// add slider for opacity
-	document.querySelector("#opacity-wrap").insertAdjacentHTML("beforeend", `
+			`
+      );
+    });
+  });
+  // add slider for opacity
+  document.querySelector('#opacity-wrap').insertAdjacentHTML(
+    'beforeend',
+    `
 		<div class="opacity-slidecontainer">
 			<label for="sl-opacity">Watershed Opacity</label>
 			<input type="range" min="0" max="1" step=".1" value=".7" class="opacity-slider" id="sl-opacity" name="sl-opacity">
 		</div>
-	`);
+	`
+  );
 
-	// create filter controls from object
-	let num = 0;
-    let num1 = 0;
-    Object.entries(app.filterObj).forEach(([k, v]) => {
-    	num = num + 1;
-		document.querySelector(`#mng-act-wrap`).insertAdjacentHTML("beforeend", `
+  // create filter controls from object
+  let num = 0;
+  let num1 = 0;
+  Object.entries(app.filterObj).forEach(([k, v]) => {
+    num = num + 1;
+    document.querySelector(`#mng-act-wrap`).insertAdjacentHTML(
+      'beforeend',
+      `
 			<h4><span class="fa fa-chevron-down chev-oc chev-o"></span><span class="fa fa-chevron-right chev-oc chev-c"></span>${v.header}</h4>
 			<div class="oc-wrap" id="oc-wrap${num}"></div>
-		`);
-		Object.entries(v.controls).forEach(([k1, v1]) => {
-			num1 = num1 + 1;
-			if (v1.type == "slider"){
-				document.querySelector(`#oc-wrap${num}`).insertAdjacentHTML("beforeend", `
+		`
+    );
+    Object.entries(v.controls).forEach(([k1, v1]) => {
+      num1 = num1 + 1;
+      if (v1.type == 'slider') {
+        document.querySelector(`#oc-wrap${num}`).insertAdjacentHTML(
+          'beforeend',
+          `
 					<div class="cntrlWrap" id="wrap-${v1.field}">
 						<div class="flexSlideWrap">
 							<div class="flex1">
@@ -54,10 +68,13 @@ function buildElements(){
 							<div class="feInfoTextWrap"><span class="feInfoText"></span><i class="fas fa-times feInfo feInfoClose"></i></div>						
 						</div>	
 					</div>
-				`);
-			}
-			if (v1.type == "radio"){
-				document.querySelector(`#oc-wrap${num}`).insertAdjacentHTML("beforeend", `
+				`
+        );
+      }
+      if (v1.type == 'radio') {
+        document.querySelector(`#oc-wrap${num}`).insertAdjacentHTML(
+          'beforeend',
+          `
 					<div class="cntrlWrap" id="wrap-${v1.field}">
 						<div class="mng-act-toggle flexSlideWrap">
 							<div class="flex1">
@@ -80,21 +97,26 @@ function buildElements(){
 							<div class="feInfoTextWrap"><span class="feInfoText"></span><i class="fas fa-times feInfo feInfoClose"></i></div>
 						</div>
 					</div>
-				`);	
-			}
-		})
+				`
+        );
+      }
     });
-    // create supporting layers section
-    if (app.hasSupportingLayers){
-    	document.querySelector("#sup-layers-wrap").insertAdjacentHTML("beforeend",`<h3>Supporting Layers</h3>`)
-    	app.mapImageLayers.forEach((v) => {
-			if (v.supporting){    
-				let info = "";
-				if (v.info){
-					info = `<div class="feInfoWrapSub"><i class="fa fa-info-circle feInfo feInfoOpen"></i></div>
-							<div class="feInfoTextWrap"><span class="feInfoText">${v.info}</span><i class="fas fa-times feInfo feInfoClose"></i></div>`
-				}		
-	    		document.querySelector("#sup-layers-wrap").insertAdjacentHTML("beforeend",`
+  });
+  // create supporting layers section
+  if (app.hasSupportingLayers) {
+    document
+      .querySelector('#sup-layers-wrap')
+      .insertAdjacentHTML('beforeend', `<h3>Supporting Layers</h3>`);
+    app.mapImageLayers.forEach((v) => {
+      if (v.supporting) {
+        let info = '';
+        if (v.info) {
+          info = `<div class="feInfoWrapSub"><i class="fa fa-info-circle feInfo feInfoOpen"></i></div>
+							<div class="feInfoTextWrap"><span class="feInfoText">${v.info}</span><i class="fas fa-times feInfo feInfoClose"></i></div>`;
+        }
+        document.querySelector('#sup-layers-wrap').insertAdjacentHTML(
+          'beforeend',
+          `
 	    			<div class="flex1" style="position:relative;">
 						<label class="form-component" for="sup_cb${v.id}">
 							<input type="checkbox" class="sup_cb" id="sup_cb${v.id}" name="sup_cb${v.id}" value="${v.id}"><span class="check"></span>
@@ -102,14 +124,24 @@ function buildElements(){
 						</label>
 						${info}
 					</div>
-	    		`)
-    		}
-    	})
-    }
-    // Set up range slider
-	$('#mng-act-wrap .slider').slider({range:true, min:0, max:2400, values:[0,2400], disabled:true, 
-		change:function(event,ui){sliderChange(event,ui)},
-		slide:function(event,ui){sliderSlide(event,ui)}
-	})
-    eventListeners()
+	    		`
+        );
+      }
+    });
+  }
+  // Set up range slider
+  $('#mng-act-wrap .slider').slider({
+    range: true,
+    min: 0,
+    max: 2400,
+    values: [0, 2400],
+    disabled: true,
+    change: function (event, ui) {
+      sliderChange(event, ui);
+    },
+    slide: function (event, ui) {
+      sliderSlide(event, ui);
+    },
+  });
+  eventListeners();
 }

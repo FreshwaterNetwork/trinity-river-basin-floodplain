@@ -79,9 +79,10 @@ app.filterObj = {
       con1: {
         type: 'slider',
         field: 'AcresUnp',
-        label: 'Available unprotected floodplain area for the currently specified flood frequency',
+        label:
+          'Available unprotected floodplain area for the currently specified flood frequency',
         unit: 'acres',
-      }
+      },
     },
   },
   group1: {
@@ -102,29 +103,25 @@ app.filterObj = {
       con2: {
         type: 'slider',
         field: 'iy_tp_p',
-        label:
-          'Local nutrient yield (phosphorus)',
+        label: 'Local nutrient yield (phosphorus)',
         unit: '',
       },
       con3: {
         type: 'slider',
         field: 'iy_tp_del_p',
-        label:
-          'Nutrient yield to Gulf of Mexico (phosphorus)',
+        label: 'Nutrient yield to Gulf of Mexico (phosphorus)',
         unit: '',
       },
       con4: {
         type: 'slider',
         field: 'iy_ss_p',
-        label:
-          'Local yield (suspended sediment)',
+        label: 'Local yield (suspended sediment)',
         unit: '',
       },
       con5: {
         type: 'slider',
         field: 'iy_ss_del_p',
-        label:
-          'Yield to Gulf of Mexico (suspended sediment)',
+        label: 'Yield to Gulf of Mexico (suspended sediment)',
         unit: '',
       },
       con6: {
@@ -133,7 +130,7 @@ app.filterObj = {
         label:
           'Does the watershed contain a stream 303d-listed as impaired for bacteria?',
         unit: '',
-      }
+      },
     },
   },
   group2: {
@@ -142,13 +139,15 @@ app.filterObj = {
       con0: {
         type: 'radio',
         field: 'TXTerr',
-        label: 'Does the floodplain contain a Texas terrestrial conservation priority area?',
+        label:
+          'Does the floodplain contain a Texas terrestrial conservation priority area?',
         unit: '',
       },
       con1: {
         type: 'radio',
         field: 'TXFresh',
-        label: 'Does the floodplain contain a Texas freshwater conservation priority area?',
+        label:
+          'Does the floodplain contain a Texas freshwater conservation priority area?',
         unit: '',
       },
       con2: {
@@ -208,7 +207,7 @@ app.filterObj = {
         field: 'SVI',
         label: 'CDC Social Vulnerability Index',
         unit: '',
-      }
+      },
     },
   },
   group5: {
@@ -247,7 +246,8 @@ app.filterObj = {
       con5: {
         type: 'slider',
         field: 'pdsoilpc',
-        label: 'Percent of floodplain in somewhat poorly, poorly, & very poorly drained soils',
+        label:
+          'Percent of floodplain in somewhat poorly, poorly, & very poorly drained soils',
         unit: '%',
       },
       con6: {
@@ -255,7 +255,7 @@ app.filterObj = {
         field: 'kfact',
         label: 'Soil erodibility index in the floodplain (K factor)',
         unit: '',
-      }
+      },
     },
   },
 };
@@ -350,38 +350,38 @@ app.mapImageLayers = [
 ];
 
 // definition expression root field names
-app.Acres= '';
-app.AcresUnp= '';
-app.iy_tn= '';
-app.iy_tn_del= '';
-app.iy_tp= '';
-app.iy_tp_del= '';
-app.iy_ss= '';
-app.iy_ss_del= '';
-app.iy_tn_p= '';
-app.iy_tn_del_p= '';
-app.iy_tp_p= '';
-app.iy_tp_del_p= '';
-app.iy_ss_p= '';
-app.iy_ss_del_p= '';
-app.bacteria= '';
-app.TXTerr= '';
-app.TXFresh= '';
-app.resil= '';
-app.nearProt= '';
-app.abovegrC= '';
-app.belowgrC= '';
-app.SVI= '';
-app.popnow= '';
-app.pop2050= '';
-app.damages= '';
-app.devpres= '';
-app.devpr_fp= '';
-app.nccpi= '';
-app.incroppc= '';
-app.inrangpc= '';
-app.pdsoilpc= '';
-app.kfact= '';
+app.Acres = '';
+app.AcresUnp = '';
+app.iy_tn = '';
+app.iy_tn_del = '';
+app.iy_tp = '';
+app.iy_tp_del = '';
+app.iy_ss = '';
+app.iy_ss_del = '';
+app.iy_tn_p = '';
+app.iy_tn_del_p = '';
+app.iy_tp_p = '';
+app.iy_tp_del_p = '';
+app.iy_ss_p = '';
+app.iy_ss_del_p = '';
+app.bacteria = '';
+app.TXTerr = '';
+app.TXFresh = '';
+app.resil = '';
+app.nearProt = '';
+app.abovegrC = '';
+app.belowgrC = '';
+app.SVI = '';
+app.popnow = '';
+app.pop2050 = '';
+app.damages = '';
+app.devpres = '';
+app.devpr_fp = '';
+app.nccpi = '';
+app.incroppc = '';
+app.inrangpc = '';
+app.pdsoilpc = '';
+app.kfact = '';
 
 // object for range slider
 app.sliderObj = {
@@ -393,7 +393,7 @@ app.sliderObj = {
       min: 0,
       max: 800,
       shfld: true,
-      info: '<b>Suspended sediment yield to Gulf</b><br>'
+      info: '<b>Suspended sediment yield to Gulf</b><br>',
     },
     Acres: {
       values: [],
@@ -606,7 +606,7 @@ app.sliderObj = {
       min: 0,
       max: 3000,
       shfld: true,
-      info: '<b>Suspended sediment yield to Gulf</b><br>'
+      info: '<b>Suspended sediment yield to Gulf</b><br>',
     },
     Acres: {
       values: [],
@@ -819,7 +819,7 @@ app.sliderObj = {
       min: 0,
       max: 9000,
       shfld: true,
-      info: '<b>Suspended sediment yield to Gulf</b><br>'
+      info: '<b>Suspended sediment yield to Gulf</b><br>',
     },
     Acres: {
       values: [],
@@ -2275,15 +2275,15 @@ app.radioObj = {
   h81: {
     bacteria: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     TXTerr: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     TXFresh: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     nearIBA: {
       vis: true,
@@ -2298,15 +2298,15 @@ app.radioObj = {
   h82: {
     bacteria: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     TXTerr: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     TXFresh: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     nearIBA: {
       vis: true,
@@ -2321,15 +2321,15 @@ app.radioObj = {
   h83: {
     bacteria: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     TXTerr: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     TXFresh: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     nearIBA: {
       vis: true,
@@ -2344,15 +2344,15 @@ app.radioObj = {
   h121: {
     bacteria: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     TXTerr: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     TXFresh: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     nearIBA: {
       vis: true,
@@ -2367,15 +2367,15 @@ app.radioObj = {
   h122: {
     bacteria: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     TXTerr: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     TXFresh: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     nearIBA: {
       vis: true,
@@ -2390,15 +2390,15 @@ app.radioObj = {
   h123: {
     bacteria: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     TXTerr: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     TXFresh: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     nearIBA: {
       vis: true,
@@ -2413,15 +2413,15 @@ app.radioObj = {
   catch1: {
     bacteria: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     TXTerr: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     TXFresh: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     nearIBA: {
       vis: true,
@@ -2436,15 +2436,15 @@ app.radioObj = {
   catch2: {
     bacteria: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     TXTerr: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     TXFresh: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     nearIBA: {
       vis: true,
@@ -2459,15 +2459,15 @@ app.radioObj = {
   catch3: {
     bacteria: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     TXTerr: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     TXFresh: {
       vis: true,
-      info: 'test'
+      info: 'test',
     },
     nearIBA: {
       vis: true,

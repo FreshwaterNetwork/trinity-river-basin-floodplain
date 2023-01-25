@@ -1,21 +1,21 @@
 function mapClick() {
-  require(['esri/tasks/QueryTask', 'esri/tasks/support/Query'], function (
-    QueryTask,
+  require(['esri/layers/FeatureLayer', 'esri/rest/support/Query'], function (
+    FeatureLayer,
     Query
   ) {
     app.view.on('click', function (event) {
       app.view.popup.close();
       // create query
-      var queryTask = new QueryTask({
+      const fl = new FeatureLayer({
         url:
-          'https://cirrus.tnc.org/arcgis/rest/services/FN_AGR/KY_Floodplain/MapServer/' +
+          'https://services2.coastalresilience.org/arcgis/rest/services/Floodplain/Trinity_Basin_TX/MapServer' +
           app.obj.hucLayer,
       });
-      var query = new Query();
+      let query = fl.createQuery();
       query.returnGeometry = true;
       query.outFields = ['*'];
       query.geometry = app.view.toMap(event);
-      queryTask.execute(query).then(function (response) {
+      fl.queryFeatures(query).then(function (response) {
         app.resultsLayer.removeAll();
         if (response.features[0]) {
           var features = response.features.map(function (graphic) {
@@ -76,16 +76,16 @@ function mapClick() {
               'Projected 2050 damage value ($) in 500-year floodplain';
           }
 
-          let IL_TN = commaSeparateNumber(Math.round(a.il_tn));
-          let IL_TP = commaSeparateNumber(Math.round(a.il_tp));
-          let IL_TN_DEL = commaSeparateNumber(Math.round(a.il_tn_del));
-          let TN_farm = a.TN_farm.toFixed(1);
-          console.log(a.TN_farm);
-          let IL_TP_DEL = commaSeparateNumber(Math.round(a.il_tp_del));
-          let TP_farm = a.TP_farm.toFixed(1);
-          let SOVI = a.SOVI.toFixed(3);
-          let cropacres = commaSeparateNumber(Math.round(a.crop_acres));
-          let pastacres = commaSeparateNumber(Math.round(a.past_acres));
+          // let IL_TN = commaSeparateNumber(Math.round(a.il_tn));
+          // let IL_TP = commaSeparateNumber(Math.round(a.il_tp));
+          // let IL_TN_DEL = commaSeparateNumber(Math.round(a.il_tn_del));
+          // let TN_farm = a.TN_farm.toFixed(1);
+          // console.log(a.TN_farm);
+          // let IL_TP_DEL = commaSeparateNumber(Math.round(a.il_tp_del));
+          // let TP_farm = a.TP_farm.toFixed(1);
+          // let SOVI = a.SOVI.toFixed(3);
+          // let cropacres = commaSeparateNumber(Math.round(a.crop_acres));
+          // let pastacres = commaSeparateNumber(Math.round(a.past_acres));
 
           app.view.popup.set('dockOptions', {
             breakpoint: false,
@@ -96,22 +96,22 @@ function mapClick() {
           app.view.popup.open({
             // Set the popup's title to the coordinates of the location
             title: a.Name,
-            content: `
-							Watershed area (acres): <b>${unit_ac}</b><br>
-							${acresLabel}: <b>${acres}</b><br>
-							Nitrogen load at outflow (kg/yr): <b>${IL_TN}</b><br>
-							Phosphorus load at outflow (kg/yr): <b>${IL_TP}</b><br>
-							Nitrogen load to Gulf of Mexico (kg/yr): <b>${IL_TN_DEL}</b><br>
-							Phosphorus load to Gulf of Mexico (kg/yr): <b>${IL_TP_DEL}</b><br>
-              Nitrogen load from farm fertilizer & manure (%): <b>${TN_farm}</b><br>
-              Phosphorus load from farm fertilizer & manure (%): <b>${TP_farm}</b><br>
-  						${popLabel}: <b>${pop}</b><br>
-							${damagesLabel}: <b>$${damages}</b><br>
-							Social vulnerability index: <b>${SOVI}</b><br>
-              Acres of cultivated cropland: <b>${cropacres}</b><br>
-              Acres of hay / pasture: <b>${pastacres}</b>
+            // content: `
+            // 	Watershed area (acres): <b>${unit_ac}</b><br>
+            // 	${acresLabel}: <b>${acres}</b><br>
+            // 	Nitrogen load at outflow (kg/yr): <b>${IL_TN}</b><br>
+            // 	Phosphorus load at outflow (kg/yr): <b>${IL_TP}</b><br>
+            // 	Nitrogen load to Gulf of Mexico (kg/yr): <b>${IL_TN_DEL}</b><br>
+            // 	Phosphorus load to Gulf of Mexico (kg/yr): <b>${IL_TP_DEL}</b><br>
+            //   Nitrogen load from farm fertilizer & manure (%): <b>${TN_farm}</b><br>
+            //   Phosphorus load from farm fertilizer & manure (%): <b>${TP_farm}</b><br>
+            // 	${popLabel}: <b>${pop}</b><br>
+            // 	${damagesLabel}: <b>$${damages}</b><br>
+            // 	Social vulnerability index: <b>${SOVI}</b><br>
+            //   Acres of cultivated cropland: <b>${cropacres}</b><br>
+            //   Acres of hay / pasture: <b>${pastacres}</b>
 
-						`,
+            // `,
           });
         }
       });

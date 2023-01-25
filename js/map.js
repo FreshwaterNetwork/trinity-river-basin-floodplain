@@ -2,52 +2,54 @@
 require([
   'esri/Map',
   'esri/views/MapView',
+  'esri/portal/Portal',
   'esri/widgets/BasemapGallery',
   'esri/widgets/Expand',
   'esri/widgets/BasemapGallery/support/PortalBasemapsSource',
   'esri/widgets/Search',
   'esri/widgets/Legend',
-  'esri/layers/FeatureLayer',
   'esri/layers/MapImageLayer',
-  'esri/PopupTemplate',
-  'esri/tasks/QueryTask',
-  'esri/tasks/support/Query',
   'esri/layers/GraphicsLayer',
-  'esri/core/watchUtils',
+  'esri/core/reactiveUtils',
 ], function (
   Map,
   MapView,
+  Portal,
   BasemapGallery,
   Expand,
-  PortalSource,
+  PortalBasemapsSource,
   Search,
   Legend,
-  FeatureLayer,
   MapImageLayer,
-  PopupTemplate,
-  QueryTask,
-  Query,
   GraphicsLayer,
-  watchUtils
+  reactiveUtils
 ) {
-
   // create map layers - the source can be a map service or an AGO web map - sublayers are defined in variables.js
   app.layers = new MapImageLayer({
-    url: 'https://cirrus.tnc.org/arcgis/rest/services/FN_AGR/Trinity_Basin_TX/MapServer',
-    // url: 'https://cirrus.tnc.org/arcgis/rest/services/FN_AGR/KY_Floodplain/MapServer',
+    url: 'https://services2.coastalresilience.org/arcgis/rest/services/Floodplain/Trinity_Basin_TX/MapServer',
     sublayers: app.mapImageLayers,
   });
-  
-  // create map
+
+  // Portal IDs for TNC Basemaps. Use any id to set basemap for map.
+  const tncLightMapId = 'dfe65251dac240a19c8edb892a3ea664';
+  const tncDarkMapId = '1f48b2b2456c44ad9c58d6741378c2ba';
+  const tncOutdoorMapId = 'd10c378e8a8d46998e1d248827855c69';
+  const tncTopoMapId = '1dde97af802846f597a03d04050bad5b';
+
+  // Create map. Use one ID from above to set the default basemap
   app.map = new Map({
-    basemap: 'topo',
-    layers: [app.layers]
+    layers: [app.layers],
+    basemap: {
+      portalItem: {
+        id: tncTopoMapId,
+      },
+    },
   });
 
   //create map view
   app.view = new MapView({
     container: 'viewDiv',
-    center: [-96, 31.5],
+    center: [-96.6, 31.7],
     zoom: 7,
     map: app.map,
     // add popup window to map view for map clicks
@@ -60,14 +62,23 @@ require([
       },
     },
   });
-
-  //create basemap widget
-  const allowedBasemapTitles = ['Topographic', 'Imagery Hybrid', 'Streets'];
-  const source = new PortalSource({
-    // filtering portal basemaps
+  const portal = new Portal();
+  const allowedBasemapTitles = [
+    'TNC World Topographic Map',
+    'TNC Outdoor Map',
+    'TNC Light Map',
+    'TNC Dark Gray Map',
+    'Imagery Hybrid',
+  ];
+  const source = new PortalBasemapsSource({
+    portal,
+    query: {
+      id: 'defa1b2287604d069c70af515331e30f',
+    },
     filterFunction: (basemap) =>
       allowedBasemapTitles.indexOf(basemap.portalItem.title) > -1,
   });
+
   var basemapGallery = new BasemapGallery({
     view: app.view,
     source: source,
@@ -134,55 +145,41 @@ require([
   y.addListener(mobileLandscape); // Attach listener function on state changes
 
   // listen for poup close button
-  watchUtils.whenTrue(app.view.popup, 'visible', function () {
-    watchUtils.whenFalseOnce(app.view.popup, 'visible', function () {
-      app.resultsLayer.removeAll();
-    });
-  });
+  reactiveUtils.when(
+    () => app.view.popup?.visible,
+    () =>
+      reactiveUtils.whenOnce(
+        () => app.view.popup?.visible === undefined,
+        () => app.resultsLayer.removeAll()
+      )
+  );
 
-  // ---------------------------------------
-
-  document.body.style.cursor = 'wait';
-  const timer = new Promise((resolve, reject) => {
-    setTimeout(reject, 5000, 'to slow');
-  });
-
-  const layerViewLoad = app.view.whenLayerView(app.layers);
-
-  const promises = [timer, layerViewLoad];
-
-  Promise.race(promises)
+  app.view
+    .whenLayerView(app.layers)
     .then((result) => {
-      console.log(result.layer.title);
-      document.body.style.cursor = 'auto';
+      // call event listener for map clicks
+      mapClick();
+      //trigger button clicks on startup
+      document
+        .querySelectorAll("#top-controls input[name='huc']")
+        .forEach((input) => {
+          if (input.value == app.obj.hucLayer) {
+            input.click();
+          }
+        });
+      document
+        .querySelectorAll("#top-controls input[name='floodFreq']")
+        .forEach((input) => {
+          if (input.value == app.obj.floodFreq) {
+            input.click();
+          }
+        });
+      // trigger control clicks from app.obj
+      buildFromState();
     })
     .catch((err) => {
       console.log(err);
-      app.layers.refresh();
     });
-  // -----------------------------------------
-
-  // call event listener for map clicks
-  mapClick();
-
-  //trigger button clicks on startup
-  document
-    .querySelectorAll("#top-controls input[name='huc']")
-    .forEach((input) => {
-      if (input.value == app.obj.hucLayer) {
-        input.click();
-      }
-    });
-  document
-    .querySelectorAll("#top-controls input[name='floodFreq']")
-    .forEach((input) => {
-      if (input.value == app.obj.floodFreq) {
-        input.click();
-      }
-    });
-
-  // trigger control clicks from app.obj
-  buildFromState();
 });
 
 function clearGraphics() {
