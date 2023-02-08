@@ -50,7 +50,7 @@ require([
   app.view = new MapView({
     container: 'viewDiv',
     center: [-96.6, 31.7],
-    zoom: 7,
+    zoom: 6,
     map: app.map,
     // add popup window to map view for map clicks
     popup: {
