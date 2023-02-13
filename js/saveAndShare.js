@@ -16,7 +16,7 @@ function createURL(){
 	
 	var linkRequest = {
 		destination: 
-	"https://maps.freshwaternetwork.org/dev/kentucky-floodplain/?search=" + uri
+	"https://maps.freshwaternetwork.org/trinity-river-basin-floodplain/?search=" + uri
 	};
 	shortUrl = "";
 	$.ajax({

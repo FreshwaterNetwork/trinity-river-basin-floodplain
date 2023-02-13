@@ -325,33 +325,32 @@ function eventListeners() {
   });
   //download data button
   document.querySelector('#downloadData').addEventListener('click', () => {
-    require(['esri/tasks/Geoprocessor'], function (Geoprocessor) {
+    //require(['esri/tasks/Geoprocessor'], function (Geoprocessor) {
+    require(['esri/rest/geoprocessor'], (geoprocessor) => {
       $(`.dlssre`).prop('disabled', true);
       $(document.body).css({ cursor: 'wait' });
-      var gp = new Geoprocessor({
-        url: 'https://cirrus.tnc.org/arcgis/rest/services/FN_AGR/extractWatersheds/GPServer/extractWatersheds',
-      });
+      let gpUrl = 'https://cirrus.tnc.org/arcgis/rest/services/FN_AGR/extractWatersheds/GPServer/extractWatersheds';
       let layerName = '';
       if (app.obj.hucLayer == '0') {
-        layerName = 'KY_huc8';
+        layerName = 'TX_huc8';
       }
       if (app.obj.hucLayer == '1') {
-        layerName = 'KY_huc12';
+        layerName = 'TX_huc12';
       }
       if (app.obj.hucLayer == '2') {
-        layerName = 'KY_catchments';
+        layerName = 'TX_catchments';
       }
       var params = { layerName: layerName, where: app.definitionExpression };
-      gp.submitJob(params).then(function (jobInfo) {
-        var jobid = jobInfo.jobId;
+      geoprocessor.submitJob(gpUrl, params).then(function (jobInfo) {
+        //var jobid = jobInfo.jobId;
         var options = {
           interval: 1500,
           statusCallback: function (j) {
             console.log('Job Status: ', j.jobStatus);
           },
         };
-        gp.waitForJobCompletion(jobid, options).then(function () {
-          gp.getResultData(jobid, 'output').then(function (output) {
+        jobInfo.waitForJobCompletion(options).then(function () {
+          jobInfo.fetchResultData('output').then(function(output) {
             let uri = output.value.url;
             let url = uri.replace('scratch/', '');
             var link = document.createElement('a');
@@ -368,6 +367,52 @@ function eventListeners() {
       });
     });
   });
+//download data button (API v. 4.16 method, does not work in v. 4.24)
+/*document.querySelector('#downloadData').addEventListener('click', () => {
+  require(['esri/tasks/Geoprocessor'], function (Geoprocessor) {
+    $(`.dlssre`).prop('disabled', true);
+    $(document.body).css({ cursor: 'wait' });
+    var gp = new Geoprocessor({
+      url: 'https://cirrus.tnc.org/arcgis/rest/services/FN_AGR/extractWatersheds/GPServer/extractWatersheds',
+    });
+    let layerName = '';
+    if (app.obj.hucLayer == '0') {
+      layerName = 'TX_huc8';
+    }
+    if (app.obj.hucLayer == '1') {
+      layerName = 'TX_huc12';
+    }
+    if (app.obj.hucLayer == '2') {
+      layerName = 'TX_catchments';
+    }
+    var params = { layerName: layerName, where: app.definitionExpression };
+    console.log(app.definitionExpression);
+    gp.submitJob(params).then(function (jobInfo) {
+      var jobid = jobInfo.jobId;
+      var options = {
+        interval: 1500,
+        statusCallback: function (j) {
+          console.log('Job Status: ', j.jobStatus);
+        },
+      };
+      gp.waitForJobCompletion(jobid, options).then(function () {
+        gp.getResultData(jobid, 'output').then(function (output) {
+          let uri = output.value.url;
+          let url = uri.replace('scratch/', '');
+          var link = document.createElement('a');
+          let name = 'output';
+          link.setAttribute('download', name);
+          link.href = url;
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+          $(document.body).css({ cursor: 'default' });
+          $(`.dlssre`).prop('disabled', false);
+        });
+      });
+    });
+  });
+});*/
   // save and share click
   document.querySelector(`#saveAndShare`).addEventListener('click', () => {
     createURL();
