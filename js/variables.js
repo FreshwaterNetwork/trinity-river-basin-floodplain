@@ -86,7 +86,7 @@ app.filterObj = {
     },
   },
   group1: {
-    header: 'Water Quality',
+    header: 'Water Quality & Soils',
     controls: {
       con0: {
         type: 'slider',
@@ -129,6 +129,19 @@ app.filterObj = {
         field: 'bacteria',
         label:
           'Does the watershed contain a stream 303d-listed as impaired for bacteria?',
+        unit: '',
+      },
+      con7: {
+        type: 'slider',
+        field: 'pdsoilpc',
+        label:
+          'Percent of floodplain in somewhat poorly, poorly, & very poorly drained soils',
+        unit: '%',
+      },
+      con8: {
+        type: 'slider',
+        field: 'kfact',
+        label: 'Soil erodibility index in the floodplain (K factor)',
         unit: '',
       },
     },
@@ -182,7 +195,7 @@ app.filterObj = {
     },
   },
   group4: {
-    header: 'Flood Risk',
+    header: 'Flood Risk -- Community',
     controls: {
       con0: {
         type: 'slider',
@@ -197,12 +210,18 @@ app.filterObj = {
         unit: '',
       },
       con2: {
+        type: 'radio',
+        field: 'builddir',
+        label: 'Watershed is in a county with high estimated direct building losses in the 100-year floodplain',
+        unit: '',
+      },
+      con3: {
         type: 'slider',
         field: 'damages',
         label: 'Projected future flood damages (2050) ($)',
         unit: '$',
       },
-      con3: {
+      con4: {
         type: 'slider',
         field: 'SVI',
         label: 'CDC Social Vulnerability Index',
@@ -211,7 +230,30 @@ app.filterObj = {
     },
   },
   group5: {
-    header: 'Land Use / Land Cover',
+    header: 'Flood Risk -- Agriculture',
+    controls: {
+      con0: {
+        type: 'slider',
+        field: 'inCDLp',
+        label: 'Percent of floodplain in cropland or grassland/pasture',
+        unit: ''
+      },
+      con1: {
+        type: 'radio',
+        field: 'agnow',
+        label: 'Watershed is in a county with high estimated current & future agricultural losses in the 100-year floodplain',
+        info: ''
+      },
+      con2: {
+        type: 'slider',
+        field: 'nccpi',
+        label: 'Agricultural productivity potential of soils in the floodplain',
+        unit: '',
+      }
+    },
+  },
+  group6: {
+    header: 'Development Pressure',
     controls: {
       con0: {
         type: 'slider',
@@ -223,37 +265,6 @@ app.filterObj = {
         type: 'slider',
         field: 'devpres',
         label: 'Development pressure in the watershed by 2050 (index)',
-        unit: '',
-      },
-      con2: {
-        type: 'slider',
-        field: 'incroppc',
-        label: 'Percent of floodplain in cropland',
-        unit: '%',
-      },
-      con3: {
-        type: 'slider',
-        field: 'inrangpc',
-        label: 'Percent of floodplain in rangeland',
-        unit: '%',
-      },
-      con4: {
-        type: 'slider',
-        field: 'nccpi',
-        label: 'Agricultural productivity potential of soils in the floodplain',
-        unit: '',
-      },
-      con5: {
-        type: 'slider',
-        field: 'pdsoilpc',
-        label:
-          'Percent of floodplain in somewhat poorly, poorly, & very poorly drained soils',
-        unit: '%',
-      },
-      con6: {
-        type: 'slider',
-        field: 'kfact',
-        label: 'Soil erodibility index in the floodplain (K factor)',
         unit: '',
       },
     },
@@ -328,14 +339,6 @@ app.mapImageLayers = [
     info: "<b>Multi-Resolution Land Characteristics Consortium (MRLC) National Land Cover Dataset (NLCD) 2019</b><br><a href='https://www.mrlc.gov/data/nlcd-2019-land-cover-conus' target='_blank'>More info</a>"
   },
   {
-    id: 9,
-    visible: false,
-    title: 'Rangelands',
-    opacity: 0.8,
-    supporting: true,
-    info: "<b>U.S. Forest Service rangelands data</b><br><a href='https://data.fs.usda.gov/geodata/rastergateway/rangelands/index.php' target='_blank'>More info</a>"
-  },
-  {
     id: 6,
     visible: false,
     title: 'Protected Areas Database of the U.S.',
@@ -343,6 +346,30 @@ app.mapImageLayers = [
     supporting: true,
     info: "<a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
   },
+  {
+    id: 12,
+    visible: false,
+    title: 'Development pressure index',
+    opacity: 0.8,
+    supporting: true,
+    info: "This index was calculated by comparing ICLUS EPA land use data (see <a href='https://iclus.epa.gov/' target='_blank'>here</a>) for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of those land use types based on the National Structure Inventory (NSI).<br><br>A higher (more red) index value indicates a more extreme projected transition by 2050 (e.g. non-urban to very urban) and a lower (more green) index value indicates a less extreme projected transition by 2050 (e.g. suburban-low to suburban-high). Where no color is present, no development is expected."
+  },
+  {
+    id: 13,
+    visible: false,
+    title: 'Estimated direct building losses in the 100-year floodplain (millions of $)',
+    opacity: 0.8,
+    supporting: true,
+    info: "County-level information is taken from Table 2.9 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+  },
+  {
+    id: 11,
+    visible: false,
+    title: 'Estimated crop & livestock production losses in the 100-year floodplain (millions of $)',
+    opacity: 0.8,
+    supporting: true,
+    info: "County-level information is taken from Table 2.8 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+  }
 ];
 
 // definition expression root field names
@@ -378,6 +405,9 @@ app.incroppc = '';
 app.inrangpc = '';
 app.pdsoilpc = '';
 app.kfact = '';
+app.inCDLp = '';
+app.builddir = '';
+app.agnow = '';
 
 // object for range slider
 app.sliderObj = {
@@ -512,6 +542,13 @@ app.sliderObj = {
       max: 0.663,
       step: 0.001,
       info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
+    },
+    inCDLp: {
+      values: [],
+      vis: true,
+      min: 12,
+      max: 57,
+      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain that is either in any type of cropland or in grassland/pasture, according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
     },
     devpr_fp: {
       values: [],
@@ -700,6 +737,13 @@ app.sliderObj = {
       step: 0.001,
       info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
     },
+    inCDLp: {
+      values: [],
+      vis: true,
+      min: 26,
+      max: 61,
+      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain that is either in any type of cropland or in grassland/pasture, according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
+    },
     devpr_fp: {
       values: [],
       vis: true,
@@ -886,6 +930,13 @@ app.sliderObj = {
       max: 0.644,
       step: 0.001,
       info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
+    },
+    inCDLp: {
+      values: [],
+      vis: true,
+      min: 20,
+      max: 61,
+      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain that is either in any type of cropland or in grassland/pasture, according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
     },
     devpr_fp: {
       values: [],
@@ -1078,6 +1129,13 @@ app.sliderObj = {
       step: 0.001,
       info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
     },
+    inCDLp: {
+      values: [],
+      vis: true,
+      min: 0,
+      max: 85,
+      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain that is either in any type of cropland or in grassland/pasture, according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
+    },
     devpr_fp: {
       values: [],
       vis: true,
@@ -1267,6 +1325,13 @@ app.sliderObj = {
       max: 0.902,
       step: 0.001,
       info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
+    },
+    inCDLp: {
+      values: [],
+      vis: true,
+      min: 0,
+      max: 89,
+      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain that is either in any type of cropland or in grassland/pasture, according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
     },
     devpr_fp: {
       values: [],
@@ -1458,6 +1523,13 @@ app.sliderObj = {
       step: 0.001,
       info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
     },
+    inCDLp: {
+      values: [],
+      vis: true,
+      min: 0,
+      max: 90,
+      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain that is either in any type of cropland or in grassland/pasture, according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
+    },
     devpr_fp: {
       values: [],
       vis: true,
@@ -1648,6 +1720,13 @@ app.sliderObj = {
       max: 0.943,
       step: 0.001,
       info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
+    },
+    inCDLp: {
+      values: [],
+      vis: true,
+      min: 0,
+      max: 100,
+      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain that is either in any type of cropland or in grassland/pasture, according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
     },
     devpr_fp: {
       values: [],
@@ -1841,6 +1920,13 @@ app.sliderObj = {
       step: 0.001,
       info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
     },
+    inCDLp: {
+      values: [],
+      vis: true,
+      min: 0,
+      max: 100,
+      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain that is either in any type of cropland or in grassland/pasture, according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
+    },
     devpr_fp: {
       values: [],
       vis: true,
@@ -2033,6 +2119,13 @@ app.sliderObj = {
       step: 0.001,
       info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
     },
+    inCDLp: {
+      values: [],
+      vis: true,
+      min: 0,
+      max: 100,
+      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain that is either in any type of cropland or in grassland/pasture, according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
+    },
     devpr_fp: {
       values: [],
       vis: true,
@@ -2106,6 +2199,16 @@ app.radioObj = {
     TXFresh: {
       vis: true,
     },
+    builddir: {
+      vis: true,
+      shfld: true,
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+    },
+    agnow: {
+      vis: true,
+      shfld: true,
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+    }
   },
   // huc 8 + 1 in 100 year flood
   h82: {
@@ -2119,6 +2222,16 @@ app.radioObj = {
     TXFresh: {
       vis: true,
     },
+    builddir: {
+      vis: true,
+      shfld: true,
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+    },
+    agnow: {
+      vis: true,
+      shfld: true,
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+    }
   },
   // huc 8 + 1 in 500 year flood
   h83: {
@@ -2132,6 +2245,16 @@ app.radioObj = {
     TXFresh: {
       vis: true,
     },
+    builddir: {
+      vis: true,
+      shfld: true,
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+    },
+    agnow: {
+      vis: true,
+      shfld: true,
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+    }
   },
   // huc 12 + 1 in 5 year flood
   h121: {
@@ -2145,6 +2268,16 @@ app.radioObj = {
     TXFresh: {
       vis: true,
     },
+    builddir: {
+      vis: true,
+      shfld: true,
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+    },
+    agnow: {
+      vis: true,
+      shfld: true,
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+    }
   },
   // huc 12 + 1 in 100 year flood
   h122: {
@@ -2158,6 +2291,16 @@ app.radioObj = {
     TXFresh: {
       vis: true,
     },
+    builddir: {
+      vis: true,
+      shfld: true,
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+    },
+    agnow: {
+      vis: true,
+      shfld: true,
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+    }
   },
   // huc 12 + 1 in 500 year flood
   h123: {
@@ -2171,6 +2314,16 @@ app.radioObj = {
     TXFresh: {
       vis: true,
     },
+    builddir: {
+      vis: true,
+      shfld: true,
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+    },
+    agnow: {
+      vis: true,
+      shfld: true,
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+    }
   },
   // catchment + 1 in 5 year flood
   catch1: {
@@ -2184,6 +2337,16 @@ app.radioObj = {
     TXFresh: {
       vis: true,
     },
+    builddir: {
+      vis: true,
+      shfld: true,
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+    },
+    agnow: {
+      vis: true,
+      shfld: true,
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+    }
   },
   // catchment + 1 in 100 year flood
   catch2: {
@@ -2197,6 +2360,16 @@ app.radioObj = {
     TXFresh: {
       vis: true,
     },
+    builddir: {
+      vis: true,
+      shfld: true,
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+    },
+    agnow: {
+      vis: true,
+      shfld: true,
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+    }
   },
   // catchment + 1 in 500 year flood
   catch3: {
@@ -2210,6 +2383,16 @@ app.radioObj = {
     TXFresh: {
       vis: true,
     },
+    builddir: {
+      vis: true,
+      shfld: true,
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+    },
+    agnow: {
+      vis: true,
+      shfld: true,
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+    }
   },
 };
 buildElements();

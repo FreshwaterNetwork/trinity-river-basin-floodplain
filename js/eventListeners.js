@@ -563,6 +563,9 @@ function layerDefs() {
     app.inrangpc,
     app.pdsoilpc,
     app.kfact,
+    app.inCDLp,
+    app.builddir,
+    app.agnow
   ];
   var exp = '';
   var cnt = 0;
