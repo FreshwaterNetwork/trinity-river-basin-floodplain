@@ -42,7 +42,7 @@ app.topObj = {
       },
     },
     tb2: {
-      header: 'View Floodplains By Watershed',
+      header: 'View Floodplains By Watershed Size',
       name: 'huc',
       btns: {
         b1: {
@@ -91,37 +91,37 @@ app.filterObj = {
       con0: {
         type: 'slider',
         field: 'iy_tn_p',
-        label: 'Local nutrient yield (nitrogen)',
+        label: 'Nitrogen yield to local waterway',
         unit: '',
       },
       con1: {
         type: 'slider',
         field: 'iy_tn_del_p',
-        label: 'Nutrient yield to Gulf of Mexico (nitrogen)',
+        label: 'Nitrogen yield to Gulf of Mexico',
         unit: '',
       },
       con2: {
         type: 'slider',
         field: 'iy_tp_p',
-        label: 'Local nutrient yield (phosphorus)',
+        label: 'Phosphorus yield to local waterway',
         unit: '',
       },
       con3: {
         type: 'slider',
         field: 'iy_tp_del_p',
-        label: 'Nutrient yield to Gulf of Mexico (phosphorus)',
+        label: 'Phosphorus yield to Gulf of Mexico',
         unit: '',
       },
       con4: {
         type: 'slider',
         field: 'iy_ss_p',
-        label: 'Local yield (suspended sediment)',
+        label: 'Suspended sediment yield to local waterway',
         unit: '',
       },
       con5: {
         type: 'slider',
         field: 'iy_ss_del_p',
-        label: 'Yield to Gulf of Mexico (suspended sediment)',
+        label: 'Suspended sediment yield to Gulf of Mexico',
         unit: '',
       },
       con6: {
@@ -344,7 +344,7 @@ app.mapImageLayers = [
     title: 'Protected Areas Database of the U.S.',
     opacity: 0.8,
     supporting: true,
-    info: "<a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
+    info: "PAD-US is America’s official national inventory of U.S. terrestrial and marine protected areas that are dedicated to the preservation of biological diversity and to other natural, recreational, and cultural uses, managed for these purposes through legal or other effective means. <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
   },
   {
     id: 12,
@@ -352,7 +352,7 @@ app.mapImageLayers = [
     title: 'Development pressure index',
     opacity: 0.8,
     supporting: true,
-    info: "This index was calculated by comparing ICLUS EPA land use data (see <a href='https://iclus.epa.gov/' target='_blank'>here</a>) for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of those land use types based on the National Structure Inventory (NSI).<br><br>A higher (more red) index value indicates a more extreme projected transition by 2050 (e.g. non-urban to very urban) and a lower (more green) index value indicates a less extreme projected transition by 2050 (e.g. suburban-low to suburban-high). Where no color is present, no development is expected."
+    info: "This index was calculated by comparing ICLUS EPA land use data for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of those land use types based on the National Structure Inventory (NSI).<br><br>A higher (more red) index value indicates a more extreme projected transition by 2050 (e.g. non-urban to very urban) and a lower (more green) index value indicates a less extreme projected transition by 2050 (e.g. suburban-low to suburban-high). Where no color is present, no development is expected. <a href='https://iclus.epa.gov/' target='_blank'>More info</a>"
   },
   {
     id: 13,
@@ -360,7 +360,7 @@ app.mapImageLayers = [
     title: 'Estimated direct building losses in the 100-year floodplain (millions of $)',
     opacity: 0.8,
     supporting: true,
-    info: "County-level information is taken from Table 2.9 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+    info: "County-level information is taken from Table 2.9 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>"
   },
   {
     id: 11,
@@ -368,7 +368,7 @@ app.mapImageLayers = [
     title: 'Estimated crop & livestock production losses in the 100-year floodplain (millions of $)',
     opacity: 0.8,
     supporting: true,
-    info: "County-level information is taken from Table 2.8 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+    info: "County-level information is taken from Table 2.8 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>"
   }
 ];
 
@@ -419,6 +419,7 @@ app.sliderObj = {
       min: 0,
       max: 100000,
       gtmax: false,
+      info: "Acres of available floodplain including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     AcresUnp: {
       values: [],
@@ -426,7 +427,7 @@ app.sliderObj = {
       min: 0,
       max: 100000,
       gtmax: false,
-      info: 'Acres of available floodplain <b>not</b> in an area within the Protected Areas Database of the U.S. (PADUS)'
+      info: "Acres of available floodplain <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     iy_tn_p: {
       values: [],
@@ -435,7 +436,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Local nutrient yield (nitrogen)</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tn_del_p: {
       values: [],
@@ -444,7 +445,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient yield to Gulf of Mexico (nitrogen)</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_p: {
       values: [],
@@ -453,7 +454,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Local nutrient yield (phosphorus)</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_del_p: {
       values: [],
@@ -462,7 +463,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (phosphorus)</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
+      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
     },
     iy_ss_p: {
       values: [],
@@ -471,7 +472,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (suspended sediment)</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_del_p: {
       values: [],
@@ -480,7 +481,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (suspended sediment)</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     resil: {
       values: [],
@@ -504,7 +505,7 @@ app.sliderObj = {
       min: 0,
       max: 35,
       gtmax: false,
-      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013), available <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>here</a>."
+      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
     },
     belowgrC: {
       values: [],
@@ -519,21 +520,21 @@ app.sliderObj = {
       vis: true,
       min: 0,
       max: 5200,
-      info: "<b>Population living in floodplain of the currently specified flood frequency</b><br> People currently living in floodplain of the currently specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
+      info: "<b>Population exposure to floods (present-day)</b><br>People currently living in floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
     },
     pop2050: {
       values: [],
       vis: true,
       min: 0,
       max: 42000,
-      info: "<b>Population exposure to floods (2050)</b><br>People expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018), available <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>here</a>."
+      info: "<b>Population exposure to floods (2050)</b><br>People expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>."
     },
     damages: {
       values: [],
       vis: true,
       min: 0,
       max: 1334008534,
-      info: "<b>Projected future flood damages (2050) ($)</b><br> Estimate of property damage in the floodplain corresponding to the currently selected flood frequency, given flood depth and projected 2050 land use / building type. Estimated using the methods in Wing <i>et al.</i>, available <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>here</a>.",
+      info: "<b>Projected future flood damages (2050) ($)</b><br> Estimate of property damage in the floodplain corresponding to the currently selected flood frequency, given flood depth and projected 2050 land use / building type. Estimated using the methods in Wing <i>et al.</i>. <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>.",
     },
     SVI: {
       values: [],
@@ -541,7 +542,7 @@ app.sliderObj = {
       min: 0.159,
       max: 0.663,
       step: 0.001,
-      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
+      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
     },
     inCDLp: {
       values: [],
@@ -556,7 +557,7 @@ app.sliderObj = {
       min: 0,
       max: 2,
       step: 0.001,
-      info: "<b>Development pressure in the floodplain</b><br>Development pressure is characterized by comparing ICLUS EPA land use data (see <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>here</a>) for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places." 
+      info: "<b>Development pressure in the floodplain</b><br>Development pressure is characterized by comparing ICLUS EPA land use data for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places. <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>More info</a>"
     },
     devpres: {
       values: [],
@@ -565,7 +566,7 @@ app.sliderObj = {
       min: 0,
       max: 2.236,
       step: 0.001,
-      info: "<b>Development pressure in the watershed</b><br>Development pressure is characterized by comparing ICLUS EPA land use data (see <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>here</a>) for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places." 
+      info: "<b>Development pressure in the watershed</b><br>Development pressure is characterized by comparing ICLUS EPA land use data for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places. <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>More info</a>" 
     },
     incroppc: {
       values: [],
@@ -602,7 +603,7 @@ app.sliderObj = {
       min: 0.20,
       max: 0.33,
       step: 0.001,
-      info: '<b>Soil erodibility index (K factor) in the floodplain</b><br> The K factor quantifies the relative susceptibility of the soil to sheet & rill erosion. It is derived from texture, organic matter content, soil structure, and saturated hydraulic conductivity. It ranges from 0.02 (least erodible) to 0.64 (most erodible).',
+      info: "<b>Soil erodibility index (K factor) in the floodplain</b><br> The K factor quantifies the relative susceptibility of the soil to sheet & rill erosion. It is derived from texture, organic matter content, soil structure, and saturated hydraulic conductivity. It ranges from 0.02 (least erodible) to 0.64 (most erodible). <a href='http://www.iwr.msu.edu/rusle/kfactor.htm' target='_blank'>More info</a>",
     },
   },
   // huc 8 + 1 in 100 year flood
@@ -613,6 +614,7 @@ app.sliderObj = {
       min: 0,
       max: 418000,
       gtmax: false,
+      info: "Acres of available floodplain including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     AcresUnp: {
       values: [],
@@ -620,7 +622,7 @@ app.sliderObj = {
       min: 0,
       max: 412000,
       gtmax: false,
-      info: 'Acres of available floodplain <b>not</b> in an area within the Protected Areas Database of the U.S. (PADUS)'
+      info: "Acres of available floodplain <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     iy_tn_p: {
       values: [],
@@ -629,7 +631,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Local nutrient yield (nitrogen)</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tn_del_p: {
       values: [],
@@ -638,7 +640,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient yield to Gulf of Mexico (nitrogen)</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_p: {
       values: [],
@@ -647,7 +649,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Local nutrient yield (phosphorus)</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_del_p: {
       values: [],
@@ -656,7 +658,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (phosphorus)</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
+      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
     },
     iy_ss_p: {
       values: [],
@@ -665,7 +667,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (suspended sediment)</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_del_p: {
       values: [],
@@ -674,7 +676,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (suspended sediment)</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     resil: {
       values: [],
@@ -698,7 +700,7 @@ app.sliderObj = {
       min: 0,
       max: 33,
       gtmax: false,
-      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013), available <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>here</a>."
+      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
     },
     belowgrC: {
       values: [],
@@ -713,21 +715,21 @@ app.sliderObj = {
       vis: true,
       min: 0,
       max: 134000,
-      info: "<b>Population living in floodplain of the currently specified flood frequency</b><br> People currently living in floodplain of the currently specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
+      info: "<b>Population exposure to floods (present-day)</b><br>People currently living in floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
     },
     pop2050: {
       values: [],
       vis: true,
       min: 0,
       max: 181000,
-      info: "<b>Population exposure to floods (2050)</b><br>People expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018), available <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>here</a>."
+      info: "<b>Population exposure to floods (2050)</b><br>People expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>."
     },
     damages: {
       values: [],
       vis: true,
       min: 0,
       max: 5400282027,
-      info: "<b>Projected future flood damages (2050) ($)</b><br> Estimate of property damage in the floodplain corresponding to the currently selected flood frequency, given flood depth and projected 2050 land use / building type. Estimated using the methods in Wing <i>et al.</i>, available <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>here</a>.",
+      info: "<b>Projected future flood damages (2050) ($)</b><br> Estimate of property damage in the floodplain corresponding to the currently selected flood frequency, given flood depth and projected 2050 land use / building type. Estimated using the methods in Wing <i>et al.</i>. <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>.",
     },
     SVI: {
       values: [],
@@ -735,7 +737,7 @@ app.sliderObj = {
       min: 0.169,
       max: 0.644,
       step: 0.001,
-      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
+      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
     },
     inCDLp: {
       values: [],
@@ -750,7 +752,7 @@ app.sliderObj = {
       min: 0,
       max: 2,
       step: 0.001,
-      info: "<b>Development pressure in the floodplain</b><br>Development pressure is characterized by comparing ICLUS EPA land use data (see <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>here</a>) for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places." 
+      info: "<b>Development pressure in the floodplain</b><br>Development pressure is characterized by comparing ICLUS EPA land use data for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places. <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>More info</a>" 
     },
     devpres: {
       values: [],
@@ -759,7 +761,7 @@ app.sliderObj = {
       min: 0,
       max: 2.236,
       step: 0.001,
-      info: "<b>Development pressure in the watershed</b><br>Development pressure is characterized by comparing ICLUS EPA land use data (see <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>here</a>) for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places." 
+      info: "<b>Development pressure in the watershed</b><br>Development pressure is characterized by comparing ICLUS EPA land use data for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places. <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>More info</a>" 
     },
     incroppc: {
       values: [],
@@ -796,7 +798,7 @@ app.sliderObj = {
       min: 0.218,
       max: 0.339,
       step: 0.001,
-      info: '<b>Soil erodibility index (K factor) in the floodplain</b><br> The K factor quantifies the relative susceptibility of the soil to sheet & rill erosion. It is derived from texture, organic matter content, soil structure, and saturated hydraulic conductivity. It ranges from 0.02 (least erodible) to 0.64 (most erodible).',
+      info: "<b>Soil erodibility index (K factor) in the floodplain</b><br> The K factor quantifies the relative susceptibility of the soil to sheet & rill erosion. It is derived from texture, organic matter content, soil structure, and saturated hydraulic conductivity. It ranges from 0.02 (least erodible) to 0.64 (most erodible). <a href='http://www.iwr.msu.edu/rusle/kfactor.htm' target='_blank'>More info</a>",
     },
   },
   // huc 8 + 1 in 500 year flood
@@ -807,6 +809,7 @@ app.sliderObj = {
       min: 0,
       max: 452000,
       gtmax: false,
+      info: "Acres of available floodplain including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     AcresUnp: {
       values: [],
@@ -814,7 +817,7 @@ app.sliderObj = {
       min: 0,
       max: 445000,
       gtmax: false,
-      info: 'Acres of available floodplain <b>not</b> in an area within the Protected Areas Database of the U.S. (PADUS)'
+      info: "Acres of available floodplain <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     iy_tn_p: {
       values: [],
@@ -823,7 +826,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Local nutrient yield (nitrogen)</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tn_del_p: {
       values: [],
@@ -832,7 +835,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient yield to Gulf of Mexico (nitrogen)</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_p: {
       values: [],
@@ -841,7 +844,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Local nutrient yield (phosphorus)</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_del_p: {
       values: [],
@@ -850,7 +853,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (phosphorus)</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
+      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
     },
     iy_ss_p: {
       values: [],
@@ -859,7 +862,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (suspended sediment)</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_del_p: {
       values: [],
@@ -868,7 +871,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (suspended sediment)</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     resil: {
       values: [],
@@ -892,7 +895,7 @@ app.sliderObj = {
       min: 10,
       max: 32,
       gtmax: false,
-      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013), available <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>here</a>."
+      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
     },
     belowgrC: {
       values: [],
@@ -907,21 +910,21 @@ app.sliderObj = {
       vis: true,
       min: 0,
       max: 159000,
-      info: "<b>Population living in floodplain of the currently specified flood frequency</b><br> People currently living in floodplain of the currently specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
+      info: "<b>Population exposure to floods (present-day)</b><br>People currently living in floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
     },
     pop2050: {
       values: [],
       vis: true,
       min: 0,
       max: 216000,
-      info: "<b>Population exposure to floods (2050)</b><br>People expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018), available <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>here</a>."
+      info: "<b>Population exposure to floods (2050)</b><br>People expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>."
     },
     damages: {
       values: [],
       vis: true,
       min: 0,
       max: 7391108835,
-      info: "<b>Projected future flood damages (2050) ($)</b><br> Estimate of property damage in the floodplain corresponding to the currently selected flood frequency, given flood depth and projected 2050 land use / building type. Estimated using the methods in Wing <i>et al.</i>, available <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>here</a>.",
+      info: "<b>Projected future flood damages (2050) ($)</b><br> Estimate of property damage in the floodplain corresponding to the currently selected flood frequency, given flood depth and projected 2050 land use / building type. Estimated using the methods in Wing <i>et al.</i>. <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>.",
     },
     SVI: {
       values: [],
@@ -929,7 +932,7 @@ app.sliderObj = {
       min: 0.165,
       max: 0.644,
       step: 0.001,
-      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
+      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
     },
     inCDLp: {
       values: [],
@@ -944,7 +947,7 @@ app.sliderObj = {
       min: 0,
       max: 2.023,
       step: 0.001,
-      info: "<b>Development pressure in the floodplain</b><br>Development pressure is characterized by comparing ICLUS EPA land use data (see <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>here</a>) for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places." 
+      info: "<b>Development pressure in the floodplain</b><br>Development pressure is characterized by comparing ICLUS EPA land use data for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places. <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>More info</a>" 
     },
     devpres: {
       values: [],
@@ -953,7 +956,7 @@ app.sliderObj = {
       min: 0,
       max: 2.236,
       step: 0.001,
-      info: "<b>Development pressure in the watershed</b><br>Development pressure is characterized by comparing ICLUS EPA land use data (see <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>here</a>) for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places." 
+      info: "<b>Development pressure in the watershed</b><br>Development pressure is characterized by comparing ICLUS EPA land use data for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places. <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>More info</a>" 
     },
     incroppc: {
       values: [],
@@ -990,7 +993,7 @@ app.sliderObj = {
       min: 0.221,
       max: 0.352,
       step: 0.001,
-      info: '<b>Soil erodibility index (K factor) in the floodplain</b><br> The K factor quantifies the relative susceptibility of the soil to sheet & rill erosion. It is derived from texture, organic matter content, soil structure, and saturated hydraulic conductivity. It ranges from 0.02 (least erodible) to 0.64 (most erodible).',
+      info: "<b>Soil erodibility index (K factor) in the floodplain</b><br> The K factor quantifies the relative susceptibility of the soil to sheet & rill erosion. It is derived from texture, organic matter content, soil structure, and saturated hydraulic conductivity. It ranges from 0.02 (least erodible) to 0.64 (most erodible). <a href='http://www.iwr.msu.edu/rusle/kfactor.htm' target='_blank'>More info</a>",
     },
   },
 
@@ -1002,6 +1005,7 @@ app.sliderObj = {
       min: 0,
       max: 10450,
       gtmax: false,
+      info: "Acres of available floodplain including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     AcresUnp: {
       values: [],
@@ -1009,7 +1013,7 @@ app.sliderObj = {
       min: 0,
       max: 9784,
       gtmax: false,
-      info: 'Acres of available floodplain <b>not</b> in an area within the Protected Areas Database of the U.S. (PADUS)'
+      info: "Acres of available floodplain <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     iy_tn_p: {
       values: [],
@@ -1018,7 +1022,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Local nutrient yield (nitrogen)</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tn_del_p: {
       values: [],
@@ -1027,7 +1031,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient yield to Gulf of Mexico (nitrogen)</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_p: {
       values: [],
@@ -1036,7 +1040,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Local nutrient yield (phosphorus)</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_del_p: {
       values: [],
@@ -1045,7 +1049,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (phosphorus)</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
+      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
     },
     iy_ss_p: {
       values: [],
@@ -1054,7 +1058,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (suspended sediment)</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_del_p: {
       values: [],
@@ -1063,7 +1067,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (suspended sediment)</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     resil: {
       values: [],
@@ -1087,7 +1091,7 @@ app.sliderObj = {
       min: 0,
       max: 66,
       gtmax: false,
-      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013), available <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>here</a>."
+      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
     },
     belowgrC: {
       values: [],
@@ -1103,7 +1107,7 @@ app.sliderObj = {
       min: 0,
       max: 150,
       gtmax: true,
-      info: "<b>Population living in floodplain of the currently specified flood frequency</b><br> People currently living in floodplain of the currently specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
+      info: "<b>Population exposure to floods (present-day)</b><br>People currently living in floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
     },
     pop2050: {
       values: [],
@@ -1111,7 +1115,7 @@ app.sliderObj = {
       min: 0,
       max: 900,
       gtmax: true,
-      info: "<b>Population exposure to floods (2050)</b><br>People expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018), available <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>here</a>."
+      info: "<b>Population exposure to floods (2050)</b><br>People expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>."
     },
     damages: {
       values: [],
@@ -1119,7 +1123,7 @@ app.sliderObj = {
       min: 0,
       max: 407000000,
       gtmax: false,
-      info: "<b>Projected future flood damages (2050) ($)</b><br> Estimate of property damage in the floodplain corresponding to the currently selected flood frequency, given flood depth and projected 2050 land use / building type. Estimated using the methods in Wing <i>et al.</i>, available <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>here</a>.",
+      info: "<b>Projected future flood damages (2050) ($)</b><br> Estimate of property damage in the floodplain corresponding to the currently selected flood frequency, given flood depth and projected 2050 land use / building type. Estimated using the methods in Wing <i>et al.</i>. <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>.",
     },
     SVI: {
       values: [],
@@ -1127,7 +1131,7 @@ app.sliderObj = {
       min: 0.002,
       max: 0.862,
       step: 0.001,
-      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
+      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
     },
     inCDLp: {
       values: [],
@@ -1142,7 +1146,7 @@ app.sliderObj = {
       min: 0,
       max: 10.4,
       step: 0.001,
-      info: "<b>Development pressure in the floodplain</b><br>Development pressure is characterized by comparing ICLUS EPA land use data (see <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>here</a>) for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places." 
+      info: "<b>Development pressure in the floodplain</b><br>Development pressure is characterized by comparing ICLUS EPA land use data for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places. <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>More info</a>" 
     },
     devpres: {
       values: [],
@@ -1151,7 +1155,7 @@ app.sliderObj = {
       min: 0,
       max: 6.848,
       step: 0.001,
-      info: "<b>Development pressure in the watershed</b><br>Development pressure is characterized by comparing ICLUS EPA land use data (see <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>here</a>) for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places." 
+      info: "<b>Development pressure in the watershed</b><br>Development pressure is characterized by comparing ICLUS EPA land use data for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places. <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>More info</a>" 
     },
     incroppc: {
       values: [],
@@ -1188,7 +1192,7 @@ app.sliderObj = {
       min: 0.142,
       max: 0.639,
       step: 0.001,
-      info: '<b>Soil erodibility index (K factor) in the floodplain</b><br> The K factor quantifies the relative susceptibility of the soil to sheet & rill erosion. It is derived from texture, organic matter content, soil structure, and saturated hydraulic conductivity. It ranges from 0.02 (least erodible) to 0.64 (most erodible).',
+      info: "<b>Soil erodibility index (K factor) in the floodplain</b><br> The K factor quantifies the relative susceptibility of the soil to sheet & rill erosion. It is derived from texture, organic matter content, soil structure, and saturated hydraulic conductivity. It ranges from 0.02 (least erodible) to 0.64 (most erodible). <a href='http://www.iwr.msu.edu/rusle/kfactor.htm' target='_blank'>More info</a>",
     },
   },
   // huc 12 + 1 in 100 year flood
@@ -1199,6 +1203,7 @@ app.sliderObj = {
       min: 0,
       max: 31068,
       gtmax: false,
+      info: "Acres of available floodplain including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     AcresUnp: {
       values: [],
@@ -1206,7 +1211,7 @@ app.sliderObj = {
       min: 0,
       max: 31056,
       gtmax: false,
-      info: 'Acres of available floodplain <b>not</b> in an area within the Protected Areas Database of the U.S. (PADUS)'
+      info: "Acres of available floodplain <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     iy_tn_p: {
       values: [],
@@ -1215,7 +1220,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Local nutrient yield (nitrogen)</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tn_del_p: {
       values: [],
@@ -1224,7 +1229,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient yield to Gulf of Mexico (nitrogen)</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_p: {
       values: [],
@@ -1233,7 +1238,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Local nutrient yield (phosphorus)</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_del_p: {
       values: [],
@@ -1242,7 +1247,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (phosphorus)</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
+      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
     },
     iy_ss_p: {
       values: [],
@@ -1251,7 +1256,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (suspended sediment)</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_del_p: {
       values: [],
@@ -1260,7 +1265,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (suspended sediment)</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     resil: {
       values: [],
@@ -1284,7 +1289,7 @@ app.sliderObj = {
       min: 0,
       max: 62,
       gtmax: false,
-      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013), available <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>here</a>."
+      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
     },
     belowgrC: {
       values: [],
@@ -1300,7 +1305,7 @@ app.sliderObj = {
       min: 0,
       max: 1500,
       gtmax: true,
-      info: "<b>Population living in floodplain of the currently specified flood frequency</b><br> People currently living in floodplain of the currently specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
+      info: "<b>Population exposure to floods (present-day)</b><br>People currently living in floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
     },
     pop2050: {
       values: [],
@@ -1308,7 +1313,7 @@ app.sliderObj = {
       min: 0,
       max: 4000,
       gtmax: true,
-      info: "<b>Population exposure to floods (2050)</b><br>People expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018), available <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>here</a>."
+      info: "<b>Population exposure to floods (2050)</b><br>People expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>."
     },
     damages: {
       values: [],
@@ -1316,7 +1321,7 @@ app.sliderObj = {
       min: 0,
       max: 977000000,
       gtmax: false,
-      info: "<b>Projected future flood damages (2050) ($)</b><br> Estimate of property damage in the floodplain corresponding to the currently selected flood frequency, given flood depth and projected 2050 land use / building type. Estimated using the methods in Wing <i>et al.</i>, available <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>here</a>.",
+      info: "<b>Projected future flood damages (2050) ($)</b><br> Estimate of property damage in the floodplain corresponding to the currently selected flood frequency, given flood depth and projected 2050 land use / building type. Estimated using the methods in Wing <i>et al.</i>. <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>.",
     },
     SVI: {
       values: [],
@@ -1324,7 +1329,7 @@ app.sliderObj = {
       min: 0.025,
       max: 0.902,
       step: 0.001,
-      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
+      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
     },
     inCDLp: {
       values: [],
@@ -1339,7 +1344,7 @@ app.sliderObj = {
       min: 0,
       max: 8.5,
       step: 0.001,
-      info: "<b>Development pressure in the floodplain</b><br>Development pressure is characterized by comparing ICLUS EPA land use data (see <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>here</a>) for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places." 
+      info: "<b>Development pressure in the floodplain</b><br>Development pressure is characterized by comparing ICLUS EPA land use data for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places. <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>More info</a>" 
     },
     devpres: {
       values: [],
@@ -1348,7 +1353,7 @@ app.sliderObj = {
       min: 0,
       max: 6.848,
       step: 0.001,
-      info: "<b>Development pressure in the watershed</b><br>Development pressure is characterized by comparing ICLUS EPA land use data (see <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>here</a>) for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places." 
+      info: "<b>Development pressure in the watershed</b><br>Development pressure is characterized by comparing ICLUS EPA land use data for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places. <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>More info</a>" 
     },
     incroppc: {
       values: [],
@@ -1385,7 +1390,7 @@ app.sliderObj = {
       min: 0.166,
       max: 0.541,
       step: 0.001,
-      info: '<b>Soil erodibility index (K factor) in the floodplain</b><br> The K factor quantifies the relative susceptibility of the soil to sheet & rill erosion. It is derived from texture, organic matter content, soil structure, and saturated hydraulic conductivity. It ranges from 0.02 (least erodible) to 0.64 (most erodible).',
+      info: "<b>Soil erodibility index (K factor) in the floodplain</b><br> The K factor quantifies the relative susceptibility of the soil to sheet & rill erosion. It is derived from texture, organic matter content, soil structure, and saturated hydraulic conductivity. It ranges from 0.02 (least erodible) to 0.64 (most erodible). <a href='http://www.iwr.msu.edu/rusle/kfactor.htm' target='_blank'>More info</a>",
     },
   },
   // huc 12 + 1 in 500 year flood
@@ -1396,6 +1401,7 @@ app.sliderObj = {
       min: 0,
       max: 34015,
       gtmax: false,
+      info: "Acres of available floodplain including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     AcresUnp: {
       values: [],
@@ -1403,7 +1409,7 @@ app.sliderObj = {
       min: 0,
       max: 34002,
       gtmax: false,
-      info: 'Acres of available floodplain <b>not</b> in an area within the Protected Areas Database of the U.S. (PADUS)'
+      info: "Acres of available floodplain <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     iy_tn_p: {
       values: [],
@@ -1412,7 +1418,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Local nutrient yield (nitrogen)</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tn_del_p: {
       values: [],
@@ -1421,7 +1427,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient yield to Gulf of Mexico (nitrogen)</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_p: {
       values: [],
@@ -1430,7 +1436,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Local nutrient yield (phosphorus)</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_del_p: {
       values: [],
@@ -1439,7 +1445,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (phosphorus)</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
+      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
     },
     iy_ss_p: {
       values: [],
@@ -1448,7 +1454,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (suspended sediment)</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_del_p: {
       values: [],
@@ -1457,7 +1463,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (suspended sediment)</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     resil: {
       values: [],
@@ -1481,7 +1487,7 @@ app.sliderObj = {
       min: 0,
       max: 61,
       gtmax: false,
-      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013), available <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>here</a>."
+      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
     },
     belowgrC: {
       values: [],
@@ -1497,7 +1503,7 @@ app.sliderObj = {
       min: 0,
       max: 2500,
       gtmax: true,
-      info: "<b>Population living in floodplain of the currently specified flood frequency</b><br> People currently living in floodplain of the currently specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
+      info: "<b>Population exposure to floods (present-day)</b><br>People currently living in floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
     },
     pop2050: {
       values: [],
@@ -1505,7 +1511,7 @@ app.sliderObj = {
       min: 0,
       max: 5000,
       gtmax: true,
-      info: "<b>Population exposure to floods (2050)</b><br>People expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018), available <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>here</a>."
+      info: "<b>Population exposure to floods (2050)</b><br>People expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>."
     },
     damages: {
       values: [],
@@ -1513,7 +1519,7 @@ app.sliderObj = {
       min: 0,
       max: 1121000000,
       gtmax: false,
-      info: "<b>Projected future flood damages (2050) ($)</b><br> Estimate of property damage in the floodplain corresponding to the currently selected flood frequency, given flood depth and projected 2050 land use / building type. Estimated using the methods in Wing <i>et al.</i>, available <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>here</a>.",
+      info: "<b>Projected future flood damages (2050) ($)</b><br> Estimate of property damage in the floodplain corresponding to the currently selected flood frequency, given flood depth and projected 2050 land use / building type. Estimated using the methods in Wing <i>et al.</i>. <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>.",
     },
     SVI: {
       values: [],
@@ -1521,7 +1527,7 @@ app.sliderObj = {
       min: 0.025,
       max: 0.900,
       step: 0.001,
-      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
+      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
     },
     inCDLp: {
       values: [],
@@ -1536,7 +1542,7 @@ app.sliderObj = {
       min: 0,
       max: 8.3,
       step: 0.001,
-      info: "<b>Development pressure in the floodplain</b><br>Development pressure is characterized by comparing ICLUS EPA land use data (see <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>here</a>) for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places." 
+      info: "<b>Development pressure in the floodplain</b><br>Development pressure is characterized by comparing ICLUS EPA land use data for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places. <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>More info</a>" 
     },
     devpres: {
       values: [],
@@ -1545,7 +1551,7 @@ app.sliderObj = {
       min: 0,
       max: 6.848,
       step: 0.001,
-      info: "<b>Development pressure in the watershed</b><br>Development pressure is characterized by comparing ICLUS EPA land use data (see <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>here</a>) for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places." 
+      info: "<b>Development pressure in the watershed</b><br>Development pressure is characterized by comparing ICLUS EPA land use data for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places. <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>More info</a>" 
     },
     incroppc: {
       values: [],
@@ -1582,7 +1588,7 @@ app.sliderObj = {
       min: 0.168,
       max: 0.537,
       step: 0.001,
-      info: '<b>Soil erodibility index (K factor) in the floodplain</b><br> The K factor quantifies the relative susceptibility of the soil to sheet & rill erosion. It is derived from texture, organic matter content, soil structure, and saturated hydraulic conductivity. It ranges from 0.02 (least erodible) to 0.64 (most erodible).',
+      info: "<b>Soil erodibility index (K factor) in the floodplain</b><br> The K factor quantifies the relative susceptibility of the soil to sheet & rill erosion. It is derived from texture, organic matter content, soil structure, and saturated hydraulic conductivity. It ranges from 0.02 (least erodible) to 0.64 (most erodible). <a href='http://www.iwr.msu.edu/rusle/kfactor.htm' target='_blank'>More info</a>",
     },
   },
 
@@ -1594,6 +1600,7 @@ app.sliderObj = {
       min: 0,
       max: 1500,
       gtmax: true,
+      info: "Acres of available floodplain including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     AcresUnp: {
       values: [],
@@ -1601,7 +1608,7 @@ app.sliderObj = {
       min: 0,
       max: 1200,
       gtmax: true,
-      info: 'Acres of available floodplain <b>not</b> in an area within the Protected Areas Database of the U.S. (PADUS)'
+      info: "Acres of available floodplain <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     iy_tn_p: {
       values: [],
@@ -1610,7 +1617,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Local nutrient yield (nitrogen)</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tn_del_p: {
       values: [],
@@ -1619,7 +1626,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient yield to Gulf of Mexico (nitrogen)</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_p: {
       values: [],
@@ -1628,7 +1635,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Local nutrient yield (phosphorus)</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_del_p: {
       values: [],
@@ -1637,7 +1644,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (phosphorus)</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
+      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
     },
     iy_ss_p: {
       values: [],
@@ -1646,7 +1653,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (suspended sediment)</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_del_p: {
       values: [],
@@ -1655,7 +1662,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (suspended sediment)</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     resil: {
       values: [],
@@ -1679,7 +1686,7 @@ app.sliderObj = {
       min: 0,
       max: 75,
       gtmax: true,
-      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013), available <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>here</a>."
+      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
     },
     belowgrC: {
       values: [],
@@ -1695,7 +1702,7 @@ app.sliderObj = {
       min: 0,
       max: 100,
       gtmax: true,
-      info: "<b>Population living in floodplain of the currently specified flood frequency</b><br> People currently living in floodplain of the currently specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
+      info: "<b>Population exposure to floods (present-day)</b><br>People currently living in floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
     },
     pop2050: {
       values: [],
@@ -1703,7 +1710,7 @@ app.sliderObj = {
       min: 0,
       max: 500,
       gtmax: true,
-      info: "<b>Population exposure to floods (2050)</b><br>People expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018), available <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>here</a>."
+      info: "<b>Population exposure to floods (2050)</b><br>People expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>."
     },
     damages: {
       values: [],
@@ -1711,7 +1718,7 @@ app.sliderObj = {
       min: 0,
       max: 35000000,
       gtmax: true,
-      info: "<b>Projected future flood damages (2050) ($)</b><br> Estimate of property damage in the floodplain corresponding to the currently selected flood frequency, given flood depth and projected 2050 land use / building type. Estimated using the methods in Wing <i>et al.</i>, available <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>here</a>.",
+      info: "<b>Projected future flood damages (2050) ($)</b><br> Estimate of property damage in the floodplain corresponding to the currently selected flood frequency, given flood depth and projected 2050 land use / building type. Estimated using the methods in Wing <i>et al.</i>. <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>.",
     },
     SVI: {
       values: [],
@@ -1719,7 +1726,7 @@ app.sliderObj = {
       min: 0,
       max: 0.943,
       step: 0.001,
-      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
+      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
     },
     inCDLp: {
       values: [],
@@ -1735,7 +1742,7 @@ app.sliderObj = {
       max: 10,
       step: 0.001,
       gtmax: true,
-      info: "<b>Development pressure in the floodplain</b><br>Development pressure is characterized by comparing ICLUS EPA land use data (see <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>here</a>) for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places." 
+      info: "<b>Development pressure in the floodplain</b><br>Development pressure is characterized by comparing ICLUS EPA land use data for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places. <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>More info</a>" 
     },
     devpres: {
       values: [],
@@ -1745,7 +1752,7 @@ app.sliderObj = {
       max: 10,
       step: 0.001,
       gtmax: true,
-      info: "<b>Development pressure in the watershed</b><br>Development pressure is characterized by comparing ICLUS EPA land use data (see <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>here</a>) for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places." 
+      info: "<b>Development pressure in the watershed</b><br>Development pressure is characterized by comparing ICLUS EPA land use data for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places. <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>More info</a>" 
     },
     incroppc: {
       values: [],
@@ -1782,7 +1789,7 @@ app.sliderObj = {
       min: 0.02,
       max: 0.64,
       step: 0.001,
-      info: '<b>Soil erodibility index (K factor) in the floodplain</b><br> The K factor quantifies the relative susceptibility of the soil to sheet & rill erosion. It is derived from texture, organic matter content, soil structure, and saturated hydraulic conductivity. It ranges from 0.02 (least erodible) to 0.64 (most erodible).',
+      info: "<b>Soil erodibility index (K factor) in the floodplain</b><br> The K factor quantifies the relative susceptibility of the soil to sheet & rill erosion. It is derived from texture, organic matter content, soil structure, and saturated hydraulic conductivity. It ranges from 0.02 (least erodible) to 0.64 (most erodible). <a href='http://www.iwr.msu.edu/rusle/kfactor.htm' target='_blank'>More info</a>",
     },
   },
   // catchment + 1 in 100 year flood
@@ -1793,6 +1800,7 @@ app.sliderObj = {
       min: 0,
       max: 4000,
       gtmax: true,
+      info: "Acres of available floodplain including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     AcresUnp: {
       values: [],
@@ -1800,7 +1808,7 @@ app.sliderObj = {
       min: 0,
       max: 3500,
       gtmax: true,
-      info: 'Acres of available floodplain <b>not</b> in an area within the Protected Areas Database of the U.S. (PADUS)'
+      info: "Acres of available floodplain <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     iy_tn_p: {
       values: [],
@@ -1809,7 +1817,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Local nutrient yield (nitrogen)</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tn_del_p: {
       values: [],
@@ -1818,7 +1826,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient yield to Gulf of Mexico (nitrogen)</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_p: {
       values: [],
@@ -1827,7 +1835,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Local nutrient yield (phosphorus)</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_del_p: {
       values: [],
@@ -1836,7 +1844,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (phosphorus)</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
+      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
     },
     iy_ss_p: {
       values: [],
@@ -1845,7 +1853,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (suspended sediment)</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_del_p: {
       values: [],
@@ -1854,7 +1862,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (suspended sediment)</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     resil: {
       values: [],
@@ -1878,7 +1886,7 @@ app.sliderObj = {
       min: 0,
       max: 114,
       gtmax: true,
-      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013), available <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>here</a>."
+      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
     },
     belowgrC: {
       values: [],
@@ -1894,7 +1902,7 @@ app.sliderObj = {
       min: 0,
       max: 2000,
       gtmax: true,
-      info: "<b>Population living in floodplain of the currently specified flood frequency</b><br> People currently living in floodplain of the currently specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
+      info: "<b>Population exposure to floods (present-day)</b><br>People currently living in floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
     },
     pop2050: {
       values: [],
@@ -1902,7 +1910,7 @@ app.sliderObj = {
       min: 0,
       max: 2300,
       gtmax: true,
-      info: "<b>Population exposure to floods (2050)</b><br>People expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018), available <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>here</a>."
+      info: "<b>Population exposure to floods (2050)</b><br>People expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>."
     },
     damages: {
       values: [],
@@ -1910,7 +1918,7 @@ app.sliderObj = {
       min: 0,
       max: 130000000,
       gtmax: true,
-      info: "<b>Projected future flood damages (2050) ($)</b><br> Estimate of property damage in the floodplain corresponding to the currently selected flood frequency, given flood depth and projected 2050 land use / building type. Estimated using the methods in Wing <i>et al.</i>, available <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>here</a>.",
+      info: "<b>Projected future flood damages (2050) ($)</b><br> Estimate of property damage in the floodplain corresponding to the currently selected flood frequency, given flood depth and projected 2050 land use / building type. Estimated using the methods in Wing <i>et al.</i>. <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>.",
     },
     SVI: {
       values: [],
@@ -1918,7 +1926,7 @@ app.sliderObj = {
       min: 0.002,
       max: 0.980,
       step: 0.001,
-      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
+      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
     },
     inCDLp: {
       values: [],
@@ -1934,7 +1942,7 @@ app.sliderObj = {
       max: 10,
       step: 0.001,
       gtmax: true,
-      info: "<b>Development pressure in the floodplain</b><br>Development pressure is characterized by comparing ICLUS EPA land use data (see <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>here</a>) for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places." 
+      info: "<b>Development pressure in the floodplain</b><br>Development pressure is characterized by comparing ICLUS EPA land use data for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places. <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>More info</a>" 
     },
     devpres: {
       values: [],
@@ -1944,7 +1952,7 @@ app.sliderObj = {
       max: 10,
       step: 0.001,
       gtmax: true,
-      info: "<b>Development pressure in the watershed</b><br>Development pressure is characterized by comparing ICLUS EPA land use data (see <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>here</a>) for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places." 
+      info: "<b>Development pressure in the watershed</b><br>Development pressure is characterized by comparing ICLUS EPA land use data for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places. <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>More info</a>" 
     },
     incroppc: {
       values: [],
@@ -1981,7 +1989,7 @@ app.sliderObj = {
       min: 0.02,
       max: 0.64,
       step: 0.001,
-      info: '<b>Soil erodibility index (K factor) in the floodplain</b><br> The K factor quantifies the relative susceptibility of the soil to sheet & rill erosion. It is derived from texture, organic matter content, soil structure, and saturated hydraulic conductivity. It ranges from 0.02 (least erodible) to 0.64 (most erodible).',
+      info: "<b>Soil erodibility index (K factor) in the floodplain</b><br> The K factor quantifies the relative susceptibility of the soil to sheet & rill erosion. It is derived from texture, organic matter content, soil structure, and saturated hydraulic conductivity. It ranges from 0.02 (least erodible) to 0.64 (most erodible). <a href='http://www.iwr.msu.edu/rusle/kfactor.htm' target='_blank'>More info</a>",
     },
   },
   // catchment + 1 in 500 year flood
@@ -1992,6 +2000,7 @@ app.sliderObj = {
       min: 0,
       max: 4300,
       gtmax: true,
+      info: "Acres of available floodplain including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     AcresUnp: {
       values: [],
@@ -1999,7 +2008,7 @@ app.sliderObj = {
       min: 0,
       max: 4000,
       gtmax: true,
-      info: 'Acres of available floodplain <b>not</b> in an area within the Protected Areas Database of the U.S. (PADUS)'
+      info: "Acres of available floodplain <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     iy_tn_p: {
       values: [],
@@ -2008,7 +2017,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Local nutrient yield (nitrogen)</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tn_del_p: {
       values: [],
@@ -2017,7 +2026,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient yield to Gulf of Mexico (nitrogen)</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_p: {
       values: [],
@@ -2026,7 +2035,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Local nutrient yield (phosphorus)</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_del_p: {
       values: [],
@@ -2035,7 +2044,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (phosphorus)</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
+      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
     },
     iy_ss_p: {
       values: [],
@@ -2044,7 +2053,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (suspended sediment)</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_del_p: {
       values: [],
@@ -2053,7 +2062,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nutrient loading to Gulf of Mexico (suspended sediment)</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     resil: {
       values: [],
@@ -2077,7 +2086,7 @@ app.sliderObj = {
       min: 0,
       max: 75,
       gtmax: true,
-      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013), available <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>here</a>."
+      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
     },
     belowgrC: {
       values: [],
@@ -2093,7 +2102,7 @@ app.sliderObj = {
       min: 0,
       max: 2700,
       gtmax: true,
-      info: "<b>Population living in floodplain of the currently specified flood frequency</b><br> People currently living in floodplain of the currently specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
+      info: "<b>Population exposure to floods (present-day)</b><br>People currently living in floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
     },
     pop2050: {
       values: [],
@@ -2101,7 +2110,7 @@ app.sliderObj = {
       min: 0,
       max: 3000,
       gtmax: true,
-      info: "<b>Population exposure to floods (2050)</b><br>People expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018), available <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>here</a>."
+      info: "<b>Population exposure to floods (2050)</b><br>People expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>."
     },
     damages: {
       values: [],
@@ -2109,7 +2118,7 @@ app.sliderObj = {
       min: 0,
       max: 175000000,
       gtmax: true,
-      info: "<b>Projected future flood damages (2050) ($)</b><br> Estimate of property damage in the floodplain corresponding to the currently selected flood frequency, given flood depth and projected 2050 land use / building type. Estimated using the methods in Wing <i>et al.</i>, available <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>here</a>.",
+      info: "<b>Projected future flood damages (2050) ($)</b><br> Estimate of property damage in the floodplain corresponding to the currently selected flood frequency, given flood depth and projected 2050 land use / building type. Estimated using the methods in Wing <i>et al.</i>. <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>.",
     },
     SVI: {
       values: [],
@@ -2117,7 +2126,7 @@ app.sliderObj = {
       min: 0.002,
       max: 0.980,
       step: 0.001,
-      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data, available <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>here</a>.",
+      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
     },
     inCDLp: {
       values: [],
@@ -2133,7 +2142,7 @@ app.sliderObj = {
       max: 10,
       step: 0.001,
       gtmax: true,
-      info: "<b>Development pressure in the floodplain</b><br>Development pressure is characterized by comparing ICLUS EPA land use data (see <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>here</a>) for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places." 
+      info: "<b>Development pressure in the floodplain</b><br>Development pressure is characterized by comparing ICLUS EPA land use data for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places. <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>More info</a>" 
     },
     devpres: {
       values: [],
@@ -2143,7 +2152,7 @@ app.sliderObj = {
       max: 10,
       step: 0.001,
       gtmax: true,
-      info: "<b>Development pressure in the watershed</b><br>Development pressure is characterized by comparing ICLUS EPA land use data (see <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>here</a>) for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places." 
+      info: "<b>Development pressure in the watershed</b><br>Development pressure is characterized by comparing ICLUS EPA land use data for 2020 versus 2050 to identify projected land use transitions from less developed to more developed.<br><br>A weighting scheme was developed to assign higher weights to more developed land use types (e.g. urban-high) vs. less developed land use types (e.g. exurban-low), in accordance with dollar valuation estimates of these land use types based on the National Structure Inventory (NSI).<br><br>A higher index value indicates more extreme transitions (e.g. non-urban to very urban) in more places and a lower index value indicates less extreme transitions (e.g. suburban-low to suburban-high) and in fewer places. <a href='https://www.epa.gov/gcx/about-iclus' target='_blank'>More info</a>" 
     },
     incroppc: {
       values: [],
@@ -2180,7 +2189,7 @@ app.sliderObj = {
       min: 0.02,
       max: 0.64,
       step: 0.001,
-      info: '<b>Soil erodibility index (K factor) in the floodplain</b><br> The K factor quantifies the relative susceptibility of the soil to sheet & rill erosion. It is derived from texture, organic matter content, soil structure, and saturated hydraulic conductivity. It ranges from 0.02 (least erodible) to 0.64 (most erodible).',
+      info: "<b>Soil erodibility index (K factor) in the floodplain</b><br> The K factor quantifies the relative susceptibility of the soil to sheet & rill erosion. It is derived from texture, organic matter content, soil structure, and saturated hydraulic conductivity. It ranges from 0.02 (least erodible) to 0.64 (most erodible). <a href='http://www.iwr.msu.edu/rusle/kfactor.htm' target='_blank'>More info</a>",
     },
   },
 };
@@ -2202,12 +2211,12 @@ app.radioObj = {
     builddir: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     },
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
   // huc 8 + 1 in 100 year flood
@@ -2225,12 +2234,12 @@ app.radioObj = {
     builddir: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     },
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
   // huc 8 + 1 in 500 year flood
@@ -2248,12 +2257,12 @@ app.radioObj = {
     builddir: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     },
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
   // huc 12 + 1 in 5 year flood
@@ -2271,12 +2280,12 @@ app.radioObj = {
     builddir: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     },
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
   // huc 12 + 1 in 100 year flood
@@ -2294,12 +2303,12 @@ app.radioObj = {
     builddir: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     },
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
   // huc 12 + 1 in 500 year flood
@@ -2317,12 +2326,12 @@ app.radioObj = {
     builddir: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     },
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
   // catchment + 1 in 5 year flood
@@ -2340,12 +2349,12 @@ app.radioObj = {
     builddir: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     },
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
   // catchment + 1 in 100 year flood
@@ -2363,12 +2372,12 @@ app.radioObj = {
     builddir: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     },
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
   // catchment + 1 in 500 year flood
@@ -2386,12 +2395,12 @@ app.radioObj = {
     builddir: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     },
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan, viewable <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>here</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
 };
