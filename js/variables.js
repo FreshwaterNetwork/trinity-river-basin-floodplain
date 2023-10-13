@@ -18,7 +18,7 @@ if (search) {
 // build top level controls
 app.topObj = {
   introP:
-    'This floodplain prioritization tool is designed to identify critical opportunities for floodplain protection in the Trinity River basin. Use the selector widgets below to specify criteria related to water quality, wildlife habitat, carbon storage, flood risk, and land use characteristics. The map on the right will change in response to your selections to identify sites meeting these criteria, identifying those geographies where floodplain conservation is likely to have the greatest positive impact on the health of this river system.<br><br>The delineation of the floodplain used in this tool is based on the FEMA base-level engineering (BLE) flood risk data, supplemented with Fathom floodplain data developed for the Texas Water Development Board (TWDB).<br><br>To learn more about the FEMA BLE dataset, visit <a href="https://webapps.usgs.gov/infrm/estBFE/" target="_blank">here</a>.<br>To learn more about the supplementary TWDB Fathom dataset, visit <a href="https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/ac16256918db4e188807b3a2c30b0f72" target="_blank">here</a>.',
+    'The Trinity Floodplain Prioritization Tool (FPPT) is designed to help identify key opportunities for floodplain protection and restoration in the Trinity River Basin. Use the selector widgets below to specify criteria related to current and future flood risk, current and projected land use characteristics, water quality, wildlife habitat, and carbon storage. The map on the right will change in response to your selections to identify sites that meet all the selected criteria and help identify the geographies where floodplain conservation is likely to have the greatest positive impact for the conservation and community priorities selected.',
   toggleBtns: {
     tb1: {
       header: 'Select Flood Frequency',
@@ -40,6 +40,7 @@ app.topObj = {
           label: '1-in-500-year',
         },
       },
+      info: 'The delineation of the 1-in-5-year, 1-in-100-year, or 1-in-500-year floodplain is based on the FEMA base-level engineering (BLE) flood risk data, supplemented with Fathom floodplain data developed for the Texas Water Development Board (TWDB).<br><br>To learn more about the FEMA BLE dataset, visit <a target="_blank" href="https://webapps.usgs.gov/infrm/estBFE/">here</a>.<br>To learn more about the supplementary TWDB Fathom dataset, visit <a target="_blank" href="https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/ac16256918db4e188807b3a2c30b0f72">here</a>.'
     },
     tb2: {
       header: 'View Floodplains By Watershed Size',
@@ -61,6 +62,7 @@ app.topObj = {
           label: 'Catchment',
         },
       },
+      info: 'The granularity of the watersheds (HUC zone) used in the analysis includes HUC-8, HUC-12, and catchment scales. <a target="_blank" href="https://water.usgs.gov/GIS/huc.html">More info</a>'
     },
   },
 };

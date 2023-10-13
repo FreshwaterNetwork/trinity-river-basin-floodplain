@@ -7,7 +7,11 @@ function buildElements() {
     document.querySelector('#top-controls').insertAdjacentHTML(
       'beforeend',
       `
-			<h4>${value.header}</h4>
+      <div class="topControlsWrap">
+			  <h4>${value.header}</h4>
+        <div class="feInfoWrap"><i class="fa fa-info-circle feInfo feInfoOpen"></i></div>
+        <div class="feInfoTextWrap"><span class="feInfoText">${value.info}</span><i class="fas fa-times feInfo feInfoClose"></i></div>
+      </div>
 			<div id="tb-${tbnum}" class="toggle-btn"></div>
 		`
     );

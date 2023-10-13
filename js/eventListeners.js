@@ -244,6 +244,18 @@ function eventListeners() {
     layerDefs();
   });
   // Info icon clicks
+  $('#top-ctrls-wrap .feInfo').click(function (c) {
+    var e = c.currentTarget;
+    $('.feInfoTextWrap').hide();
+    $('.feInfoWrap').show();
+    if ($(e).hasClass('feInfoOpen')) {
+      $(e).parent().parent().find('.feInfoTextWrap').show();
+    }
+    if ($(e).hasClass('feInfoClose')) {
+      $(e).parent().parent().find('.feInfoWrap').show();
+    }
+    $(e).parent().hide();
+  });
   $('#mng-act-wrap .feInfo').click(function (c) {
     var e = c.currentTarget;
     $('.feInfoTextWrap').hide();

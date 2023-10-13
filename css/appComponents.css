@@ -28,6 +28,9 @@
 .flexSlideWrap .form-component{
 	margin-bottom:0px;
 }
+.topControlsWrap{
+	position:relative;
+}
 .hide{
 	display:none;
 }
