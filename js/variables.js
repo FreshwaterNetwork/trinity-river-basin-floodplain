@@ -155,14 +155,14 @@ app.filterObj = {
         type: 'radio',
         field: 'TXTerr',
         label:
-          'Does the floodplain contain a Texas terrestrial conservation priority area?',
+          'Does the floodplain contain a Texas terrestrial priority conservation area?',
         unit: '',
       },
       con1: {
         type: 'radio',
         field: 'TXFresh',
         label:
-          'Does the floodplain contain a Texas freshwater conservation priority area?',
+          'Does the floodplain contain a Texas freshwater priority conservation area?',
         unit: '',
       },
       con2: {
@@ -243,7 +243,7 @@ app.filterObj = {
       con1: {
         type: 'radio',
         field: 'agnow',
-        label: 'Watershed is in a county with high estimated current & future agricultural losses in the 100-year floodplain',
+        label: 'Watershed is in a county with high estimated current & future crop & livestock production losses in the 100-year floodplain',
         info: ''
       },
       con2: {
@@ -297,40 +297,42 @@ app.mapImageLayers = [
   {
     id: 3,
     visible: false,
-    title: '5-Year Floodplain (unprotected)',
+    title: '5-year (20% annual chance) floodplain (unprotected)',
     opacity: 0.8,
     supporting: true,
-    info: "<b>Texas Water Development Board cursory floodplain</b><br><a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/ac16256918db4e188807b3a2c30b0f72' target='_blank'>More info</a>"
+    info: '<b>Texas Water Development Board cursory floodplain</b><br>Floodplain map for the 20%-annual-chance storm was produced by Fathom and designated as a "cursory floodplain" dataset for the Texas Water Development Board. <a href="https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/ac16256918db4e188807b3a2c30b0f72" target="_blank">More info</a>'
   },
   {
     id: 4,
     visible: false,
-    title: '100-Year Floodplain (unprotected)',
+    title: '100-year (1% annual chance) floodplain (unprotected)',
     opacity: 0.8,
     supporting: true,
-    info:"<b>FEMA base-level engineering (BLE) floodplain</b><br><a href='https://webapps.usgs.gov/infrm/estBFE/' target='_blank'>More info</a><br><br>Floodplain in the HUC8 'Lower West Fork Trinity' is represented by <b>Texas Water Development Board cursory floodplain</b><br><a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/ac16256918db4e188807b3a2c30b0f72' target='_blank'>More info</a>"
+    info:"<b>FEMA base-level engineering (BLE) floodplain</b><br>Floodplain map for the 1%-annual-chance storm produced from FEMA base-level engineering (BLE). <a href='https://webapps.usgs.gov/infrm/estBFE/' target='_blank'>More info</a><br><br>For the HUC8 Lower West Fork Trinity, the floodplain map for the 1%-annual-chance storm was produced by Fathom and designated as a cursory floodplain dataset for the Texas Water Development Board. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/ac16256918db4e188807b3a2c30b0f72' target='_blank'>More info</a>"
   },
   {
     id: 5,
     visible: false,
-    title: '500-Year Floodplain (unprotected)',
+    title: '500-year (0.2% annual chance) floodplain (unprotected)',
     opacity: 0.8,
     supporting: true,
-    info: "<b>FEMA base-level engineering (BLE) floodplain</b><br><a href='https://webapps.usgs.gov/infrm/estBFE/' target='_blank'>More info</a><br><br>Floodplain in the HUC8 'Lower West Fork Trinity' is represented by <b>Texas Water Development Board cursory floodplain</b><br><a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/ac16256918db4e188807b3a2c30b0f72' target='_blank'>More info</a>"
+    info:"<b>FEMA base-level engineering (BLE) floodplain</b><br>Floodplain map for the 0.2%-annual-chance storm produced from FEMA base-level engineering (BLE). <a href='https://webapps.usgs.gov/infrm/estBFE/' target='_blank'>More info</a><br><br>For the HUC8 Lower West Fork Trinity, the floodplain map for the 0.2%-annual-chance storm was produced by Fathom and designated as a cursory floodplain dataset for the Texas Water Development Board. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/ac16256918db4e188807b3a2c30b0f72' target='_blank'>More info</a>"
   },
   {
     id: 8,
     visible: false,
-    title: 'TNC freshwater conservation priority areas',
+    title: 'Texas freshwater priority conservation areas',
     opacity: 0.8,
     supporting: true,
+    info: "Based on the Nature Conservancy's freshwater biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the aquatic ecosystems in Texas that represent important areas for protection of the state's freshwater biodiversity. <a target='_blank' href='https://texaswaterexplorer.tnc.org/map.html#b=dark-gray&x=-98.37!-98.37&y=31.39!31.39&l=6!6&i=14%7C0%7C120%7C121!-1&m=1&a=0'>More info</a>."
   },
   {
     id: 7,
     visible: false,
-    title: 'TNC terrestrial conservation priority areas',
+    title: 'Texas terrestrial priority conservation areas',
     opacity: 0.8,
     supporting: true,
+    info: "Based on the Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's freshwater biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/webappviewer/index.html?id=300634fa2aa04d8c86ef45c6a80a3259'>More info</a>."
   },
   {
     id: 10,
@@ -346,7 +348,7 @@ app.mapImageLayers = [
     title: 'Protected Areas Database of the U.S.',
     opacity: 0.8,
     supporting: true,
-    info: "PAD-US is America’s official national inventory of U.S. terrestrial and marine protected areas that are dedicated to the preservation of biological diversity and to other natural, recreational, and cultural uses, managed for these purposes through legal or other effective means. <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
+    info: "PAD-US is America’s official national inventory of U.S. terrestrial and marine protected areas that are dedicated to the preservation of biological diversity and to other natural, recreational, and cultural uses, and managed for these purposes through legal or other effective means. <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
   },
   {
     id: 12,
@@ -362,7 +364,7 @@ app.mapImageLayers = [
     title: 'Estimated direct building losses in the 100-year floodplain (millions of $)',
     opacity: 0.8,
     supporting: true,
-    info: "County-level information is taken from Table 2.9 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>"
+    info: "County-level information is taken from Table 2.9, p. 2-42, in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>"
   },
   {
     id: 11,
@@ -370,7 +372,7 @@ app.mapImageLayers = [
     title: 'Estimated crop & livestock production losses in the 100-year floodplain (millions of $)',
     opacity: 0.8,
     supporting: true,
-    info: "County-level information is taken from Table 2.8 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>"
+    info: "County-level information is taken from Table 2.8, p. 2-39, in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>"
   }
 ];
 
@@ -421,7 +423,7 @@ app.sliderObj = {
       min: 0,
       max: 100000,
       gtmax: false,
-      info: "Acres of available floodplain including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
+      info: "Acres of floodplain potentially available for protection and restoration, including areas within the Protected Areas Database of the U.S. (PAD-US). Parcel ownership is not included in this tool. <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     AcresUnp: {
       values: [],
@@ -429,7 +431,7 @@ app.sliderObj = {
       min: 0,
       max: 100000,
       gtmax: false,
-      info: "Acres of available floodplain <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
+      info: "Acres of floodplain potentially available for protection and restoration <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). Parcel ownership is not included in this tool. <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     iy_tn_p: {
       values: [],
@@ -438,7 +440,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tn_del_p: {
       values: [],
@@ -447,7 +449,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_p: {
       values: [],
@@ -456,7 +458,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_del_p: {
       values: [],
@@ -465,7 +467,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
+      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_p: {
       values: [],
@@ -474,7 +476,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_del_p: {
       values: [],
@@ -483,7 +485,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale.<a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     resil: {
       values: [],
@@ -491,7 +493,7 @@ app.sliderObj = {
       min: -0.362,
       max: 1.431,
       step: 0.001,
-      info: "<b>Terrestrial resilience</b><br> The terrestrial resilience score estimates the climate resilience of an area of land based on: a). its landscape diversity (estimated microclimates) and b). local connectedness (lack of fragmentation). Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>",
+      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by the Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
     },
     nearProt: {
       values: [],
@@ -507,7 +509,7 @@ app.sliderObj = {
       min: 0,
       max: 35,
       gtmax: false,
-      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
+      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground forest carbon stock (tons/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
     },
     belowgrC: {
       values: [],
@@ -515,21 +517,21 @@ app.sliderObj = {
       min: 100,
       max: 127,
       gtmax: false,
-      info: "<b>Mean below-ground carbon in the floodplain</b><br>Estimate of below-ground C stock (tons C/ha) from NRCS Rapid Carbon Assessment (RaCA). <a href='https://www.nrcs.usda.gov/resources/data-and-reports/rapid-carbon-assessment-raca' target='_blank'>More info</a>"
+      info: "<b>Mean below-ground carbon in the floodplain</b><br>Estimate of below-ground C stock, or soil carbon (tons C/ha), from the NRCS Rapid Carbon Assessment (RaCA). <a href='https://www.nrcs.usda.gov/resources/data-and-reports/rapid-carbon-assessment-raca' target='_blank'>More info</a>"
     },
     popnow: {
       values: [],
       vis: true,
       min: 0,
       max: 5200,
-      info: "<b>Population exposure to floods (present-day)</b><br>People currently living in floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
+      info: "<b>Population exposure to floods (present-day)</b><br>Number of people currently living in the floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>."
     },
     pop2050: {
       values: [],
       vis: true,
       min: 0,
       max: 42000,
-      info: "<b>Population exposure to floods (2050)</b><br>People expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>."
+      info: "<b>Population exposure to floods (2050)</b><br>Number of people expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>."
     },
     damages: {
       values: [],
@@ -544,14 +546,14 @@ app.sliderObj = {
       min: 0.159,
       max: 0.663,
       step: 0.001,
-      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
+      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC Social Vulnerability Index (SVI) characterizes census tracts where people are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed for the floodplain area associated with the selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>."
     },
     inCDLp: {
       values: [],
       vis: true,
       min: 12,
       max: 57,
-      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain that is either in any type of cropland or in grassland/pasture, according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
+      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain area that is used for any type of crop production or for grassland/pasture (working land), according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
     },
     devpr_fp: {
       values: [],
@@ -590,7 +592,7 @@ app.sliderObj = {
       min: 0.24,
       max: 0.38,
       step: 0.001,
-      info: "<b>Agricultural productivity potential of soils in the floodplain</b><br> Uses the National Commodity Crop Productivity Index (NCCPI), an index characterizing soil's inherent capacity to produce non-irrigated commodity crops (0 - 1). Lower value suggests less productive soil, and therefore more viable opportunity for restoration. <a href='https://www.nrcs.usda.gov/sites/default/files/2023-01/NCCPI-User-Guide.pdf' target='_blank'>More info</a>",
+      info: "<b>Agricultural productivity potential of soils in the floodplain</b><br>The National Commodity Crop Productivity Index (NCCPI) characterizes soil's inherent capacity to produce non-irrigated commodity crops (0 - 1). Lower value suggests less productive soil, and therefore a more viable opportunity for restoration. <a href='https://www.nrcs.usda.gov/sites/default/files/2023-01/NCCPI-User-Guide.pdf' target='_blank'>More info</a>"
     },
     pdsoilpc: {
       values: [],
@@ -616,7 +618,7 @@ app.sliderObj = {
       min: 0,
       max: 418000,
       gtmax: false,
-      info: "Acres of available floodplain including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
+      info: "Acres of floodplain potentially available for protection and restoration, including areas within the Protected Areas Database of the U.S. (PAD-US). Parcel ownership is not included in this tool. <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     AcresUnp: {
       values: [],
@@ -624,7 +626,7 @@ app.sliderObj = {
       min: 0,
       max: 412000,
       gtmax: false,
-      info: "Acres of available floodplain <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
+      info: "Acres of floodplain potentially available for protection and restoration <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). Parcel ownership is not included in this tool. <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     iy_tn_p: {
       values: [],
@@ -633,7 +635,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tn_del_p: {
       values: [],
@@ -642,7 +644,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_p: {
       values: [],
@@ -651,7 +653,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_del_p: {
       values: [],
@@ -660,7 +662,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
+      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_p: {
       values: [],
@@ -669,7 +671,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_del_p: {
       values: [],
@@ -678,7 +680,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale.<a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     resil: {
       values: [],
@@ -686,7 +688,7 @@ app.sliderObj = {
       min: -0.447,
       max: 1.262,
       step: 0.001,
-      info: "<b>Terrestrial resilience</b><br> The terrestrial resilience score estimates the climate resilience of an area of land based on: a). its landscape diversity (estimated microclimates) and b). local connectedness (lack of fragmentation). Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>",
+      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by the Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
     },
     nearProt: {
       values: [],
@@ -702,7 +704,7 @@ app.sliderObj = {
       min: 0,
       max: 33,
       gtmax: false,
-      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
+      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground forest carbon stock (tons/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
     },
     belowgrC: {
       values: [],
@@ -710,21 +712,21 @@ app.sliderObj = {
       min: 93,
       max: 119,
       gtmax: false,
-      info: "<b>Mean below-ground carbon in the floodplain</b><br>Estimate of below-ground C stock (tons C/ha) from NRCS Rapid Carbon Assessment (RaCA). <a href='https://www.nrcs.usda.gov/resources/data-and-reports/rapid-carbon-assessment-raca' target='_blank'>More info</a>"
+      info: "<b>Mean below-ground carbon in the floodplain</b><br>Estimate of below-ground C stock, or soil carbon (tons C/ha), from the NRCS Rapid Carbon Assessment (RaCA). <a href='https://www.nrcs.usda.gov/resources/data-and-reports/rapid-carbon-assessment-raca' target='_blank'>More info</a>"
     },
     popnow: {
       values: [],
       vis: true,
       min: 0,
       max: 134000,
-      info: "<b>Population exposure to floods (present-day)</b><br>People currently living in floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
+      info: "<b>Population exposure to floods (present-day)</b><br>Number of people currently living in the floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>."
     },
     pop2050: {
       values: [],
       vis: true,
       min: 0,
       max: 181000,
-      info: "<b>Population exposure to floods (2050)</b><br>People expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>."
+      info: "<b>Population exposure to floods (2050)</b><br>Number of people expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>."
     },
     damages: {
       values: [],
@@ -739,14 +741,14 @@ app.sliderObj = {
       min: 0.169,
       max: 0.644,
       step: 0.001,
-      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
+      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC Social Vulnerability Index (SVI) characterizes census tracts where people are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed for the floodplain area associated with the selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>."
     },
     inCDLp: {
       values: [],
       vis: true,
       min: 26,
       max: 61,
-      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain that is either in any type of cropland or in grassland/pasture, according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
+      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain area that is used for any type of crop production or for grassland/pasture (working land), according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
     },
     devpr_fp: {
       values: [],
@@ -785,7 +787,7 @@ app.sliderObj = {
       min: 0.29,
       max: 0.40,
       step: 0.001,
-      info: "<b>Agricultural productivity potential of soils in the floodplain</b><br> Uses the National Commodity Crop Productivity Index (NCCPI), an index characterizing soil's inherent capacity to produce non-irrigated commodity crops (0 - 1). Lower value suggests less productive soil, and therefore more viable opportunity for restoration. <a href='https://www.nrcs.usda.gov/sites/default/files/2023-01/NCCPI-User-Guide.pdf' target='_blank'>More info</a>",
+      info: "<b>Agricultural productivity potential of soils in the floodplain</b><br>The National Commodity Crop Productivity Index (NCCPI) characterizes soil's inherent capacity to produce non-irrigated commodity crops (0 - 1). Lower value suggests less productive soil, and therefore a more viable opportunity for restoration. <a href='https://www.nrcs.usda.gov/sites/default/files/2023-01/NCCPI-User-Guide.pdf' target='_blank'>More info</a>"
     },
     pdsoilpc: {
       values: [],
@@ -811,7 +813,7 @@ app.sliderObj = {
       min: 0,
       max: 452000,
       gtmax: false,
-      info: "Acres of available floodplain including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
+      info: "Acres of floodplain potentially available for protection and restoration, including areas within the Protected Areas Database of the U.S. (PAD-US). Parcel ownership is not included in this tool. <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     AcresUnp: {
       values: [],
@@ -819,7 +821,7 @@ app.sliderObj = {
       min: 0,
       max: 445000,
       gtmax: false,
-      info: "Acres of available floodplain <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
+      info: "Acres of floodplain potentially available for protection and restoration <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). Parcel ownership is not included in this tool. <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     iy_tn_p: {
       values: [],
@@ -828,7 +830,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tn_del_p: {
       values: [],
@@ -837,7 +839,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_p: {
       values: [],
@@ -846,7 +848,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_del_p: {
       values: [],
@@ -855,7 +857,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
+      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_p: {
       values: [],
@@ -864,7 +866,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_del_p: {
       values: [],
@@ -873,7 +875,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale.<a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     resil: {
       values: [],
@@ -881,7 +883,7 @@ app.sliderObj = {
       min: -0.612,
       max: 1.249,
       step: 0.001,
-      info: "<b>Terrestrial resilience</b><br> The terrestrial resilience score estimates the climate resilience of an area of land based on: a). its landscape diversity (estimated microclimates) and b). local connectedness (lack of fragmentation). Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>",
+      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by the Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
     },
     nearProt: {
       values: [],
@@ -897,7 +899,7 @@ app.sliderObj = {
       min: 10,
       max: 32,
       gtmax: false,
-      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
+      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground forest carbon stock (tons/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
     },
     belowgrC: {
       values: [],
@@ -905,21 +907,21 @@ app.sliderObj = {
       min: 91,
       max: 118,
       gtmax: false,
-      info: "<b>Mean below-ground carbon in the floodplain</b><br>Estimate of below-ground C stock (tons C/ha) from NRCS Rapid Carbon Assessment (RaCA). <a href='https://www.nrcs.usda.gov/resources/data-and-reports/rapid-carbon-assessment-raca' target='_blank'>More info</a>"
+      info: "<b>Mean below-ground carbon in the floodplain</b><br>Estimate of below-ground C stock, or soil carbon (tons C/ha), from the NRCS Rapid Carbon Assessment (RaCA). <a href='https://www.nrcs.usda.gov/resources/data-and-reports/rapid-carbon-assessment-raca' target='_blank'>More info</a>"
     },
     popnow: {
       values: [],
       vis: true,
       min: 0,
       max: 159000,
-      info: "<b>Population exposure to floods (present-day)</b><br>People currently living in floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
+      info: "<b>Population exposure to floods (present-day)</b><br>Number of people currently living in the floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>."
     },
     pop2050: {
       values: [],
       vis: true,
       min: 0,
       max: 216000,
-      info: "<b>Population exposure to floods (2050)</b><br>People expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>."
+      info: "<b>Population exposure to floods (2050)</b><br>Number of people expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>."
     },
     damages: {
       values: [],
@@ -934,14 +936,14 @@ app.sliderObj = {
       min: 0.165,
       max: 0.644,
       step: 0.001,
-      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
+      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC Social Vulnerability Index (SVI) characterizes census tracts where people are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed for the floodplain area associated with the selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>."
     },
     inCDLp: {
       values: [],
       vis: true,
       min: 20,
       max: 61,
-      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain that is either in any type of cropland or in grassland/pasture, according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
+      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain area that is used for any type of crop production or for grassland/pasture (working land), according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
     },
     devpr_fp: {
       values: [],
@@ -980,7 +982,7 @@ app.sliderObj = {
       min: 0.315,
       max: 0.396,
       step: 0.001,
-      info: "<b>Agricultural productivity potential of soils in the floodplain</b><br> Uses the National Commodity Crop Productivity Index (NCCPI), an index characterizing soil's inherent capacity to produce non-irrigated commodity crops (0 - 1). Lower value suggests less productive soil, and therefore more viable opportunity for restoration. <a href='https://www.nrcs.usda.gov/sites/default/files/2023-01/NCCPI-User-Guide.pdf' target='_blank'>More info</a>",
+      info: "<b>Agricultural productivity potential of soils in the floodplain</b><br>The National Commodity Crop Productivity Index (NCCPI) characterizes soil's inherent capacity to produce non-irrigated commodity crops (0 - 1). Lower value suggests less productive soil, and therefore a more viable opportunity for restoration. <a href='https://www.nrcs.usda.gov/sites/default/files/2023-01/NCCPI-User-Guide.pdf' target='_blank'>More info</a>"
     },
     pdsoilpc: {
       values: [],
@@ -1007,7 +1009,7 @@ app.sliderObj = {
       min: 0,
       max: 10450,
       gtmax: false,
-      info: "Acres of available floodplain including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
+      info: "Acres of floodplain potentially available for protection and restoration, including areas within the Protected Areas Database of the U.S. (PAD-US). Parcel ownership is not included in this tool. <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     AcresUnp: {
       values: [],
@@ -1015,7 +1017,7 @@ app.sliderObj = {
       min: 0,
       max: 9784,
       gtmax: false,
-      info: "Acres of available floodplain <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
+      info: "Acres of floodplain potentially available for protection and restoration <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). Parcel ownership is not included in this tool. <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     iy_tn_p: {
       values: [],
@@ -1024,7 +1026,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tn_del_p: {
       values: [],
@@ -1033,7 +1035,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_p: {
       values: [],
@@ -1042,7 +1044,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_del_p: {
       values: [],
@@ -1051,7 +1053,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
+      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_p: {
       values: [],
@@ -1060,7 +1062,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_del_p: {
       values: [],
@@ -1069,7 +1071,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale.<a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     resil: {
       values: [],
@@ -1077,7 +1079,7 @@ app.sliderObj = {
       min: -2.975,
       max: 2.599,
       step: 0.001,
-      info: "<b>Terrestrial resilience</b><br> The terrestrial resilience score estimates the climate resilience of an area of land based on: a). its landscape diversity (estimated microclimates) and b). local connectedness (lack of fragmentation). Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>",
+      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by the Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
     },
     nearProt: {
       values: [],
@@ -1093,7 +1095,7 @@ app.sliderObj = {
       min: 0,
       max: 66,
       gtmax: false,
-      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
+      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground forest carbon stock (tons/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
     },
     belowgrC: {
       values: [],
@@ -1101,7 +1103,7 @@ app.sliderObj = {
       min: 56,
       max: 159,
       gtmax: false,
-      info: "<b>Mean below-ground carbon in the floodplain</b><br>Estimate of below-ground C stock (tons C/ha) from NRCS Rapid Carbon Assessment (RaCA). <a href='https://www.nrcs.usda.gov/resources/data-and-reports/rapid-carbon-assessment-raca' target='_blank'>More info</a>"
+      info: "<b>Mean below-ground carbon in the floodplain</b><br>Estimate of below-ground C stock, or soil carbon (tons C/ha), from the NRCS Rapid Carbon Assessment (RaCA). <a href='https://www.nrcs.usda.gov/resources/data-and-reports/rapid-carbon-assessment-raca' target='_blank'>More info</a>"
     },
     popnow: {
       values: [],
@@ -1109,7 +1111,7 @@ app.sliderObj = {
       min: 0,
       max: 150,
       gtmax: true,
-      info: "<b>Population exposure to floods (present-day)</b><br>People currently living in floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
+      info: "<b>Population exposure to floods (present-day)</b><br>Number of people currently living in the floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>."
     },
     pop2050: {
       values: [],
@@ -1117,7 +1119,7 @@ app.sliderObj = {
       min: 0,
       max: 900,
       gtmax: true,
-      info: "<b>Population exposure to floods (2050)</b><br>People expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>."
+      info: "<b>Population exposure to floods (2050)</b><br>Number of people expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>."
     },
     damages: {
       values: [],
@@ -1133,14 +1135,14 @@ app.sliderObj = {
       min: 0.002,
       max: 0.862,
       step: 0.001,
-      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
+      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC Social Vulnerability Index (SVI) characterizes census tracts where people are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed for the floodplain area associated with the selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>."
     },
     inCDLp: {
       values: [],
       vis: true,
       min: 0,
       max: 85,
-      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain that is either in any type of cropland or in grassland/pasture, according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
+      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain area that is used for any type of crop production or for grassland/pasture (working land), according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
     },
     devpr_fp: {
       values: [],
@@ -1179,7 +1181,7 @@ app.sliderObj = {
       min: 0.027,
       max: 0.545,
       step: 0.001,
-      info: "<b>Agricultural productivity potential of soils in the floodplain</b><br> Uses the National Commodity Crop Productivity Index (NCCPI), an index characterizing soil's inherent capacity to produce non-irrigated commodity crops (0 - 1). Lower value suggests less productive soil, and therefore more viable opportunity for restoration. <a href='https://www.nrcs.usda.gov/sites/default/files/2023-01/NCCPI-User-Guide.pdf' target='_blank'>More info</a>",
+      info: "<b>Agricultural productivity potential of soils in the floodplain</b><br>The National Commodity Crop Productivity Index (NCCPI) characterizes soil's inherent capacity to produce non-irrigated commodity crops (0 - 1). Lower value suggests less productive soil, and therefore a more viable opportunity for restoration. <a href='https://www.nrcs.usda.gov/sites/default/files/2023-01/NCCPI-User-Guide.pdf' target='_blank'>More info</a>"
     },
     pdsoilpc: {
       values: [],
@@ -1205,7 +1207,7 @@ app.sliderObj = {
       min: 0,
       max: 31068,
       gtmax: false,
-      info: "Acres of available floodplain including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
+      info: "Acres of floodplain potentially available for protection and restoration, including areas within the Protected Areas Database of the U.S. (PAD-US). Parcel ownership is not included in this tool. <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     AcresUnp: {
       values: [],
@@ -1213,7 +1215,7 @@ app.sliderObj = {
       min: 0,
       max: 31056,
       gtmax: false,
-      info: "Acres of available floodplain <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
+      info: "Acres of floodplain potentially available for protection and restoration <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). Parcel ownership is not included in this tool. <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     iy_tn_p: {
       values: [],
@@ -1222,7 +1224,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tn_del_p: {
       values: [],
@@ -1231,7 +1233,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_p: {
       values: [],
@@ -1240,7 +1242,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_del_p: {
       values: [],
@@ -1249,7 +1251,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
+      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_p: {
       values: [],
@@ -1258,7 +1260,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_del_p: {
       values: [],
@@ -1267,7 +1269,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale.<a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     resil: {
       values: [],
@@ -1275,7 +1277,7 @@ app.sliderObj = {
       min: -3.491,
       max: 2.012,
       step: 0.001,
-      info: "<b>Terrestrial resilience</b><br> The terrestrial resilience score estimates the climate resilience of an area of land based on: a). its landscape diversity (estimated microclimates) and b). local connectedness (lack of fragmentation). Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>",
+      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by the Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
     },
     nearProt: {
       values: [],
@@ -1291,7 +1293,7 @@ app.sliderObj = {
       min: 0,
       max: 62,
       gtmax: false,
-      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
+      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground forest carbon stock (tons/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
     },
     belowgrC: {
       values: [],
@@ -1299,7 +1301,7 @@ app.sliderObj = {
       min: 59,
       max: 146,
       gtmax: false,
-      info: "<b>Mean below-ground carbon in the floodplain</b><br>Estimate of below-ground C stock (tons C/ha) from NRCS Rapid Carbon Assessment (RaCA). <a href='https://www.nrcs.usda.gov/resources/data-and-reports/rapid-carbon-assessment-raca' target='_blank'>More info</a>"
+      info: "<b>Mean below-ground carbon in the floodplain</b><br>Estimate of below-ground C stock, or soil carbon (tons C/ha), from the NRCS Rapid Carbon Assessment (RaCA). <a href='https://www.nrcs.usda.gov/resources/data-and-reports/rapid-carbon-assessment-raca' target='_blank'>More info</a>"
     },
     popnow: {
       values: [],
@@ -1307,7 +1309,7 @@ app.sliderObj = {
       min: 0,
       max: 1500,
       gtmax: true,
-      info: "<b>Population exposure to floods (present-day)</b><br>People currently living in floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
+      info: "<b>Population exposure to floods (present-day)</b><br>Number of people currently living in the floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>."
     },
     pop2050: {
       values: [],
@@ -1315,7 +1317,7 @@ app.sliderObj = {
       min: 0,
       max: 4000,
       gtmax: true,
-      info: "<b>Population exposure to floods (2050)</b><br>People expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>."
+      info: "<b>Population exposure to floods (2050)</b><br>Number of people expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>."
     },
     damages: {
       values: [],
@@ -1331,14 +1333,14 @@ app.sliderObj = {
       min: 0.025,
       max: 0.902,
       step: 0.001,
-      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
+      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC Social Vulnerability Index (SVI) characterizes census tracts where people are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed for the floodplain area associated with the selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>."
     },
     inCDLp: {
       values: [],
       vis: true,
       min: 0,
       max: 89,
-      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain that is either in any type of cropland or in grassland/pasture, according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
+      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain area that is used for any type of crop production or for grassland/pasture (working land), according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
     },
     devpr_fp: {
       values: [],
@@ -1377,7 +1379,7 @@ app.sliderObj = {
       min: 0.124,
       max: 0.529,
       step: 0.001,
-      info: "<b>Agricultural productivity potential of soils in the floodplain</b><br> Uses the National Commodity Crop Productivity Index (NCCPI), an index characterizing soil's inherent capacity to produce non-irrigated commodity crops (0 - 1). Lower value suggests less productive soil, and therefore more viable opportunity for restoration. <a href='https://www.nrcs.usda.gov/sites/default/files/2023-01/NCCPI-User-Guide.pdf' target='_blank'>More info</a>",
+      info: "<b>Agricultural productivity potential of soils in the floodplain</b><br>The National Commodity Crop Productivity Index (NCCPI) characterizes soil's inherent capacity to produce non-irrigated commodity crops (0 - 1). Lower value suggests less productive soil, and therefore a more viable opportunity for restoration. <a href='https://www.nrcs.usda.gov/sites/default/files/2023-01/NCCPI-User-Guide.pdf' target='_blank'>More info</a>"
     },
     pdsoilpc: {
       values: [],
@@ -1403,7 +1405,7 @@ app.sliderObj = {
       min: 0,
       max: 34015,
       gtmax: false,
-      info: "Acres of available floodplain including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
+      info: "Acres of floodplain potentially available for protection and restoration, including areas within the Protected Areas Database of the U.S. (PAD-US). Parcel ownership is not included in this tool. <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     AcresUnp: {
       values: [],
@@ -1411,7 +1413,7 @@ app.sliderObj = {
       min: 0,
       max: 34002,
       gtmax: false,
-      info: "Acres of available floodplain <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
+      info: "Acres of floodplain potentially available for protection and restoration <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). Parcel ownership is not included in this tool. <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     iy_tn_p: {
       values: [],
@@ -1420,7 +1422,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tn_del_p: {
       values: [],
@@ -1429,7 +1431,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_p: {
       values: [],
@@ -1438,7 +1440,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_del_p: {
       values: [],
@@ -1447,7 +1449,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
+      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_p: {
       values: [],
@@ -1456,7 +1458,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_del_p: {
       values: [],
@@ -1465,7 +1467,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale.<a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     resil: {
       values: [],
@@ -1473,7 +1475,7 @@ app.sliderObj = {
       min: -3.491,
       max: 2.009,
       step: 0.001,
-      info: "<b>Terrestrial resilience</b><br> The terrestrial resilience score estimates the climate resilience of an area of land based on: a). its landscape diversity (estimated microclimates) and b). local connectedness (lack of fragmentation). Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>",
+      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by the Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
     },
     nearProt: {
       values: [],
@@ -1489,7 +1491,7 @@ app.sliderObj = {
       min: 0,
       max: 61,
       gtmax: false,
-      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
+      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground forest carbon stock (tons/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
     },
     belowgrC: {
       values: [],
@@ -1497,7 +1499,7 @@ app.sliderObj = {
       min: 59,
       max: 145,
       gtmax: false,
-      info: "<b>Mean below-ground carbon in the floodplain</b><br>Estimate of below-ground C stock (tons C/ha) from NRCS Rapid Carbon Assessment (RaCA). <a href='https://www.nrcs.usda.gov/resources/data-and-reports/rapid-carbon-assessment-raca' target='_blank'>More info</a>"
+      info: "<b>Population exposure to floods (2050)</b><br>Number of people expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>."
     },
     popnow: {
       values: [],
@@ -1505,7 +1507,7 @@ app.sliderObj = {
       min: 0,
       max: 2500,
       gtmax: true,
-      info: "<b>Population exposure to floods (present-day)</b><br>People currently living in floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
+      info: "<b>Population exposure to floods (present-day)</b><br>Number of people currently living in the floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>."
     },
     pop2050: {
       values: [],
@@ -1529,14 +1531,14 @@ app.sliderObj = {
       min: 0.025,
       max: 0.900,
       step: 0.001,
-      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
+      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC Social Vulnerability Index (SVI) characterizes census tracts where people are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed for the floodplain area associated with the selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>."
     },
     inCDLp: {
       values: [],
       vis: true,
       min: 0,
       max: 90,
-      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain that is either in any type of cropland or in grassland/pasture, according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
+      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain area that is used for any type of crop production or for grassland/pasture (working land), according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
     },
     devpr_fp: {
       values: [],
@@ -1575,7 +1577,7 @@ app.sliderObj = {
       min: 0.161,
       max: 0.527,
       step: 0.001,
-      info: "<b>Agricultural productivity potential of soils in the floodplain</b><br> Uses the National Commodity Crop Productivity Index (NCCPI), an index characterizing soil's inherent capacity to produce non-irrigated commodity crops (0 - 1). Lower value suggests less productive soil, and therefore more viable opportunity for restoration. <a href='https://www.nrcs.usda.gov/sites/default/files/2023-01/NCCPI-User-Guide.pdf' target='_blank'>More info</a>",
+      info: "<b>Agricultural productivity potential of soils in the floodplain</b><br>The National Commodity Crop Productivity Index (NCCPI) characterizes soil's inherent capacity to produce non-irrigated commodity crops (0 - 1). Lower value suggests less productive soil, and therefore a more viable opportunity for restoration. <a href='https://www.nrcs.usda.gov/sites/default/files/2023-01/NCCPI-User-Guide.pdf' target='_blank'>More info</a>"
     },
     pdsoilpc: {
       values: [],
@@ -1602,7 +1604,7 @@ app.sliderObj = {
       min: 0,
       max: 1500,
       gtmax: true,
-      info: "Acres of available floodplain including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
+      info: "Acres of floodplain potentially available for protection and restoration, including areas within the Protected Areas Database of the U.S. (PAD-US). Parcel ownership is not included in this tool. <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     AcresUnp: {
       values: [],
@@ -1610,7 +1612,7 @@ app.sliderObj = {
       min: 0,
       max: 1200,
       gtmax: true,
-      info: "Acres of available floodplain <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
+      info: "Acres of floodplain potentially available for protection and restoration <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). Parcel ownership is not included in this tool. <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     iy_tn_p: {
       values: [],
@@ -1619,7 +1621,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tn_del_p: {
       values: [],
@@ -1628,7 +1630,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_p: {
       values: [],
@@ -1637,7 +1639,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_del_p: {
       values: [],
@@ -1646,7 +1648,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
+      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_p: {
       values: [],
@@ -1655,7 +1657,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_del_p: {
       values: [],
@@ -1664,7 +1666,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale.<a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     resil: {
       values: [],
@@ -1672,7 +1674,7 @@ app.sliderObj = {
       min: -3.503,
       max: 2.881,
       step: 0.001,
-      info: "<b>Terrestrial resilience</b><br> The terrestrial resilience score estimates the climate resilience of an area of land based on: a). its landscape diversity (estimated microclimates) and b). local connectedness (lack of fragmentation). Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>",
+      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by the Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
     },
     nearProt: {
       values: [],
@@ -1688,7 +1690,7 @@ app.sliderObj = {
       min: 0,
       max: 75,
       gtmax: true,
-      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
+      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground forest carbon stock (tons/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
     },
     belowgrC: {
       values: [],
@@ -1696,7 +1698,7 @@ app.sliderObj = {
       min: 35,
       max: 162,
       gtmax: false,
-      info: "<b>Mean below-ground carbon in the floodplain</b><br>Estimate of below-ground C stock (tons C/ha) from NRCS Rapid Carbon Assessment (RaCA). <a href='https://www.nrcs.usda.gov/resources/data-and-reports/rapid-carbon-assessment-raca' target='_blank'>More info</a>"
+      info: "<b>Mean below-ground carbon in the floodplain</b><br>Estimate of below-ground C stock, or soil carbon (tons C/ha), from the NRCS Rapid Carbon Assessment (RaCA). <a href='https://www.nrcs.usda.gov/resources/data-and-reports/rapid-carbon-assessment-raca' target='_blank'>More info</a>"
     },
     popnow: {
       values: [],
@@ -1704,7 +1706,7 @@ app.sliderObj = {
       min: 0,
       max: 100,
       gtmax: true,
-      info: "<b>Population exposure to floods (present-day)</b><br>People currently living in floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
+      info: "<b>Population exposure to floods (present-day)</b><br>Number of people currently living in the floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>."
     },
     pop2050: {
       values: [],
@@ -1712,7 +1714,7 @@ app.sliderObj = {
       min: 0,
       max: 500,
       gtmax: true,
-      info: "<b>Population exposure to floods (2050)</b><br>People expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>."
+      info: "<b>Population exposure to floods (2050)</b><br>Number of people expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>."
     },
     damages: {
       values: [],
@@ -1728,14 +1730,14 @@ app.sliderObj = {
       min: 0,
       max: 0.943,
       step: 0.001,
-      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
+      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC Social Vulnerability Index (SVI) characterizes census tracts where people are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed for the floodplain area associated with the selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>."
     },
     inCDLp: {
       values: [],
       vis: true,
       min: 0,
       max: 100,
-      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain that is either in any type of cropland or in grassland/pasture, according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
+      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain area that is used for any type of crop production or for grassland/pasture (working land), according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
     },
     devpr_fp: {
       values: [],
@@ -1776,7 +1778,7 @@ app.sliderObj = {
       min: 0,
       max: 0.655,
       step: 0.001,
-      info: "<b>Agricultural productivity potential of soils in the floodplain</b><br> Uses the National Commodity Crop Productivity Index (NCCPI), an index characterizing soil's inherent capacity to produce non-irrigated commodity crops (0 - 1). Lower value suggests less productive soil, and therefore more viable opportunity for restoration. <a href='https://www.nrcs.usda.gov/sites/default/files/2023-01/NCCPI-User-Guide.pdf' target='_blank'>More info</a>",
+      info: "<b>Agricultural productivity potential of soils in the floodplain</b><br>The National Commodity Crop Productivity Index (NCCPI) characterizes soil's inherent capacity to produce non-irrigated commodity crops (0 - 1). Lower value suggests less productive soil, and therefore a more viable opportunity for restoration. <a href='https://www.nrcs.usda.gov/sites/default/files/2023-01/NCCPI-User-Guide.pdf' target='_blank'>More info</a>"
     },
     pdsoilpc: {
       values: [],
@@ -1802,7 +1804,7 @@ app.sliderObj = {
       min: 0,
       max: 4000,
       gtmax: true,
-      info: "Acres of available floodplain including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
+      info: "Acres of floodplain potentially available for protection and restoration, including areas within the Protected Areas Database of the U.S. (PAD-US). Parcel ownership is not included in this tool. <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     AcresUnp: {
       values: [],
@@ -1810,7 +1812,7 @@ app.sliderObj = {
       min: 0,
       max: 3500,
       gtmax: true,
-      info: "Acres of available floodplain <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
+      info: "Acres of floodplain potentially available for protection and restoration <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). Parcel ownership is not included in this tool. <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     iy_tn_p: {
       values: [],
@@ -1819,7 +1821,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tn_del_p: {
       values: [],
@@ -1828,7 +1830,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_p: {
       values: [],
@@ -1837,7 +1839,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_del_p: {
       values: [],
@@ -1846,7 +1848,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
+      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_p: {
       values: [],
@@ -1855,7 +1857,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_del_p: {
       values: [],
@@ -1864,7 +1866,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale.<a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     resil: {
       values: [],
@@ -1872,7 +1874,7 @@ app.sliderObj = {
       min: -3.503,
       max: 2.811,
       step: 0.001,
-      info: "<b>Terrestrial resilience</b><br> The terrestrial resilience score estimates the climate resilience of an area of land based on: a). its landscape diversity (estimated microclimates) and b). local connectedness (lack of fragmentation). Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>",
+      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by the Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
     },
     nearProt: {
       values: [],
@@ -1888,7 +1890,7 @@ app.sliderObj = {
       min: 0,
       max: 114,
       gtmax: true,
-      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
+      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground forest carbon stock (tons/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
     },
     belowgrC: {
       values: [],
@@ -1896,7 +1898,7 @@ app.sliderObj = {
       min: 35,
       max: 162,
       gtmax: false,
-      info: "<b>Mean below-ground carbon in the floodplain</b><br>Estimate of below-ground C stock (tons C/ha) from NRCS Rapid Carbon Assessment (RaCA). <a href='https://www.nrcs.usda.gov/resources/data-and-reports/rapid-carbon-assessment-raca' target='_blank'>More info</a>"
+      info: "<b>Mean below-ground carbon in the floodplain</b><br>Estimate of below-ground C stock, or soil carbon (tons C/ha), from the NRCS Rapid Carbon Assessment (RaCA). <a href='https://www.nrcs.usda.gov/resources/data-and-reports/rapid-carbon-assessment-raca' target='_blank'>More info</a>"
     },
     popnow: {
       values: [],
@@ -1904,7 +1906,7 @@ app.sliderObj = {
       min: 0,
       max: 2000,
       gtmax: true,
-      info: "<b>Population exposure to floods (present-day)</b><br>People currently living in floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
+      info: "<b>Population exposure to floods (present-day)</b><br>Number of people currently living in the floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>."
     },
     pop2050: {
       values: [],
@@ -1912,7 +1914,7 @@ app.sliderObj = {
       min: 0,
       max: 2300,
       gtmax: true,
-      info: "<b>Population exposure to floods (2050)</b><br>People expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>."
+      info: "<b>Population exposure to floods (2050)</b><br>Number of people expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>."
     },
     damages: {
       values: [],
@@ -1928,14 +1930,14 @@ app.sliderObj = {
       min: 0.002,
       max: 0.980,
       step: 0.001,
-      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
+      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC Social Vulnerability Index (SVI) characterizes census tracts where people are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed for the floodplain area associated with the selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>."
     },
     inCDLp: {
       values: [],
       vis: true,
       min: 0,
       max: 100,
-      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain that is either in any type of cropland or in grassland/pasture, according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
+      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain area that is used for any type of crop production or for grassland/pasture (working land), according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
     },
     devpr_fp: {
       values: [],
@@ -1976,7 +1978,7 @@ app.sliderObj = {
       min: 0,
       max: 0.645,
       step: 0.001,
-      info: "<b>Agricultural productivity potential of soils in the floodplain</b><br> Uses the National Commodity Crop Productivity Index (NCCPI), an index characterizing soil's inherent capacity to produce non-irrigated commodity crops (0 - 1). Lower value suggests less productive soil, and therefore more viable opportunity for restoration. <a href='https://www.nrcs.usda.gov/sites/default/files/2023-01/NCCPI-User-Guide.pdf' target='_blank'>More info</a>",
+      info: "<b>Agricultural productivity potential of soils in the floodplain</b><br>The National Commodity Crop Productivity Index (NCCPI) characterizes soil's inherent capacity to produce non-irrigated commodity crops (0 - 1). Lower value suggests less productive soil, and therefore a more viable opportunity for restoration. <a href='https://www.nrcs.usda.gov/sites/default/files/2023-01/NCCPI-User-Guide.pdf' target='_blank'>More info</a>"
     },
     pdsoilpc: {
       values: [],
@@ -2002,7 +2004,7 @@ app.sliderObj = {
       min: 0,
       max: 4300,
       gtmax: true,
-      info: "Acres of available floodplain including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
+      info: "Acres of floodplain potentially available for protection and restoration, including areas within the Protected Areas Database of the U.S. (PAD-US). Parcel ownership is not included in this tool. <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     AcresUnp: {
       values: [],
@@ -2010,7 +2012,7 @@ app.sliderObj = {
       min: 0,
       max: 4000,
       gtmax: true,
-      info: "Acres of available floodplain <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
+      info: "Acres of floodplain potentially available for protection and restoration <b>not</b> including areas within the Protected Areas Database of the U.S. (PAD-US). Parcel ownership is not included in this tool. <a href='https://www.usgs.gov/programs/gap-analysis-project/science/protected-areas' target='_blank'>More info</a>"
     },
     iy_tn_p: {
       values: [],
@@ -2019,7 +2021,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to local waterway</b><br>Kg/yr of nitrogen from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tn_del_p: {
       values: [],
@@ -2028,7 +2030,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Nitrogen yield to Gulf of Mexico</b><br>Kg/yr of nitrogen from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_p: {
       values: [],
@@ -2037,7 +2039,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Phosphorus yield to local waterway</b><br>Kg/yr of phosphorus from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_tp_del_p: {
       values: [],
@@ -2046,7 +2048,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>",
+      info: "<b>Phosphorus yield to Gulf of Mexico</b><br>Kg/yr of phosphorus from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_p: {
       values: [],
@@ -2055,7 +2057,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to local waterway</b><br>MT/yr of suspended sediment from within a given watershed exported at the mouth of that watershed (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale. <a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     iy_ss_del_p: {
       values: [],
@@ -2064,7 +2066,7 @@ app.sliderObj = {
       max: 100,
       gtmax: false,
       shfld: true,
-      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico, divided by the watershed's area, and normalized to 0-100 scale.<br><a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
+      info: "<b>Suspended sediment yield to Gulf of Mexico</b><br>MT/yr of suspended sediment from within a given watershed that reaches the Gulf of Mexico (as estimated by USGS SPARROW model), divided by the watershed's area, and normalized to 0-100 scale.<a href='https://sparrow.wim.usgs.gov/sparrow-southwest-2012/' target='_blank'>More info</a>"
     },
     resil: {
       values: [],
@@ -2072,7 +2074,7 @@ app.sliderObj = {
       min: -3.503,
       max: 2.811,
       step: 0.001,
-      info: "<b>Terrestrial resilience</b><br> The terrestrial resilience score estimates the climate resilience of an area of land based on: a). its landscape diversity (estimated microclimates) and b). local connectedness (lack of fragmentation). Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>",
+      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by the Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
     },
     nearProt: {
       values: [],
@@ -2088,7 +2090,7 @@ app.sliderObj = {
       min: 0,
       max: 75,
       gtmax: true,
-      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground C stock (tons C/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
+      info: "<b>Mean above-ground carbon in the floodplain</b><br>Estimate of above-ground forest carbon stock (tons/ha) using methods in Wilson <i>et al.</i> (2013). <a href='https://cbmjournal.biomedcentral.com/articles/10.1186/1750-0680-8-1#Sec5' target='_blank'>More info</a>"
     },
     belowgrC: {
       values: [],
@@ -2096,7 +2098,7 @@ app.sliderObj = {
       min: 35,
       max: 162,
       gtmax: false,
-      info: "<b>Mean below-ground carbon in the floodplain</b><br>Estimate of below-ground C stock (tons C/ha) from NRCS Rapid Carbon Assessment (RaCA). <a href='https://www.nrcs.usda.gov/resources/data-and-reports/rapid-carbon-assessment-raca' target='_blank'>More info</a>"
+      info: "<b>Population exposure to floods (2050)</b><br>Number of people expected to be living in the floodplain of the selected flood frequency by 2050, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>."
     },
     popnow: {
       values: [],
@@ -2104,7 +2106,7 @@ app.sliderObj = {
       min: 0,
       max: 2700,
       gtmax: true,
-      info: "<b>Population exposure to floods (present-day)</b><br>People currently living in floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
+      info: "<b>Population exposure to floods (present-day)</b><br>Number of people currently living in the floodplain of the specified flood frequency. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>."
     },
     pop2050: {
       values: [],
@@ -2128,14 +2130,14 @@ app.sliderObj = {
       min: 0.002,
       max: 0.980,
       step: 0.001,
-      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC SVI characterizes census tracts that are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed within the floodplain of the currently selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>.",
+      info: "<b>CDC Social Vulnerability Index (SVI)</b><br>The CDC Social Vulnerability Index (SVI) characterizes census tracts where people are especially at risk during public health emergencies due to factors such as socioeconomic status, household composition, minority status, housing type, or transportation.<br><br>The value of the index is a percentile -- e.g. a value of 0.85 indicates the location is in a census tract that is more socially vulnerable than 85% of census tracts in the U.S.<br><br>Within this tool, the SVI is assessed for the floodplain area associated with the selected flood frequency. SVI is sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>."
     },
     inCDLp: {
       values: [],
       vis: true,
       min: 0,
       max: 100,
-      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain that is either in any type of cropland or in grassland/pasture, according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
+      info: "<b>Percent of floodplain in agricultural land (crops or grassland/pasture)</b><br>The percent of the floodplain area that is used for any type of crop production or for grassland/pasture (working land), according to the 2020 USDA Cropland Data Layer (CDL). <a href='https://www.nass.usda.gov/Research_and_Science/Cropland/sarsfaqs2.php' target='_blank'>More info</a>."
     },
     devpr_fp: {
       values: [],
@@ -2176,7 +2178,7 @@ app.sliderObj = {
       min: 0,
       max: 0.645,
       step: 0.001,
-      info: "<b>Agricultural productivity potential of soils in the floodplain</b><br> Uses the National Commodity Crop Productivity Index (NCCPI), an index characterizing soil's inherent capacity to produce non-irrigated commodity crops (0 - 1). Lower value suggests less productive soil, and therefore more viable opportunity for restoration. <a href='https://www.nrcs.usda.gov/sites/default/files/2023-01/NCCPI-User-Guide.pdf' target='_blank'>More info</a>",
+      info: "<b>Agricultural productivity potential of soils in the floodplain</b><br>The National Commodity Crop Productivity Index (NCCPI) characterizes soil's inherent capacity to produce non-irrigated commodity crops (0 - 1). Lower value suggests less productive soil, and therefore a more viable opportunity for restoration. <a href='https://www.nrcs.usda.gov/sites/default/files/2023-01/NCCPI-User-Guide.pdf' target='_blank'>More info</a>"
     },
     pdsoilpc: {
       values: [],
@@ -2202,207 +2204,234 @@ app.radioObj = {
   h81: {
     bacteria: {
       vis: true,
-      shfld: true
+      shfld: true,
+      info: "303(d)-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows only streams or river segments in the Trinity Basin that are threatened or impaired by bacteria. <a target='_blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
     },
     TXTerr: {
       vis: true,
+      info: "Based on the Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/webappviewer/index.html?id=300634fa2aa04d8c86ef45c6a80a3259'>More info</a>."
     },
     TXFresh: {
       vis: true,
+      info: "Based on the Nature Conservancy's freshwater biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the aquatic ecosystems in Texas that represent important areas for protection of the state's freshwater biodiversity. <a target='_blank' href='https://texaswaterexplorer.tnc.org/map.html#b=dark-gray&x=-98.37!-98.37&y=31.39!31.39&l=6!6&i=14%7C0%7C120%7C121!-1&m=1&a=0'>More info</a>."
     },
     builddir: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. This value was determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.9, p. 2-42, of the Trinity Regional Flood Plan. The top three breaks were selected to represent the areas with the highest estimated direct building losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     },
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8, p. 2-39, of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
   // huc 8 + 1 in 100 year flood
   h82: {
     bacteria: {
       vis: true,
-      shfld: true
+      shfld: true,
+      info: "303(d)-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows only streams or river segments in the Trinity Basin that are threatened or impaired by bacteria. <a target='_blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
     },
     TXTerr: {
       vis: true,
+      info: "Based on the Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/webappviewer/index.html?id=300634fa2aa04d8c86ef45c6a80a3259'>More info</a>."
     },
     TXFresh: {
       vis: true,
+      info: "Based on the Nature Conservancy's freshwater biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the aquatic ecosystems in Texas that represent important areas for protection of the state's freshwater biodiversity. <a target='_blank' href='https://texaswaterexplorer.tnc.org/map.html#b=dark-gray&x=-98.37!-98.37&y=31.39!31.39&l=6!6&i=14%7C0%7C120%7C121!-1&m=1&a=0'>More info</a>."
     },
     builddir: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. This value was determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.9, p. 2-42, of the Trinity Regional Flood Plan. The top three breaks were selected to represent the areas with the highest estimated direct building losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     },
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8, p. 2-39, of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
   // huc 8 + 1 in 500 year flood
   h83: {
     bacteria: {
       vis: true,
-      shfld: true
+      shfld: true,
+      info: "303(d)-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows only streams or river segments in the Trinity Basin that are threatened or impaired by bacteria. <a target='_blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
     },
     TXTerr: {
       vis: true,
+      info: "Based on the Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/webappviewer/index.html?id=300634fa2aa04d8c86ef45c6a80a3259'>More info</a>."
     },
     TXFresh: {
       vis: true,
+      info: "Based on the Nature Conservancy's freshwater biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the aquatic ecosystems in Texas that represent important areas for protection of the state's freshwater biodiversity. <a target='_blank' href='https://texaswaterexplorer.tnc.org/map.html#b=dark-gray&x=-98.37!-98.37&y=31.39!31.39&l=6!6&i=14%7C0%7C120%7C121!-1&m=1&a=0'>More info</a>."
     },
     builddir: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. This value was determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.9, p. 2-42, of the Trinity Regional Flood Plan. The top three breaks were selected to represent the areas with the highest estimated direct building losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     },
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8, p. 2-39, of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
   // huc 12 + 1 in 5 year flood
   h121: {
     bacteria: {
       vis: true,
-      shfld: true
+      shfld: true,
+      info: "303(d)-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows only streams or river segments in the Trinity Basin that are threatened or impaired by bacteria. <a target='_blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
     },
     TXTerr: {
       vis: true,
+      info: "Based on the Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/webappviewer/index.html?id=300634fa2aa04d8c86ef45c6a80a3259'>More info</a>."
     },
     TXFresh: {
       vis: true,
+      info: "Based on the Nature Conservancy's freshwater biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the aquatic ecosystems in Texas that represent important areas for protection of the state's freshwater biodiversity. <a target='_blank' href='https://texaswaterexplorer.tnc.org/map.html#b=dark-gray&x=-98.37!-98.37&y=31.39!31.39&l=6!6&i=14%7C0%7C120%7C121!-1&m=1&a=0'>More info</a>."
     },
     builddir: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. This value was determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.9, p. 2-42, of the Trinity Regional Flood Plan. The top three breaks were selected to represent the areas with the highest estimated direct building losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     },
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8, p. 2-39, of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
   // huc 12 + 1 in 100 year flood
   h122: {
     bacteria: {
       vis: true,
-      shfld: true
+      shfld: true,
+      info: "303(d)-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows only streams or river segments in the Trinity Basin that are threatened or impaired by bacteria. <a target='_blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
     },
     TXTerr: {
       vis: true,
+      info: "Based on the Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/webappviewer/index.html?id=300634fa2aa04d8c86ef45c6a80a3259'>More info</a>."
     },
     TXFresh: {
       vis: true,
+      info: "Based on the Nature Conservancy's freshwater biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the aquatic ecosystems in Texas that represent important areas for protection of the state's freshwater biodiversity. <a target='_blank' href='https://texaswaterexplorer.tnc.org/map.html#b=dark-gray&x=-98.37!-98.37&y=31.39!31.39&l=6!6&i=14%7C0%7C120%7C121!-1&m=1&a=0'>More info</a>."
     },
     builddir: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. This value was determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.9, p. 2-42, of the Trinity Regional Flood Plan. The top three breaks were selected to represent the areas with the highest estimated direct building losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     },
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8, p. 2-39, of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
   // huc 12 + 1 in 500 year flood
   h123: {
     bacteria: {
       vis: true,
-      shfld: true
+      shfld: true,
+      info: "303(d)-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows only streams or river segments in the Trinity Basin that are threatened or impaired by bacteria. <a target='_blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
     },
     TXTerr: {
       vis: true,
+      info: "Based on the Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/webappviewer/index.html?id=300634fa2aa04d8c86ef45c6a80a3259'>More info</a>."
     },
     TXFresh: {
       vis: true,
+      info: "Based on the Nature Conservancy's freshwater biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the aquatic ecosystems in Texas that represent important areas for protection of the state's freshwater biodiversity. <a target='_blank' href='https://texaswaterexplorer.tnc.org/map.html#b=dark-gray&x=-98.37!-98.37&y=31.39!31.39&l=6!6&i=14%7C0%7C120%7C121!-1&m=1&a=0'>More info</a>."
     },
     builddir: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. This value was determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.9, p. 2-42, of the Trinity Regional Flood Plan. The top three breaks were selected to represent the areas with the highest estimated direct building losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     },
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8, p. 2-39, of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
   // catchment + 1 in 5 year flood
   catch1: {
     bacteria: {
       vis: true,
-      shfld: true
+      shfld: true,
+      info: "303(d)-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows only streams or river segments in the Trinity Basin that are threatened or impaired by bacteria. <a target='_blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
     },
     TXTerr: {
       vis: true,
+      info: "Based on the Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/webappviewer/index.html?id=300634fa2aa04d8c86ef45c6a80a3259'>More info</a>."
     },
     TXFresh: {
       vis: true,
+      info: "Based on the Nature Conservancy's freshwater biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the aquatic ecosystems in Texas that represent important areas for protection of the state's freshwater biodiversity. <a target='_blank' href='https://texaswaterexplorer.tnc.org/map.html#b=dark-gray&x=-98.37!-98.37&y=31.39!31.39&l=6!6&i=14%7C0%7C120%7C121!-1&m=1&a=0'>More info</a>."
     },
     builddir: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. This value was determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.9, p. 2-42, of the Trinity Regional Flood Plan. The top three breaks were selected to represent the areas with the highest estimated direct building losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     },
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8, p. 2-39, of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
   // catchment + 1 in 100 year flood
   catch2: {
     bacteria: {
       vis: true,
-      shfld: true
+      shfld: true,
+      info: "303(d)-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows only streams or river segments in the Trinity Basin that are threatened or impaired by bacteria. <a target='_blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
     },
     TXTerr: {
       vis: true,
+      info: "Based on the Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/webappviewer/index.html?id=300634fa2aa04d8c86ef45c6a80a3259'>More info</a>."
     },
     TXFresh: {
       vis: true,
+      info: "Based on the Nature Conservancy's freshwater biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the aquatic ecosystems in Texas that represent important areas for protection of the state's freshwater biodiversity. <a target='_blank' href='https://texaswaterexplorer.tnc.org/map.html#b=dark-gray&x=-98.37!-98.37&y=31.39!31.39&l=6!6&i=14%7C0%7C120%7C121!-1&m=1&a=0'>More info</a>."
     },
     builddir: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. This value was determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.9, p. 2-42, of the Trinity Regional Flood Plan. The top three breaks were selected to represent the areas with the highest estimated direct building losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     },
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8, p. 2-39, of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
   // catchment + 1 in 500 year flood
   catch3: {
     bacteria: {
       vis: true,
-      shfld: true
+      shfld: true,
+      info: "303(d)-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows only streams or river segments in the Trinity Basin that are threatened or impaired by bacteria. <a target='_blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
     },
     TXTerr: {
       vis: true,
+      info: "Based on the Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/webappviewer/index.html?id=300634fa2aa04d8c86ef45c6a80a3259'>More info</a>."
     },
     TXFresh: {
       vis: true,
+      info: "Based on the Nature Conservancy's freshwater biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the aquatic ecosystems in Texas that represent important areas for protection of the state's freshwater biodiversity. <a target='_blank' href='https://texaswaterexplorer.tnc.org/map.html#b=dark-gray&x=-98.37!-98.37&y=31.39!31.39&l=6!6&i=14%7C0%7C120%7C121!-1&m=1&a=0'>More info</a>."
     },
     builddir: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. The county-level information is taken from Table 2.9 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $115.37 million dollars of estimated direct building losses from a 100-year flood. This value was determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.9, p. 2-42, of the Trinity Regional Flood Plan. The top three breaks were selected to represent the areas with the highest estimated direct building losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     },
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. The county-level information is taken from Table 2.8 in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8, p. 2-39, of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
 };

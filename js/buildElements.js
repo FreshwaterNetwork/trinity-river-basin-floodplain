@@ -110,7 +110,7 @@ function buildElements() {
   if (app.hasSupportingLayers) {
     document
       .querySelector('#sup-layers-wrap')
-      .insertAdjacentHTML('beforeend', `<h3>Supporting Layers</h3>`);
+      .insertAdjacentHTML('beforeend', `<h3>Supporting Layers</h3><p>These supporting layers are included to provide a frame of reference for many of the data layers in this tool. Turning any of these layers on will display their full extent, unfiltered by any of the parameters chosen above.</p>`);
     app.mapImageLayers.forEach((v) => {
       if (v.supporting) {
         let info = '';
