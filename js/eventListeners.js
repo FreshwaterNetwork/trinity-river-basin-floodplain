@@ -558,6 +558,7 @@ function layerDefs() {
     app.iy_ss_p,
     app.iy_ss_del_p,
     app.bacteria,
+    app.impaired,
     app.TXTerr,
     app.TXFresh,
     app.resil,

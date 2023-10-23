@@ -134,13 +134,20 @@ app.filterObj = {
         unit: '',
       },
       con7: {
+        type: 'radio',
+        field: 'impaired',
+        label:
+          'Does the watershed contain a 303d-listed stream?',
+        unit: '',
+      },
+      con8: {
         type: 'slider',
         field: 'pdsoilpc',
         label:
           'Percent of floodplain in somewhat poorly, poorly, & very poorly drained soils',
         unit: '%',
       },
-      con8: {
+      con9: {
         type: 'slider',
         field: 'kfact',
         label: 'Soil erodibility index in the floodplain (K factor)',
@@ -392,6 +399,7 @@ app.iy_tp_del_p = '';
 app.iy_ss_p = '';
 app.iy_ss_del_p = '';
 app.bacteria = '';
+app.impaired = '';
 app.TXTerr = '';
 app.TXFresh = '';
 app.resil = '';
@@ -2207,6 +2215,11 @@ app.radioObj = {
       shfld: true,
       info: "303(d)-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows only streams or river segments in the Trinity Basin that are threatened or impaired by bacteria. <a target='_blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
     },
+    impaired: {
+      vis: true,
+      shfld: true,
+      info: "303d-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows all streams or river segments that are 303(d)-listed in the Trinity Basin. <a target='blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
+    },
     TXTerr: {
       vis: true,
       info: "Based on the Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/webappviewer/index.html?id=300634fa2aa04d8c86ef45c6a80a3259'>More info</a>."
@@ -2232,6 +2245,11 @@ app.radioObj = {
       vis: true,
       shfld: true,
       info: "303(d)-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows only streams or river segments in the Trinity Basin that are threatened or impaired by bacteria. <a target='_blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
+    },
+    impaired: {
+      vis: true,
+      shfld: true,
+      info: "303d-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows all streams or river segments that are 303(d)-listed in the Trinity Basin. <a target='blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
     },
     TXTerr: {
       vis: true,
@@ -2259,6 +2277,11 @@ app.radioObj = {
       shfld: true,
       info: "303(d)-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows only streams or river segments in the Trinity Basin that are threatened or impaired by bacteria. <a target='_blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
     },
+    impaired: {
+      vis: true,
+      shfld: true,
+      info: "303d-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows all streams or river segments that are 303(d)-listed in the Trinity Basin. <a target='blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
+    },
     TXTerr: {
       vis: true,
       info: "Based on the Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/webappviewer/index.html?id=300634fa2aa04d8c86ef45c6a80a3259'>More info</a>."
@@ -2284,6 +2307,11 @@ app.radioObj = {
       vis: true,
       shfld: true,
       info: "303(d)-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows only streams or river segments in the Trinity Basin that are threatened or impaired by bacteria. <a target='_blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
+    },
+    impaired: {
+      vis: true,
+      shfld: true,
+      info: "303d-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows all streams or river segments that are 303(d)-listed in the Trinity Basin. <a target='blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
     },
     TXTerr: {
       vis: true,
@@ -2311,6 +2339,11 @@ app.radioObj = {
       shfld: true,
       info: "303(d)-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows only streams or river segments in the Trinity Basin that are threatened or impaired by bacteria. <a target='_blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
     },
+    impaired: {
+      vis: true,
+      shfld: true,
+      info: "303d-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows all streams or river segments that are 303(d)-listed in the Trinity Basin. <a target='blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
+    },
     TXTerr: {
       vis: true,
       info: "Based on the Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/webappviewer/index.html?id=300634fa2aa04d8c86ef45c6a80a3259'>More info</a>."
@@ -2336,6 +2369,11 @@ app.radioObj = {
       vis: true,
       shfld: true,
       info: "303(d)-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows only streams or river segments in the Trinity Basin that are threatened or impaired by bacteria. <a target='_blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
+    },
+    impaired: {
+      vis: true,
+      shfld: true,
+      info: "303d-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows all streams or river segments that are 303(d)-listed in the Trinity Basin. <a target='blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
     },
     TXTerr: {
       vis: true,
@@ -2363,6 +2401,11 @@ app.radioObj = {
       shfld: true,
       info: "303(d)-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows only streams or river segments in the Trinity Basin that are threatened or impaired by bacteria. <a target='_blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
     },
+    impaired: {
+      vis: true,
+      shfld: true,
+      info: "303d-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows all streams or river segments that are 303(d)-listed in the Trinity Basin. <a target='blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
+    },
     TXTerr: {
       vis: true,
       info: "Based on the Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/webappviewer/index.html?id=300634fa2aa04d8c86ef45c6a80a3259'>More info</a>."
@@ -2389,6 +2432,11 @@ app.radioObj = {
       shfld: true,
       info: "303(d)-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows only streams or river segments in the Trinity Basin that are threatened or impaired by bacteria. <a target='_blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
     },
+    impaired: {
+      vis: true,
+      shfld: true,
+      info: "303d-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows all streams or river segments that are 303(d)-listed in the Trinity Basin. <a target='blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
+    },
     TXTerr: {
       vis: true,
       info: "Based on the Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/webappviewer/index.html?id=300634fa2aa04d8c86ef45c6a80a3259'>More info</a>."
@@ -2414,6 +2462,11 @@ app.radioObj = {
       vis: true,
       shfld: true,
       info: "303(d)-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows only streams or river segments in the Trinity Basin that are threatened or impaired by bacteria. <a target='_blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
+    },
+    impaired: {
+      vis: true,
+      shfld: true,
+      info: "303d-listed streams or river segments are considered impaired or threatened waters by a criteria pollutant. Turning on this filter shows all streams or river segments that are 303(d)-listed in the Trinity Basin. <a target='blank' href='https://gis-tceq.opendata.arcgis.com/datasets/TCEQ::segments-poly/about'>More info</a>."
     },
     TXTerr: {
       vis: true,
