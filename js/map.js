@@ -26,7 +26,7 @@ require([
 ) {
   // create map layers - the source can be a map service or an AGO web map - sublayers are defined in variables.js
   app.layers = new MapImageLayer({
-    url: 'https://services2.coastalresilience.org/arcgis/rest/services/Floodplain/Trinity_Basin_TX/MapServer',
+    url: 'https://cumulus.tnc.org/arcgis/rest/services/nascience/Trinity_Basin_TX/MapServer',
     sublayers: app.mapImageLayers,
   });
 
