@@ -304,7 +304,7 @@ app.mapImageLayers = [
   {
     id: 3,
     visible: false,
-    title: '5-year (20% annual chance) floodplain (unprotected)',
+    title: '5-year (20% annual chance) floodplain',
     opacity: 0.8,
     supporting: true,
     info: '<b>Texas Water Development Board cursory floodplain</b><br>Floodplain map for the 20%-annual-chance storm was produced by Fathom and designated as a "cursory floodplain" dataset for the Texas Water Development Board. <a href="https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/ac16256918db4e188807b3a2c30b0f72" target="_blank">More info</a>'
@@ -312,7 +312,7 @@ app.mapImageLayers = [
   {
     id: 4,
     visible: false,
-    title: '100-year (1% annual chance) floodplain (unprotected)',
+    title: '100-year (1% annual chance) floodplain',
     opacity: 0.8,
     supporting: true,
     info:"<b>FEMA base-level engineering (BLE) floodplain</b><br>Floodplain map for the 1%-annual-chance storm produced from FEMA base-level engineering (BLE). <a href='https://webapps.usgs.gov/infrm/estBFE/' target='_blank'>More info</a><br><br>For the HUC8 Lower West Fork Trinity, the floodplain map for the 1%-annual-chance storm was produced by Fathom and designated as a cursory floodplain dataset for the Texas Water Development Board. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/ac16256918db4e188807b3a2c30b0f72' target='_blank'>More info</a>"
@@ -320,7 +320,7 @@ app.mapImageLayers = [
   {
     id: 5,
     visible: false,
-    title: '500-year (0.2% annual chance) floodplain (unprotected)',
+    title: '500-year (0.2% annual chance) floodplain',
     opacity: 0.8,
     supporting: true,
     info:"<b>FEMA base-level engineering (BLE) floodplain</b><br>Floodplain map for the 0.2%-annual-chance storm produced from FEMA base-level engineering (BLE). <a href='https://webapps.usgs.gov/infrm/estBFE/' target='_blank'>More info</a><br><br>For the HUC8 Lower West Fork Trinity, the floodplain map for the 0.2%-annual-chance storm was produced by Fathom and designated as a cursory floodplain dataset for the Texas Water Development Board. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/ac16256918db4e188807b3a2c30b0f72' target='_blank'>More info</a>"
@@ -2222,7 +2222,7 @@ app.radioObj = {
     },
     TXTerr: {
       vis: true,
-      info: "Based on the Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/webappviewer/index.html?id=300634fa2aa04d8c86ef45c6a80a3259'>More info</a>."
+      info: "Based on The Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity."
     },
     TXFresh: {
       vis: true,
@@ -2236,7 +2236,7 @@ app.radioObj = {
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8, p. 2-39, of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8 (p. 2-39) and Table 2.35 (p. 2-135) of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
   // huc 8 + 1 in 100 year flood
@@ -2253,7 +2253,7 @@ app.radioObj = {
     },
     TXTerr: {
       vis: true,
-      info: "Based on the Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/webappviewer/index.html?id=300634fa2aa04d8c86ef45c6a80a3259'>More info</a>."
+      info: "Based on The Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity."
     },
     TXFresh: {
       vis: true,
@@ -2267,7 +2267,7 @@ app.radioObj = {
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8, p. 2-39, of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8 (p. 2-39) and Table 2.35 (p. 2-135) of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
   // huc 8 + 1 in 500 year flood
@@ -2284,7 +2284,7 @@ app.radioObj = {
     },
     TXTerr: {
       vis: true,
-      info: "Based on the Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/webappviewer/index.html?id=300634fa2aa04d8c86ef45c6a80a3259'>More info</a>."
+      info: "Based on The Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity."
     },
     TXFresh: {
       vis: true,
@@ -2298,7 +2298,7 @@ app.radioObj = {
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8, p. 2-39, of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8 (p. 2-39) and Table 2.35 (p. 2-135) of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
   // huc 12 + 1 in 5 year flood
@@ -2315,7 +2315,7 @@ app.radioObj = {
     },
     TXTerr: {
       vis: true,
-      info: "Based on the Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/webappviewer/index.html?id=300634fa2aa04d8c86ef45c6a80a3259'>More info</a>."
+      info: "Based on The Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity."
     },
     TXFresh: {
       vis: true,
@@ -2329,7 +2329,7 @@ app.radioObj = {
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8, p. 2-39, of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8 (p. 2-39) and Table 2.35 (p. 2-135) of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
   // huc 12 + 1 in 100 year flood
@@ -2346,7 +2346,7 @@ app.radioObj = {
     },
     TXTerr: {
       vis: true,
-      info: "Based on the Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/webappviewer/index.html?id=300634fa2aa04d8c86ef45c6a80a3259'>More info</a>."
+      info: "Based on The Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity."
     },
     TXFresh: {
       vis: true,
@@ -2360,7 +2360,7 @@ app.radioObj = {
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8, p. 2-39, of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8 (p. 2-39) and Table 2.35 (p. 2-135) of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
   // huc 12 + 1 in 500 year flood
@@ -2377,7 +2377,7 @@ app.radioObj = {
     },
     TXTerr: {
       vis: true,
-      info: "Based on the Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/webappviewer/index.html?id=300634fa2aa04d8c86ef45c6a80a3259'>More info</a>."
+      info: "Based on The Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity."
     },
     TXFresh: {
       vis: true,
@@ -2391,7 +2391,7 @@ app.radioObj = {
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8, p. 2-39, of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8 (p. 2-39) and Table 2.35 (p. 2-135) of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
   // catchment + 1 in 5 year flood
@@ -2408,7 +2408,7 @@ app.radioObj = {
     },
     TXTerr: {
       vis: true,
-      info: "Based on the Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/webappviewer/index.html?id=300634fa2aa04d8c86ef45c6a80a3259'>More info</a>."
+      info: "Based on The Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity."
     },
     TXFresh: {
       vis: true,
@@ -2422,7 +2422,7 @@ app.radioObj = {
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8, p. 2-39, of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8 (p. 2-39) and Table 2.35 (p. 2-135) of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
   // catchment + 1 in 100 year flood
@@ -2439,7 +2439,7 @@ app.radioObj = {
     },
     TXTerr: {
       vis: true,
-      info: "Based on the Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/webappviewer/index.html?id=300634fa2aa04d8c86ef45c6a80a3259'>More info</a>."
+      info: "Based on The Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity."
     },
     TXFresh: {
       vis: true,
@@ -2453,7 +2453,7 @@ app.radioObj = {
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8, p. 2-39, of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8 (p. 2-39) and Table 2.35 (p. 2-135) of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
   // catchment + 1 in 500 year flood
@@ -2470,7 +2470,7 @@ app.radioObj = {
     },
     TXTerr: {
       vis: true,
-      info: "Based on the Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/webappviewer/index.html?id=300634fa2aa04d8c86ef45c6a80a3259'>More info</a>."
+      info: "Based on The Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity."
     },
     TXFresh: {
       vis: true,
@@ -2484,7 +2484,7 @@ app.radioObj = {
     agnow: {
       vis: true,
       shfld: true,
-      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8, p. 2-39, of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
+      info: "Selecting 'present' will show watersheds located mostly within a county containing more than $11.26 million (current) or $11.90 million (future) crop and livestock production dollar losses from a 100-year flood. These values were determined by applying the Jenks natural breaks optimization method to the county-level information in Table 2.8 (p. 2-39) and Table 2.35 (p. 2-135) of the Trinity Regional Flood Plan. The top two breaks were selected to represent the areas with the highest estimated crop and livestock production losses. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>."
     }
   },
 };
