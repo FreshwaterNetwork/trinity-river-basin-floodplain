@@ -380,6 +380,22 @@ app.mapImageLayers = [
     opacity: 0.8,
     supporting: true,
     info: "County-level information is taken from Table 2.8, p. 2-39, in the Trinity Regional Flood Plan. <a href='https://trinityrfpg.org/wp-content/uploads/2023/01/Trinity-RFP-Chapter-2.pdf' target='_blank'>More info</a>"
+  },
+  {
+    id: 14,
+    visible: false,
+    title: 'Population exposure to floods (present-day)',
+    opacity: 0.8,
+    supporting: true,
+    info: "Number of people currently living in the 100-year floodplain shown at the HUC-12 scale. Population sourced from Texas Water Development Board (TWDB) buildings data. <a href='https://twdb-flood-planning-resources-twdb.hub.arcgis.com/pages/fb15d02ff1864017bc066c6570f82403' target='_blank'>More info</a>"
+  },
+  {
+    id: 15,
+    visible: false,
+    title: 'Population exposure to floods (2050)',
+    opacity: 0.8,
+    supporting: true,
+    info: "Number of people expected to be living in the 100-year floodplain by 2050 at the HUC-12 scale, determined using the methods in Wing <i>et al.</i> (2018). <a href='https://iopscience.iop.org/article/10.1088/1748-9326/aaac65' target='_blank'>More info</a>"
   }
 ];
 
