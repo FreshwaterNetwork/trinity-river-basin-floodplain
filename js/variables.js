@@ -331,7 +331,7 @@ app.mapImageLayers = [
     title: 'Texas freshwater priority conservation areas',
     opacity: 0.8,
     supporting: true,
-    info: "Based on the Nature Conservancy's freshwater biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the aquatic ecosystems in Texas that represent important areas for protection of the state's freshwater biodiversity. <a target='_blank' href='https://texaswaterexplorer.tnc.org/map.html#b=dark-gray&x=-98.37!-98.37&y=31.39!31.39&l=6!6&i=14%7C0%7C120%7C121!-1&m=1&a=0'>More info</a>."
+    info: "Based on The Nature Conservancy's freshwater biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the aquatic ecosystems in Texas that represent important areas for protection of the state's freshwater biodiversity. <a target='_blank' href='https://texaswaterexplorer.tnc.org/map.html#b=dark-gray&x=-98.37!-98.37&y=31.39!31.39&l=6!6&i=14%7C0%7C120%7C121!-1&m=1&a=0'>More info</a>."
   },
   {
     id: 7,
@@ -339,7 +339,7 @@ app.mapImageLayers = [
     title: 'Texas terrestrial priority conservation areas',
     opacity: 0.8,
     supporting: true,
-    info: "Based on the Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's freshwater biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/webappviewer/index.html?id=300634fa2aa04d8c86ef45c6a80a3259'>More info</a>."
+    info: "Based on The Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's freshwater biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/mapviewer/index.html?webmap=2103e0ef5d0c446fb4d4c441926e324c'>More info</a>."
   },
   {
     id: 10,
@@ -517,7 +517,7 @@ app.sliderObj = {
       min: -0.362,
       max: 1.431,
       step: 0.001,
-      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by the Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
+      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by The Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
     },
     nearProt: {
       values: [],
@@ -712,7 +712,7 @@ app.sliderObj = {
       min: -0.447,
       max: 1.262,
       step: 0.001,
-      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by the Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
+      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by The Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
     },
     nearProt: {
       values: [],
@@ -907,7 +907,7 @@ app.sliderObj = {
       min: -0.612,
       max: 1.249,
       step: 0.001,
-      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by the Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
+      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by The Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
     },
     nearProt: {
       values: [],
@@ -1103,7 +1103,7 @@ app.sliderObj = {
       min: -2.975,
       max: 2.599,
       step: 0.001,
-      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by the Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
+      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by The Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
     },
     nearProt: {
       values: [],
@@ -1301,7 +1301,7 @@ app.sliderObj = {
       min: -3.491,
       max: 2.012,
       step: 0.001,
-      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by the Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
+      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by The Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
     },
     nearProt: {
       values: [],
@@ -1499,7 +1499,7 @@ app.sliderObj = {
       min: -3.491,
       max: 2.009,
       step: 0.001,
-      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by the Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
+      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by The Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
     },
     nearProt: {
       values: [],
@@ -1698,7 +1698,7 @@ app.sliderObj = {
       min: -3.503,
       max: 2.881,
       step: 0.001,
-      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by the Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
+      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by The Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
     },
     nearProt: {
       values: [],
@@ -1898,7 +1898,7 @@ app.sliderObj = {
       min: -3.503,
       max: 2.811,
       step: 0.001,
-      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by the Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
+      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by The Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
     },
     nearProt: {
       values: [],
@@ -2098,7 +2098,7 @@ app.sliderObj = {
       min: -3.503,
       max: 2.811,
       step: 0.001,
-      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by the Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
+      info: "<b>Terrestrial resilience</b><br> The Terrestrial Resilience Score, developed by The Nature Conservancy, estimates the ability of an area of land to sustain biodiversity and ecological functions into the future under a changing climate. A site's Resilience Score was determined by evaluating and quantifying physical characteristics that foster resilience, particularly the site's landscape diversity and local connectedness. Each site is scored relative to all other sites in its ecoregion that have the same geophysical setting based on soils, bedrock geology, and elevation zone. Scores are standard deviations above the average score. Least resilient = -3.5 to -2.0; less resilient = -2.0 to -1.0; slightly less resilient = -1.0 to -0.5; average/median resilient = -0.5 to +0.5; slightly more resilient = +0.5 to +1.0; more resilient = +1.0 to +2.0; most resilient = +2.0 to +3.5. <a href='https://maps.tnc.org/resilientland/' target='_blank'>More info</a>"
     },
     nearProt: {
       values: [],
@@ -2238,11 +2238,11 @@ app.radioObj = {
     },
     TXTerr: {
       vis: true,
-      info: "Based on The Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity."
+      info: "Based on The Nature Conservancy's terrestrial biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the terrestrial ecosystems in Texas that represent important areas for protection of the state's terrestrial biodiversity. <a target='_blank' href='https://tnc.maps.arcgis.com/apps/mapviewer/index.html?webmap=2103e0ef5d0c446fb4d4c441926e324c'>More info</a>."
     },
     TXFresh: {
       vis: true,
-      info: "Based on the Nature Conservancy's freshwater biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the aquatic ecosystems in Texas that represent important areas for protection of the state's freshwater biodiversity. <a target='_blank' href='https://texaswaterexplorer.tnc.org/map.html#b=dark-gray&x=-98.37!-98.37&y=31.39!31.39&l=6!6&i=14%7C0%7C120%7C121!-1&m=1&a=0'>More info</a>."
+      info: "Based on The Nature Conservancy's freshwater biodiversity conservation blueprint, Priority Conservation Areas are an indicator of the aquatic ecosystems in Texas that represent important areas for protection of the state's freshwater biodiversity. <a target='_blank' href='https://texaswaterexplorer.tnc.org/map.html#b=dark-gray&x=-98.37!-98.37&y=31.39!31.39&l=6!6&i=14%7C0%7C120%7C121!-1&m=1&a=0'>More info</a>."
     },
     builddir: {
       vis: true,
