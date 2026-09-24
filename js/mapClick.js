@@ -1,14 +1,14 @@
 function mapClick() {
   require(['esri/layers/FeatureLayer', 'esri/rest/support/Query'], function (
     FeatureLayer,
-    Query
+    Query,
   ) {
     app.view.on('click', function (event) {
       app.view.popup.close();
       // create query
       const fl = new FeatureLayer({
         url:
-          'https://services2.coastalresilience.org/arcgis/rest/services/Floodplain/Trinity_Basin_TX/MapServer/' +
+          'https://services.arcgis.com/F7DSX1DSNSiWmOqh/arcgis/rest/services/Cirrus_TrinityRiver/FeatureServer/' +
           app.obj.hucLayer,
       });
       let query = fl.createQuery();
@@ -49,19 +49,19 @@ function mapClick() {
           }
 
           let pop = commaSeparateNumber(
-            Math.round(a['popnow_' + app.obj.floodFreq])
+            Math.round(a['popnow_' + app.obj.floodFreq]),
           );
           let damages = commaSeparateNumber(
-            Math.round(a['damages_' + app.obj.floodFreq])
+            Math.round(a['damages_' + app.obj.floodFreq]),
           );
 
-          let SVI = "N/A (no people in floodplain)"
+          let SVI = 'N/A (no people in floodplain)';
           if (a['SVI_' + app.obj.floodFreq]) {
-            SVI = (a['SVI_' + app.obj.floodFreq]).toFixed(3);
+            SVI = a['SVI_' + app.obj.floodFreq].toFixed(3);
           }
           //let SVI = (a['SVI_' + app.obj.floodFreq]).toFixed(3);
-          let incroppc = (a['incroppc_' + app.obj.floodFreq]).toFixed(2);
-          let inrangpc = (a['inrangpc_' + app.obj.floodFreq]).toFixed(2);
+          let incroppc = a['incroppc_' + app.obj.floodFreq].toFixed(2);
+          let inrangpc = a['inrangpc_' + app.obj.floodFreq].toFixed(2);
 
           let acresLabel = '';
           let popLabel = '';
@@ -98,26 +98,26 @@ function mapClick() {
             rangLabel = 'Percent of 500-year floodplain in rangeland';
           }
 
-           //let IY_TN = commaSeparateNumber(Math.round(a.iy_tn));
-           let IY_TN = a.iy_tn.toFixed(2);
-           let IY_TP = a.iy_tp.toFixed(2);
-           let IY_SS = a.iy_ss.toFixed(2);
-           let IY_TN_DEL = a.iy_tn_del.toFixed(2);
-           let IY_TP_DEL = a.iy_tp_del.toFixed(2);
-           let IY_SS_DEL = a.iy_ss_del.toFixed(2);
+          //let IY_TN = commaSeparateNumber(Math.round(a.iy_tn));
+          let IY_TN = a.iy_tn.toFixed(2);
+          let IY_TP = a.iy_tp.toFixed(2);
+          let IY_SS = a.iy_ss.toFixed(2);
+          let IY_TN_DEL = a.iy_tn_del.toFixed(2);
+          let IY_TP_DEL = a.iy_tp_del.toFixed(2);
+          let IY_SS_DEL = a.iy_ss_del.toFixed(2);
 
-           // let IY_TP = commaSeparateNumber(Math.round(a.iy_tp));
-           // let IY_SS = commaSeparateNumber(Math.round(a.iy_ss));
-           // let IY_TN_DEL = commaSeparateNumber(Math.round(a.iy_tn_del));
-           // let IY_TP_DEL = commaSeparateNumber(Math.round(a.iy_tp_del));
-           // let IY_SS_DEL = commaSeparateNumber(Math.round(a.iy_ss_del));
-           // let TN_farm = a.TN_farm.toFixed(1);
+          // let IY_TP = commaSeparateNumber(Math.round(a.iy_tp));
+          // let IY_SS = commaSeparateNumber(Math.round(a.iy_ss));
+          // let IY_TN_DEL = commaSeparateNumber(Math.round(a.iy_tn_del));
+          // let IY_TP_DEL = commaSeparateNumber(Math.round(a.iy_tp_del));
+          // let IY_SS_DEL = commaSeparateNumber(Math.round(a.iy_ss_del));
+          // let TN_farm = a.TN_farm.toFixed(1);
           // console.log(a.TN_farm);
-           //let IL_TP_DEL = commaSeparateNumber(Math.round(a.il_tp_del));
-           // let TP_farm = a.TP_farm.toFixed(1);
-           //let SOVI = a.SOVI.toFixed(3);
-           //let cropacres = commaSeparateNumber(Math.round(a.crop_acres));
-           //let pastacres = commaSeparateNumber(Math.round(a.past_acres));
+          //let IL_TP_DEL = commaSeparateNumber(Math.round(a.il_tp_del));
+          // let TP_farm = a.TP_farm.toFixed(1);
+          //let SOVI = a.SOVI.toFixed(3);
+          //let cropacres = commaSeparateNumber(Math.round(a.crop_acres));
+          //let pastacres = commaSeparateNumber(Math.round(a.past_acres));
 
           app.view.popup.set('dockOptions', {
             breakpoint: false,
@@ -142,7 +142,7 @@ function mapClick() {
               ${sviLabel}: <b>${SVI}</b><br>
               ${cropLabel}: <b>${incroppc}</b><br>
               ${rangLabel}: <b>${inrangpc}</b><br>
-             `
+             `,
           });
         }
       });

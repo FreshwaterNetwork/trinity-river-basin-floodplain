@@ -9,6 +9,7 @@ require([
   'esri/widgets/Search',
   'esri/widgets/Legend',
   'esri/layers/MapImageLayer',
+  'esri/layers/FeatureLayer',
   'esri/layers/GraphicsLayer',
   'esri/core/reactiveUtils',
 ], function (
@@ -21,14 +22,72 @@ require([
   Search,
   Legend,
   MapImageLayer,
+  FeatureLayer,
   GraphicsLayer,
-  reactiveUtils
+  reactiveUtils,
 ) {
-  // create map layers - the source can be a map service or an AGO web map - sublayers are defined in variables.js
-  app.layers = new MapImageLayer({
-    url: 'https://cirrus.tnc.org/arcgis/rest/services/Floodplain/Trinity_Basin_TX/MapServer',
-    sublayers: app.mapImageLayers,
+  const VECTOR_SERVICE =
+    'https://services.arcgis.com/F7DSX1DSNSiWmOqh/arcgis/rest/services/Cirrus_TrinityRiver/FeatureServer';
+  const RASTER_SERVICE =
+    'https://cumulus-ags.tnc.org/arcgis/rest/services/nascience/CCS_Rasters_1/MapServer';
+
+  // Wrapper providing findSublayerById() and sublayers.forEach() across FeatureLayers and MapImageLayer
+  app.layers = {
+    _featureLayers: {},
+    _rasterLayer: null,
+    sublayers: {
+      forEach: (fn) => {
+        Object.values(app.layers._featureLayers).forEach(fn);
+        if (app.layers._rasterLayer)
+          app.layers._rasterLayer.sublayers.forEach(fn);
+      },
+    },
+    findSublayerById: (id) => {
+      id = parseInt(id);
+      if (app.layers._featureLayers[id] !== undefined)
+        return app.layers._featureLayers[id];
+      return app.layers._rasterLayer
+        ? app.layers._rasterLayer.findSublayerById(id)
+        : null;
+    },
+  };
+
+  // Raster supporting layers (IDs 600+) from CCS_Rasters_1/MapServer
+  app.layers._rasterLayer = new MapImageLayer({
+    url: RASTER_SERVICE,
+    sublayers: app.mapImageLayers
+      .filter((l) => l.id >= 100)
+      .map((l) => ({
+        id: l.id,
+        title: l.title,
+        visible: l.visible,
+        opacity: l.opacity,
+      })),
   });
+
+  // HUC FeatureLayers (IDs 0-2) — inserted first so they sit at the bottom of the stack
+  app.mapImageLayers
+    .filter((l) => l.id < 3)
+    .forEach((def) => {
+      app.layers._featureLayers[def.id] = new FeatureLayer({
+        url: `${VECTOR_SERVICE}/${def.id}`,
+        title: def.title,
+        visible: def.visible,
+        opacity: def.opacity,
+      });
+    });
+
+  // Supporting vector FeatureLayers (IDs 3-9) — inserted after HUC so they render above
+  app.mapImageLayers
+    .filter((l) => l.id >= 3 && l.id < 100)
+    .forEach((def) => {
+      app.layers._featureLayers[def.id] = new FeatureLayer({
+        url: `${VECTOR_SERVICE}/${def.id}`,
+        title: def.title,
+        visible: def.visible,
+        opacity: def.opacity,
+      });
+    });
 
   // Portal IDs for TNC Basemaps. Use any id to set basemap for map.
   const tncLightMapId = 'dfe65251dac240a19c8edb892a3ea664';
@@ -37,8 +96,14 @@ require([
   const tncTopoMapId = '1dde97af802846f597a03d04050bad5b';
 
   // Create map. Use one ID from above to set the default basemap
+  // Layer order: HUC (bottom) → raster → supporting vector (top)
+  const _allFL = Object.values(app.layers._featureLayers);
   app.map = new Map({
-    layers: [app.layers],
+    layers: [
+      ..._allFL.slice(0, 3),
+      app.layers._rasterLayer,
+      ..._allFL.slice(3),
+    ],
     basemap: {
       portalItem: {
         id: tncTopoMapId,
@@ -96,7 +161,7 @@ require([
     'basemap.title',
     function (newValue, oldValue, property, object) {
       bgExpand.collapse();
-    }
+    },
   );
 
   //create search widget
@@ -150,12 +215,12 @@ require([
     () =>
       reactiveUtils.whenOnce(
         () => app.view.popup?.visible === undefined,
-        () => app.resultsLayer.removeAll()
-      )
+        () => app.resultsLayer.removeAll(),
+      ),
   );
 
   app.view
-    .whenLayerView(app.layers)
+    .whenLayerView(app.layers._featureLayers[0])
     .then((result) => {
       // call event listener for map clicks
       mapClick();
